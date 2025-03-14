@@ -1,0 +1,73 @@
+# メカニクスバーグ (ペンシルベニア州)
+
+<table align="right">
+<tr>
+<th colspan="2" align="center">
+<b>メカニクスバーグ</b>
+</th>
+</tr>
+<tr>
+<td colspan="2" align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Mechanicsburg%2C_Pennsylvania_Welcome_Sign.png" width="250px"><br/>ペンシルベニア州メカニクスバーグ市を訪れる人々を出迎える道路脇の歓迎看板。</td>
+</tr>
+<tr>
+<th>国</th>
+<td>アメリカ合衆国</td>
+</tr>
+<tr>
+<th>州</th>
+<td>ペンシルベニア州</td>
+</tr>
+<tr>
+<th>郡</th>
+<td>カンバーランド</td>
+</tr>
+<tr>
+    <th>郵便番号</th>
+    <td>17050 <br/> 17055</td>
+</tr>
+<tr>
+    <th>地域コード</th>
+    <td>717</td>
+</tr>
+</table>
+
+**メカニクスバーグ**（英：<span lang="en">Mechanicsburg</span>）は、アメリカ合衆国ペンシルベニア州カンバーランド郡にある行政区である。ハリスバーグから西に8マイル（13km）。ハリスバーグ・カーライル都市圏に属する。2010年国勢調査では人口8,981人。2020年国勢調査では人口9,311人。
+
+## ギャラリー
+### ビル
+#### ゲティスバーグ・ロード
+<table>
+<tr>
+<td align="center">
+<img src="https://i.postimg.cc/zGbyF9sc/550-Gettysburg-Rd-Mechanicsburg-PA-17055.png" width="155px"><br/>550 ゲティスバーグ・ロード
+</td>
+</tr>
+</table>
+
+### 家
+#### イースト・ワインディング・ヒル・ロード
+<table>
+<tr>
+<td align="center">
+<img src="https://i.postimg.cc/cLpr9FZ4/420-E-Winding-Hill-Rd-Mechanicsburg-PA-17055.png" width="155px"><br>420 イースト・ワインディング・ヒル・ロード
+</td>
+</tr>
+</table>
+
+#### ペニントン・ドライブ
+<table>
+<tr>
+<td align="center">
+<img src="https://i.postimg.cc/05X5XV0R/302-Pennington-Dr-Mechanicsburg-PA-17055.png" width="155px"><br>302 ペニントン・ドライブ
+</td>
+<td align="center">
+<img src="https://i.postimg.cc/DyWv91xW/308-Pennington-Dr-Mechanicsburg-PA-17055.png" width="155px"><br>308 ペニントン・ドライブ
+</td>
+<td align="center">
+<img src="https://i.postimg.cc/P5YtxTsT/328-Pennington-Dr-Mechanicsburg-PA-17055.jpg" width="155px"><br>328 ペニントン・ドライブ
+</td>
+<td align="center">
+<img src="https://i.postimg.cc/1zSyV2s6/330-Pennington-Dr-Mechanicsburg-PA-17055.png" width="155px"><br>330 ペニントン・ドライブ
+</td>
+</tr>
+</table>

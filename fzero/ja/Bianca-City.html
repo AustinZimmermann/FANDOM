@@ -1,34 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-<title>ビアンカ シティー - Japanese F-ZERO Wiki</title>
-<meta charset="UTF-8">
-<link rel="icon" href="https://static.wikia.nocookie.net/fzero/images/4/4a/Site-favicon.ico">
-<link rel="stylesheet" href="https://pages-themes.github.io/cayman/assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビアンカ シティー - F-ZERO Wiki JP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .wiki-header {
+            background: linear-gradient(135deg, #0052cc 0%, #002b80 100%);
+        }
+
+        .infobox {
+            border: 1px solid #d1d5db;
+            background-color: #f9fafb;
+        }
+
+        .infobox-header {
+            background-color: #0052cc;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .toc {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            display: inline-block;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Heroic/Bianca City vibe specific accents */
+        .accent-text {
+            color: #0052cc;
+        }
+        
+        .nav-link:hover {
+            color: #fbbf24;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .main-content {
+                order: 2;
+            }
+            .sidebar {
+                order: 1;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
-<body lang="ja" style="font-family: sans-serif;">
-<main id="content" class="main-content" role="main">
-<h1>ビアンカ シティー</h1>
-<table>
-<tr>
-<th colspan="2" style="font-size: 125%; text-align: center;">ビアンカ シティー<br>BIANCA CITY</th>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><img src="https://mutecity.org/w/images/0/0d/FZMV_Motion_Strip.png" alt="ビアンカ シティー" width="250px"><br>『F-ZERO FOR GAMEBOY ADVANCE』に登場するビアンカ シティー</td>
-</tr>
-<tr>
-<th valign="top">出演</th>
-<td><a href="https://austinzimmermann.github.io/FANDOM/fzero/ja/F-ZERO-Maximum-Velocity">F-ZERO FOR GAMEBOY ADVANCE</a> (GBA, 2001)</td>
-</tr>
-<tr>
-</table>
-<p><b>ビアンカ シティー</b>（BIANCA CITY）は、『F-ZERO FOR GAMEBOY ADVANCE』に登場する地球にある成長都市である。初代市長であり、街の創設者である夫人の名前にちなんで名付けられた。40年前、ビアンカ シティーで純度の高いチタンの鉱床が発見された。その結果、村は一夜にしてブームタウンとなった。村が成長するにつれ、<a href="https://austinzimmermann.github.io/FANDOM/fzero/ja/Mute-City">ミュートシティ（MUTE CITY）</a>に代わって、銀河系における経済、政治、文化活動の中心地として次第に注目を集めるようになった。</p>
-<h2>ギャラリー</h2>
-<ul>
-<li style="display: inline-block;"><img src="https://mutecity.org/w/images/b/b3/FZMV_Pawn_1.png" width="120px"><br>ストレッチ サーキット</li>
-<li style="display: inline-block;"><img src="https://mutecity.org/w/images/7/7b/FZMV_Bishop_1.png" width="180"><br>タイトロープ サーキット</li>
-<li style="display: inline-block;"><img src="https://mutecity.org/w/images/1/1f/FZMV_Bishop_5.png" width="180"><br>アルティメット サーキット</li>
-</ul>
-</main>
+<body>
+
+    <!-- Global FANDOM-style Navigation -->
+    <nav class="bg-gray-900 text-white p-3 text-sm sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <span class="font-black text-xl tracking-tighter text-yellow-400">F-ZERO<span class="text-white">WIKI</span></span>
+                <a href="#" class="hidden md:inline hover:text-gray-300">Wikiトップ</a>
+                <a href="#" class="hidden md:inline hover:text-gray-300">マシン一覧</a>
+                <a href="#" class="hidden md:inline hover:text-gray-300">パイロット</a>
+                <a href="#" class="hidden md:inline hover:text-gray-300">コース</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden sm:block">
+                    <input type="text" placeholder="Wiki内を検索" class="bg-gray-700 text-white px-3 py-1 rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute right-3 top-1.5 text-gray-400 text-xs"></i>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-xs font-bold">ログイン</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="wiki-header text-white py-12 px-4 shadow-md relative overflow-hidden">
+        <!-- Abstract background pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%">
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto relative z-10">
+            <h1 class="text-4xl md:text-5xl font-black mb-2 tracking-wide">ビアンカ シティー</h1>
+            <div class="flex items-center space-x-2 text-sm md:text-base opacity-90">
+                <span class="bg-yellow-500 text-black px-2 py-0.5 rounded font-bold text-xs">COURSE</span>
+                <span>F-ZERO GX / AX / GP Legend</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 flex content-wrapper gap-8">
+        
+        <!-- Left Column: Main Content -->
+        <main class="main-content w-full md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-200">
+            
+            <!-- Intro -->
+            <p class="mb-6 leading-relaxed">
+                <b>ビアンカ シティー</b>（BIANCA CITY）は、<a href="#" class="text-blue-600 hover:underline">F-ZEROシリーズ</a>に登場する架空の都市であり、レース開催地の一つ。
+                銀河連邦政府が推進する「ニュー・フロンティア計画」に基づいて建設された、超近代的なモデル都市である。
+                その景観は、白を基調とした美しい建築物と、雲海を突き抜けるような高層ビル群で構成され、「純白の理想郷」とも称される。
+            </p>
+
+            <!-- Table of Contents -->
+            <div class="toc mb-8">
+                <h2 class="font-bold text-lg mb-2 border-b border-gray-300 pb-1">目次</h2>
+                <ul class="list-decimal list-inside space-y-1 text-blue-700 text-sm">
+                    <li><a href="#overview" class="hover:underline">概要</a></li>
+                    <li><a href="#appearance" class="hover:underline">登場作品とコース</a>
+                        <ul class="list-disc list-inside ml-4 text-gray-600">
+                            <li><a href="#gx" class="hover:underline">F-ZERO GX</a></li>
+                            <li><a href="#legend" class="hover:underline">F-ZERO ファルコン伝説</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#music" class="hover:underline">音楽</a></li>
+                    <li><a href="#trivia" class="hover:underline">トリビア</a></li>
+                </ul>
+            </div>
+
+            <!-- Sections -->
+            <section id="overview" class="mb-10">
+                <h2 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-4">概要</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    ビアンカ シティーは、政治的・社会的な「再生」と「希望」をテーマに建設された。旧時代の圧政や環境汚染からの脱却を目指し、
+                    高度な環境制御システムによって常に快適な気候が保たれている。
+                    都市の下層部は雲に覆われていることが多く、コースは主に上層部の超高層ビル群の間を縫うように設置されている。
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    F-ZEROグランプリの開催地としても人気が高く、観客動員数はシリーズ屈指である。
+                    コース設計は非常にテクニカルでありながら、ガードビームなどの安全設備も最新鋭のものが導入されている。
+                </p>
+            </section>
+
+            <section id="appearance" class="mb-10">
+                <h2 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-4">登場作品とコース</h2>
+                
+                <div id="gx" class="mb-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-gamepad mr-2 text-gray-500"></i> F-ZERO GX
+                    </h3>
+                    <p class="mb-3 text-gray-700">
+                        『F-ZERO GX』では、高難易度のカップである「AXカップ」（またはアーケード連動で解禁）には含まれないが、
+                        ストーリーモードや特定のカップでその美しい姿を見ることができる。特に「Heroic Work」コースが有名。
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+                        <h4 class="font-bold text-blue-800">The Construction Site (建設現場)</h4>
+                        <p class="text-sm text-gray-700 mt-1">
+                            ストーリーモード第3話「Bet Race!」の舞台。キャプテン ファルコンはこの地で謎の組織とのレースに挑むことになる。
+                            建設中のビル群やクレーン、狭い足場が特徴的なエリア。
+                        </p>
+                    </div>
+                </div>
+
+                <div id="legend">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-tv mr-2 text-gray-500"></i> F-ZERO ファルコン伝説
+                    </h3>
+                    <p class="mb-3 text-gray-700">
+                        ゲームボーイアドバンス版『F-ZERO ファルコン伝説』や同名のアニメ作品でも、連邦の重要拠点として登場。
+                        高機動小隊の活動拠点に近い描写がなされることもある。
+                    </p>
+                    <ul class="list-disc list-inside bg-gray-100 p-4 rounded text-sm space-y-2">
+                        <li><strong>ストレッチ サーキット:</strong> 基本的なオーバルレイアウトに近い高速サーキット。</li>
+                        <li><strong>タイト ロープ:</strong> ガードビームがない区間が多い、綱渡りのような危険なコース。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="music" class="mb-10">
+                <h2 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-4">音楽</h2>
+                <div class="flex items-start bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <div class="mr-4 text-blue-500 text-3xl">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">BGM: “FEEL OUR PAIN” (GX)</h4>
+                        <p class="text-sm text-gray-600 mb-2">作曲: 矢野義人 / 仁田知行</p>
+                        <p class="text-gray-700 text-sm">
+                            ビアンカ シティー専用のBGM。爽快感のあるギターリフと、どこか哀愁漂うメロディが融合したロックチューン。
+                            「建設中の希望の街」という設定と、過去の傷跡を乗り越えようとする力強さを表現していると言われている。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="trivia" class="mb-10">
+                <h2 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-4">トリビア</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span>
+                            ビアンカ (BIANCA) はイタリア語で「白」を意味する。都市の外観が白で統一されていることに由来する。
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span>
+                            『F-ZERO GX』のストーリーモードでは、このコースで古き良きライバルであるシルバー ニールセンが登場するシーンがある。
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span>
+                            スマッシュブラザーズシリーズにはステージとしての登場はないが、BGMとして「BIANCA CITY」のアレンジ曲が収録されていることがある。
+                        </span>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Category Tags -->
+            <div class="mt-12 pt-4 border-t border-gray-200">
+                <span class="text-xs font-bold text-gray-500 uppercase mr-2">Categories:</span>
+                <div class="inline-flex flex-wrap gap-2">
+                    <a href="#" class="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-xs rounded text-gray-700">F-ZERO GX</a>
+                    <a href="#" class="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-xs rounded text-gray-700">開催地</a>
+                    <a href="#" class="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-xs rounded text-gray-700">惑星・都市</a>
+                    <a href="#" class="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-xs rounded text-gray-700">Construction Site</a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Right Column: Infobox Sidebar -->
+        <aside class="sidebar w-full md:w-1/4 flex flex-col gap-6">
+            
+            <!-- Infobox -->
+            <div class="infobox shadow-sm">
+                <div class="infobox-header">
+                    ビアンカ シティー<br>
+                    <span class="text-xs font-normal opacity-80">BIANCA CITY</span>
+                </div>
+                <div class="p-2 bg-white flex justify-center border-b border-gray-200">
+                    <!-- Placeholder Image using generic shape/icon since actual image calls are restricted -->
+                    <div class="w-full h-48 bg-gray-100 flex items-center justify-center flex-col text-gray-400 border border-gray-200 rounded">
+                        <i class="fas fa-city text-5xl mb-2 text-blue-300"></i>
+                        <span class="text-xs">Bianca City Overview</span>
+                    </div>
+                </div>
+                <table class="w-full text-sm">
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <th class="p-2 bg-gray-100 text-left font-bold w-1/3">初出</th>
+                            <td class="p-2">F-ZERO GX</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <th class="p-2 bg-gray-100 text-left font-bold">所属</th>
+                            <td class="p-2">銀河連邦</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <th class="p-2 bg-gray-100 text-left font-bold">開発状況</th>
+                            <td class="p-2">建設中 / 復興中</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <th class="p-2 bg-gray-100 text-left font-bold">難易度</th>
+                            <td class="p-2">★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <th class="p-2 bg-gray-100 text-left font-bold">主なコース</th>
+                            <td class="p-2">
+                                <ul class="list-none">
+                                    <li>Stretch Circuit</li>
+                                    <li>Heroic Work</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Ad / Related Links Placeholder -->
+            <div class="bg-white border border-gray-200 p-4 rounded shadow-sm">
+                <h3 class="font-bold text-gray-800 mb-2 text-sm uppercase">See Also</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>
+                        <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 group">
+                            <div class="w-8 h-8 bg-gray-200 rounded mr-2 flex items-center justify-center group-hover:bg-blue-100">
+                                <i class="fas fa-user-astronaut text-gray-500 group-hover:text-blue-500"></i>
+                            </div>
+                            Captain Falcon
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 group">
+                            <div class="w-8 h-8 bg-gray-200 rounded mr-2 flex items-center justify-center group-hover:bg-blue-100">
+                                <i class="fas fa-map-marked-alt text-gray-500 group-hover:text-blue-500"></i>
+                            </div>
+                            Mute City
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 group">
+                            <div class="w-8 h-8 bg-gray-200 rounded mr-2 flex items-center justify-center group-hover:bg-blue-100">
+                                <i class="fas fa-rocket text-gray-500 group-hover:text-blue-500"></i>
+                            </div>
+                            Blue Falcon
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12 py-8 border-t-4 border-yellow-500">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <h2 class="font-black text-2xl tracking-tighter text-yellow-400 mb-2">F-ZERO<span class="text-white">WIKI</span></h2>
+                    <p class="text-gray-400 text-xs">
+                        F-ZERO and all related characters and elements are trademarks of Nintendo.<br>
+                        This is a fan-made page for educational and entertainment purposes.
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fas fa-rss text-xl"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-xs text-gray-600">
+                &copy; 2024 F-ZERO Fan Community.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

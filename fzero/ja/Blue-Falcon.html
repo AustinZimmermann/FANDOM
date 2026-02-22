@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブルーファルコン | F-ZERO Wiki | Fandom</title>
+    <style>
+        /* ==============================
+           CSS: Fandom風のスタイリング
+           ============================== */
+        :root {
+            --fandom-global-nav: #002a32;
+            --fandom-wiki-header: #00d6d6;
+            --fandom-text: #3a3a3a;
+            --fandom-link: #006cb0;
+            --fandom-bg: #f4f6f6;
+            --infobox-bg: #f8f9fa;
+            --infobox-border: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: var(--fandom-bg);
+            color: var(--fandom-text);
+        }
+
+        /* グローバルナビゲーション */
+        .global-nav {
+            background-color: var(--fandom-global-nav);
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Wikiヘッダー */
+        .wiki-header {
+            background-color: var(--fandom-wiki-header);
+            padding: 20px;
+            color: #002a32;
+            font-size: 24px;
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        /* メインレイアウト */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* 左サイドバー */
+        .sidebar {
+            width: 250px;
+            background-color: #e6e9e9;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: var(--fandom-link);
+            font-weight: bold;
+        }
+
+        /* コンテンツエリア */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #ddd;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* インフォボックス（右側の機体情報） */
+        .infobox {
+            float: right;
+            width: 300px;
+            background-color: var(--infobox-bg);
+            border: 1px solid var(--infobox-border);
+            margin: 0 0 20px 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .infobox-title {
+            background-color: var(--fandom-wiki-header);
+            color: #002a32;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .infobox-image {
+            width: 100%;
+            height: 150px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .infobox th, .infobox td {
+            border: 1px solid var(--infobox-border);
+            padding: 8px;
+            font-size: 13px;
+        }
+        .infobox th {
+            background-color: #e1e8ed;
+            width: 40%;
+            text-align: left;
+        }
+
+        /* クリアフィックス */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="global-nav">
+        Fandom
+    </div>
+
+    <div class="wiki-header">
+        F-ZERO Wiki
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">メインページ</a></li>
+                <li><a href="#">マシン一覧</a></li>
+                <li><a href="#">パイロット一覧</a></li>
+                <li><a href="#">コース一覧</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content clearfix">
+            <h1 id="page-title">読み込み中...</h1>
+            
+            <div class="infobox">
+                <div class="infobox-title" id="info-title">読み込み中...</div>
+                <div class="infobox-image">
+                    <img src="https://static.wikia.nocookie.net/fzero/images/d/dc/Massive_Blue_Falcon.png">
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>英名</th>
+                            <td id="info-en"></td>
+                        </tr>
+                        <tr>
+                            <th>No.</th>
+                            <td id="info-no"></td>
+                        </tr>
+                        <tr>
+                            <th>パイロット</th>
+                            <td id="info-pilot"></td>
+                        </tr>
+                        <tr>
+                            <th>重量</th>
+                            <td id="info-weight"></td>
+                        </tr>
+                        <tr>
+                            <th>ボディ</th>
+                            <td id="info-body"></td>
+                        </tr>
+                        <tr>
+                            <th>ブースト</th>
+                            <td id="info-boost"></td>
+                        </tr>
+                        <tr>
+                            <th>グリップ</th>
+                            <td id="info-grip"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="page-description">
+                </div>
+
+            <h2>概要</h2>
+            <p>
+                ボディ、ブースト、グリップの全性能が平均的でバランスが取れており、初心者から上級者まで非常に扱いやすいマシン設定となっている。初代『F-ZERO』から最新作に至るまで、シリーズの顔として登場し続けている。
+            </p>
+            
+            <h2>大乱闘スマッシュブラザーズにおける登場</h2>
+            <p>
+                『大乱闘スマッシュブラザーズ』シリーズでは、キャプテン ファルコンの「最後の切りふだ」として登場。前方の相手をふっとばした後、F-ZEROのコースに引きずり込み、ブルーファルコンで強烈な体当たりをお見舞いする。
+            </p>
+        </div>
+    </div>
+
+    <script type="application/json" id="machine-data">
+        {
+            "name": "ブルーファルコン",
+            "englishName": "BLUE FALCON",
+            "number": "07",
+            "pilot": "キャプテン ファルコン",
+            "weight": "1260 kg",
+            "body": "B",
+            "boost": "C",
+            "grip": "B",
+            "description": "<strong>ブルーファルコン (BLUE FALCON)</strong> は、『F-ZERO』シリーズに登場する架空のレースマシン。主人公であるキャプテン ファルコンの愛機である。"
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. JSONデータの取得
+            const jsonData = document.getElementById('machine-data').textContent;
+            const machine = JSON.parse(jsonData);
+
+            // 2. DOM要素へのデータバインディング
+            document.getElementById('page-title').textContent = machine.image;
+            document.getElementById('page-title').textContent = machine.name;
+            document.getElementById('info-title').textContent = machine.name;
+            document.getElementById('info-en').textContent = machine.englishName;
+            document.getElementById('info-no').textContent = machine.number;
+            document.getElementById('info-pilot').textContent = machine.pilot;
+            document.getElementById('info-weight').textContent = machine.weight;
+            document.getElementById('info-body').textContent = machine.body;
+            document.getElementById('info-boost').textContent = machine.boost;
+            document.getElementById('info-grip').textContent = machine.grip;
+            
+            document.getElementById('page-description').innerHTML = `<p>${machine.description}</p>`;
+        });
+    </script>
+</body>
+</html>

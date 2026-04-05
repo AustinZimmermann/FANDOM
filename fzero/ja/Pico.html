@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ピコ | F-ZERO Wiki | Fandom</title>
+    <style>
+body {
+    background-color: #e0e0e0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* macOS Window Mockup */
+.macos-window {
+    width: 1000px;
+    height: 700px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.safari-toolbar {
+    background: #f1f1f1;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.window-controls span {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.close { background: #ff5f57; }
+.minimize { background: #ffbd2e; }
+.expand { background: #28c840; }
+
+.address-bar {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 50px;
+    flex-grow: 0.6;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    padding: 2px 0;
+}
+
+/* Wiki Specifics */
+.wiki-container {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.fandom-sidebar {
+    width: 60px;
+    background: #000435; /* Fandom Blue */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.wiki-main {
+    flex: 1;
+    padding: 30px;
+    background: #ffffff;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #3a3a3a;
+}
+
+/* Infobox Styling */
+.infobox {
+    float: right;
+    width: 280px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.infobox-title {
+    background: #00d6d6;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    margin: -10px -10px 10px -10px;
+}
+
+.infobox-image {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.infobox-data {
+    width: 100%;
+    font-size: 0.9em;
+    border-collapse: collapse;
+}
+
+.infobox-data th {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VisualCharacter",
+      "name": "ピコ",
+      "alternateName": "Pico",
+      "description": "『F-ZERO』シリーズに登場するパイロット。元ポーラス軍の軍人。",
+      "image": "https://static.wikia.nocookie.net/fzero/images/6/6d/Pico.jpg",
+      "mainEntityOfPage": "https://fzero.fandom.com/ja/wiki/ピコ"
+    }
+    </script>
+</head>
+<body>
+
+<div class="macos-window">
+    <div class="safari-toolbar">
+        <div class="window-controls">
+            <span class="close"></span>
+            <span class="minimize"></span>
+            <span class="expand"></span>
+        </div>
+        <div class="address-bar">fzero.fandom.com/ja/wiki/ピコ</div>
+    </div>
+
+    <div class="wiki-container">
+        <nav class="fandom-sidebar">
+            <div class="logo">F-ZERO Wiki</div>
+        </nav>
+
+        <main class="wiki-main">
+            <header class="page-header">
+                <h1>ピコ</h1>
+                <hr>
+            </header>
+
+            <div class="wiki-body">
+                <div class="infobox">
+                    <h2 class="infobox-title">ピコ<br>Pico</h2>
+                    <img src="https://static.wikia.nocookie.net/fzero/images/6/6d/Pico.jpg" alt="Pico" class="infobox-image">
+                    <table class="infobox-data">
+                        <tr><th>性別</th><td>男性</td></tr>
+                        <tr><th>年齢</th><td>124歳 (推定)</td></tr>
+                        <tr><th>搭乗マシン</th><td>ワイルドグース</td></tr>
+                    </table>
+                </div>
+
+                <p><strong>ピコ</strong>（<span lang="en">Pico</span>）は、任天堂のレースゲーム『F-ZERO』シリーズの登場人物。元ポーラス軍の軍人であり、非常に攻撃的な性格のパイロットとして知られている。</p>
+                
+                <h2>概要</h2>
+                <p>数々の戦場を生き抜いてきた冷酷な殺し屋。彼の操る「ワイルドグース（WILD GOOSE）」は、他車を弾き飛ばすことに特化した堅牢な設計となっている。</p>
+            </div>
+        </main>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const addressBar = document.querySelector('.address-bar');
+    
+    // Simulate macOS highlight on click
+    addressBar.addEventListener('click', () => {
+        console.log("Address selected");
+        addressBar.style.backgroundColor = "#e8f0fe";
+    });
+
+    // Handle closing simulation
+    document.querySelector('.close').addEventListener('click', () => {
+        if(confirm("Safariのウィンドウを閉じますか？")) {
+            document.querySelector('.macos-window').style.display = 'none';
+        }
+    });
+});
+</script>
+</body>
+</html>

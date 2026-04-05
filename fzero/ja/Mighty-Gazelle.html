@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari - マイティ ガゼル</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "マイティ ガゼル (Mighty Gazelle)",
+      "genre": "F-ZERO",
+      "description": "F-ZEROシリーズに登場するサイボーグパイロット、マイティ ガゼルが操るマシン。",
+      "image": "https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg"
+    }
+    </script>
+    <style>
+        :root {
+            --safari-gray: #e0e0e0;
+            --fandom-blue: #002a32;
+            --fandom-accent: #fa005a;
+            --text-main: #3a3a3a;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        /* Safari Browser Chrome */
+        .browser-window {
+            width: 900px;
+            height: 90vh;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .browser-toolbar {
+            background: var(--safari-gray);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #bcbcbc;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+        }
+
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .address-bar {
+            background: white;
+            height: 24px;
+            flex-grow: 1;
+            margin: 0 50px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Wiki Content */
+        .wiki-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 40px;
+            color: var(--text-main);
+        }
+
+        .wiki-header {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 32px; margin-bottom: 10px; }
+
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 10px;
+            margin-left: 20px;
+            font-size: 13px;
+        }
+
+        .infobox-title {
+            background: var(--fandom-blue);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            margin: -10px -10px 10px -10px;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .infobox-data {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox-data th {
+            text-align: left;
+            width: 40%;
+            padding: 5px 0;
+        }
+
+        .description {
+            line-height: 1.6;
+        }
+
+        .stats-badge {
+            display: inline-block;
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--fandom-accent);
+        }
+    </style>
+</head>
+<body>
+
+<div class="browser-window">
+    <div class="browser-toolbar">
+        <div class="traffic-lights">
+            <div class="light red"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+        <div class="address-bar">fzero.fandom.com/ja/wiki/マイティ_ガゼル</div>
+    </div>
+
+    <div class="wiki-content">
+        <aside class="infobox">
+            <div class="infobox-title">マイティ ガゼル <br> Mighty Gazelle</div>
+            <img src="https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg" alt="Mighty Gazelle">
+            <table class="infobox-data">
+                <tr><th>マシンナンバー</th><td>01</td></tr>
+                <tr><th>重量</th><td>760 kg</td></tr>
+                <tr><th>最高速度</th><td>1040 km/h</td></tr>
+                <tr><th>エンジン</th><td>BF2001×4</td></tr>
+                <tr><th>ボディ</th><td><span class="stats-badge">A</span></td></tr>
+                <tr><th>ブースト</th><td><span class="stats-badge">B</span></td></tr>
+                <tr><th>グリップ</th><td><span class="stats-badge">C</span></td></tr>
+            </table>
+        </aside>
+
+        <header class="wiki-header">
+            <h1>マイティ ガゼル</h1>
+        </header>
+
+        <section class="description">
+            <p><strong>マイティ ガゼル</strong>（<span lang="en">Mighty Gazelle</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するパイロットおよび彼の使用するマシンの名称である。</p>
+            <p>かつては大事故により再起不能と言われていたが、サイボーグ化手術を受け、全身を機械に置き換えることでサーキットに復帰した。恐怖心を克服したその走りは、多くの観客を魅了し続けている。</p>
+            
+            <h3>特徴</h3>
+            <ul>
+                <li>高いボディ強度を誇る。</li>
+                <li>加速性能と最高速のバランスが良い。</li>
+                <li>サイボーグゆえの精密なハンドリング。</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script>
+    // Interaction logic: simple log to show JS is running
+    console.log("Safari Simulator: Page 'マイティ ガゼル' loaded successfully.");
+    
+    // Simulate Safari's address bar focus effect
+    const addressBar = document.querySelector('.address-bar');
+    addressBar.addEventListener('click', () => {
+        addressBar.style.border = "2px solid #75a7ff";
+    });
+</script>
+
+</body>
+</html>

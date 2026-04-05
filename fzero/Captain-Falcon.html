@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain Falcon | F-Zero Wiki | Fandom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JSON-LD for Search Engine Optimization mimicking a real Wiki page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Captain Falcon - F-Zero Wiki",
+      "description": "Information about Captain Falcon, the main protagonist of the F-Zero series.",
+      "breadcrumb": "F-Zero Wiki > Characters > Captain Falcon"
+    }
+    </script>
+    <style>
+        :root {
+            --fandom-blue: #002a32;
+            --fandom-accent: #fa005a;
+            --safari-top-bg: #e5e5e5;
+            --macos-window-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        body {
+            background-color: #2c2c2c;
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* macOS Window Styling */
+        .macos-window {
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: var(--macos-window-shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Safari Toolbar */
+        .safari-toolbar {
+            background: linear-gradient(to bottom, #f6f6f6, #d1d1d1);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #a5a5a5;
+            flex-shrink: 0;
+            z-index: 100;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .address-bar {
+            background: #fff;
+            flex-grow: 1;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid #b5b5b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wiki Content Area */
+        .wiki-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            background: #fff;
+            color: #333;
+        }
+
+        .fandom-nav {
+            background: var(--fandom-blue);
+            color: white;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .wiki-header {
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-color: #004d5a;
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 40px 20px;
+            color: white;
+        }
+
+        .wiki-content {
+            padding: 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+
+        .infobox {
+            border: 1px solid #ccd;
+            background: #f8f9fa;
+            padding: 15px;
+            width: 300px;
+            font-size: 13px;
+        }
+
+        .infobox-title {
+            background: #002a32;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: -15px -15px 15px -15px;
+        }
+
+        .infobox-image {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            border-bottom: 1px solid #a2a9b1;
+            margin: 25px 0 10px;
+            padding-bottom: 5px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .sidebar-links {
+            color: #0066cc;
+            font-size: 14px;
+        }
+
+        .sidebar-links div:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Scrollbar styling for macOS look */
+        .wiki-container::-webkit-scrollbar {
+            width: 10px;
+        }
+        .wiki-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .wiki-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            .wiki-content {
+                grid-template-columns: 1fr;
+            }
+            .infobox {
+                width: 100%;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="macos-window">
+        <!-- Safari Header -->
+        <div class="safari-toolbar">
+            <div class="traffic-lights">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="flex gap-4 items-center mr-4 opacity-50">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div class="address-bar">
+                <svg class="mr-2 opacity-40" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                https://fzero.fandom.com/wiki/Captain_Falcon
+            </div>
+            <div class="ml-4 opacity-50">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+            </div>
+        </div>
+
+        <!-- Wiki Content Container -->
+        <div class="wiki-container" id="wikiContent">
+            
+            <!-- Fandom Global Nav -->
+            <nav class="fandom-nav">
+                <div class="font-bold tracking-tighter text-lg">FANDOM</div>
+                <div class="flex gap-6 items-center">
+                    <span>GAMES</span>
+                    <span>ANIME</span>
+                    <span>MOVIES</span>
+                    <div class="bg-pink-600 px-3 py-1 rounded text-xs font-bold">START A WIKI</div>
+                </div>
+            </nav>
+
+            <!-- Wiki Header -->
+            <div class="wiki-header">
+                <div>
+                    <h2 class="text-sm font-bold opacity-80 uppercase tracking-widest">F-Zero Wiki</h2>
+                    <h1 class="text-4xl font-bold">Captain Falcon</h1>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="wiki-content">
+                <div class="main-text">
+                    <p class="mb-4 text-lg italic border-l-4 border-gray-300 pl-4 py-2 bg-gray-50">
+                        "I'm Captain Falcon! The galaxy's most famous bounty hunter and F-Zero pilot!"
+                    </p>
+                    
+                    <p class="mb-4">
+                        <strong>Captain Falcon</strong> (キャプテン・ファルコン Kyaputen Farukon) is the main protagonist of the <em>F-Zero</em> series. He is a mysterious bounty hunter and one of the greatest F-Zero racers in the galaxy. He is the owner of the <strong>Blue Falcon</strong>, one of the most balanced machines in the Grand Prix.
+                    </p>
+
+                    <h2 class="section-title">Characteristics</h2>
+                    <p class="mb-4">
+                        Falcon is often seen as a hero with a sense of justice, though he is primarily motivated by the thrill of the race and the pursuit of dangerous criminals. He lives on a series of islands off the coast of Port Town, where he spends most of his time in isolation when not racing or hunting.
+                    </p>
+
+                    <h2 class="section-title">F-Zero Racing</h2>
+                    <p class="mb-4">
+                        He has been a staple in the F-Zero Grand Prix since its inception. His racing style is known for being aggressive yet technical. Many fans believe he is the only pilot capable of pushing the Blue Falcon to its true limits.
+                    </p>
+
+                    <div class="bg-blue-50 p-4 border border-blue-200 rounded my-6">
+                        <h4 class="font-bold text-blue-800 mb-2">Did you know?</h4>
+                        <p class="text-sm">Captain Falcon's real name is rumored to be Douglas Jay Falcon, though this is debated among fans and depends on the specific timeline (Game vs Anime).</p>
+                    </div>
+
+                    <h2 class="section-title">Gallery</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 aspect-video flex items-center justify-center border rounded">
+                            <span class="text-gray-400">Blue Falcon Concept</span>
+                        </div>
+                        <div class="bg-gray-100 aspect-video flex items-center justify-center border rounded">
+                            <span class="text-gray-400">Port Town Background</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar / Infobox -->
+                <aside>
+                    <div class="infobox">
+                        <div class="infobox-title">Captain Falcon</div>
+                        <!-- Mocking the image requested -->
+                        <div class="relative">
+                            <img src="https://static.wikia.nocookie.net/fzero/images/6/66/005.jpg/revision/latest?cb=20071107001519" 
+                                 alt="Captain Falcon" 
+                                 class="infobox-image"
+                                 onerror="this.src='https://via.placeholder.com/300x400?text=Captain+Falcon+Artwork'">
+                            <div class="text-[10px] text-center text-gray-500 mb-2 italic">Artwork from F-Zero GX</div>
+                        </div>
+
+                        <table class="w-full text-left">
+                            <tr class="border-b">
+                                <th class="py-1 pr-2 font-semibold">Machine</th>
+                                <td class="py-1">Blue Falcon</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="py-1 pr-2 font-semibold">Home</th>
+                                <td class="py-1">Port Town</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="py-1 pr-2 font-semibold">Occupation</th>
+                                <td class="py-1">Bounty Hunter</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="py-1 pr-2 font-semibold">Age</th>
+                                <td class="py-1">37 (F-Zero GX)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="py-1 pr-2 font-semibold">Blood Type</th>
+                                <td class="py-1">B</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="font-bold text-gray-500 text-xs uppercase mb-2">Explore Properties</h3>
+                        <div class="sidebar-links space-y-2">
+                            <div>F-Zero Machines</div>
+                            <div>Racing Circuits</div>
+                            <div>Bounty Targets</div>
+                            <div>Black Shadow</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Footer -->
+            <footer class="mt-12 bg-gray-100 p-8 border-t text-sm text-gray-600 text-center">
+                <p>Community content is available under CC-BY-SA unless otherwise noted.</p>
+                <div class="mt-4 flex justify-center gap-4">
+                    <span>Privacy Policy</span>
+                    <span>Terms of Use</span>
+                    <span>Support</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactive elements to make it feel like a "Simulator"
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                if (dot.classList.contains('red')) {
+                    document.body.innerHTML = '<div class="text-white text-2xl font-bold h-screen flex items-center justify-center">Safari Closed. Refresh to restart simulator.</div>';
+                }
+            });
+        });
+
+        // Add a "loading" state when clicking links
+        document.querySelectorAll('.sidebar-links div').forEach(link => {
+            link.addEventListener('click', () => {
+                const container = document.getElementById('wikiContent');
+                container.style.opacity = '0.5';
+                setTimeout(() => {
+                    container.style.opacity = '1';
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

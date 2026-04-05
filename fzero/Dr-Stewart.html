@@ -6,69 +6,70 @@
     <title>Dr. Stewart | F-Zero Wiki | Fandom</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --fandom-bg: #f5f8fa;
+            --fandom-accent: #00d6d6;
+            --fandom-text: #3a3a3a;
+            --safari-toolbar: #ebeced;
+        }
+
         body {
             font-family: sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
+            background: #2c3e50; /* Desktop wallpaper color */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
             overflow-x: hidden;
         }
 
-        /* Safari Window Styles */
+        /* macOS Window Styling */
         .safari-window {
-            width: 95vw;
-            height: 90vh;
+            width: 95%;
             max-width: 1200px;
-            background: #fff;
+            height: 90vh;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border: 1px solid #d1d1d1;
+            border: 1px solid #a0a0a0;
         }
 
         .safari-toolbar {
             height: 52px;
-            background: linear-gradient(to bottom, #ebebeb, #d6d6d6);
+            background: linear-gradient(to bottom, #f6f6f6, #d1d1d1);
             display: flex;
             align-items: center;
             padding: 0 16px;
             border-bottom: 1px solid #b3b3b3;
             flex-shrink: 0;
-            gap: 12px;
         }
 
         .window-controls {
             display: flex;
             gap: 8px;
+            margin-right: 20px;
         }
 
-        .dot {
+        .control {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
-        .dot-red { background: #ff5f56; border: 0.5px solid #e0443e; }
-        .dot-yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
-        .dot-green { background: #27c93f; border: 0.5px solid #1aab29; }
 
-        .nav-arrows {
-            display: flex;
-            gap: 15px;
-            color: #666;
-            margin-left: 10px;
-        }
+        .close { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .minimize { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .maximize { background: #27c93f; border: 0.5px solid #1aab29; }
 
         .address-bar {
             flex-grow: 1;
             height: 28px;
-            background: rgba(255,255,255,0.6);
-            border: 1px solid #c0c0c0;
+            background: white;
             border-radius: 6px;
+            border: 1px solid #c3c3c3;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,308 +79,281 @@
             margin: 0 auto;
         }
 
-        /* Fandom Wiki Styles */
-        .wiki-content {
+        /* Fandom Layout Styling */
+        .wiki-viewport {
             flex-grow: 1;
             overflow-y: auto;
-            background: #ffffff;
-            color: #3a3a3a;
+            background-color: var(--fandom-bg);
+            color: var(--fandom-text);
         }
 
-        .wiki-header {
-            background-color: #002a32;
-            color: white;
-            padding: 10px 20px;
+        .fandom-nav {
+            height: 50px;
+            background: #002a32;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            padding: 0 20px;
+            color: white;
+            font-weight: 700;
         }
 
-        .fandom-logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
+        .fandom-header {
+            background: white;
+            padding: 20px 40px;
+            border-bottom: 1px solid #e6e9ed;
         }
 
         .wiki-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr 320px;
             gap: 30px;
+            padding: 20px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .wiki-container {
-                grid-template-columns: 1fr;
-            }
+        /* Character Infobox */
+        .portable-infobox {
+            background: white;
+            border: 1px solid #e6e9ed;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .infobox {
-            background: #f8f9fa;
-            border: 1px solid #a2a9b1;
+        .pi-header {
+            background: var(--fandom-accent);
+            color: #002a32;
             padding: 10px;
-            font-size: 0.9rem;
-            width: 100%;
-        }
-
-        .infobox-header {
-            background: #00d6d6;
-            color: #000;
             text-align: center;
-            font-weight: bold;
-            padding: 5px;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 1.2rem;
         }
 
-        .infobox img {
-            width: 100%;
+        .pi-image-container {
+            padding: 10px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .pi-image {
+            max-width: 100%;
             height: auto;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
+            border-radius: 2px;
         }
 
-        .infobox-row {
+        .pi-data {
             display: flex;
-            border-bottom: 1px solid #eaecef;
-            padding: 4px 0;
+            padding: 8px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
         }
 
-        .infobox-label {
-            font-weight: bold;
+        .pi-data-label {
+            font-weight: 700;
             width: 40%;
+            color: #5f6368;
         }
 
-        .infobox-value {
+        .pi-data-value {
             width: 60%;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            border-bottom: 1px solid #a2a9b1;
-            margin: 20px 0 10px 0;
-            padding-bottom: 5px;
-            font-weight: 600;
-        }
-
+        /* Content Styling */
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin-top: 30px; border-bottom: 1px solid #e6e9ed; padding-bottom: 5px; color: #002a32; }
+        p { margin-bottom: 15px; line-height: 1.6; }
+        
         .toc {
             background: #f8f9fa;
             border: 1px solid #a2a9b1;
             padding: 15px;
             display: inline-block;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+            margin: 20px 0;
+            font-size: 14px;
         }
+        
+        .toc-title { font-weight: 700; text-align: center; margin-bottom: 5px; }
+        .toc ul { list-style: none; padding-left: 10px; }
+        .toc li { margin: 3px 0; color: #0645ad; cursor: pointer; }
+        .toc li:hover { text-decoration: underline; }
 
-        .toc-title {
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .wiki-link {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        .wiki-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Search Highlight Effect */
-        .search-active {
-            background-color: #fff9c4;
+        @media (max-width: 800px) {
+            .wiki-container { grid-template-columns: 1fr; }
+            .safari-window { height: 95vh; width: 98%; }
         }
     </style>
-    <!-- JSON-LD Structured Data for the Character -->
+</head>
+<body>
+
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dr. Stewart",
-      "description": "A surgeon and F-Zero pilot who drives the Golden Fox.",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "F-Zero Grand Prix"
-      },
-      "jobTitle": "Doctor / F-Zero Pilot"
+      "@type": "WebPage",
+      "name": "Dr. Stewart - F-Zero Wiki",
+      "description": "Information about Dr. Stewart, a recurring character in the F-Zero series.",
+      "breadcrumb": "F-Zero Wiki > Characters > Dr. Stewart",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Robert Stewart",
+        "alternateName": "Dr. Stewart",
+        "jobTitle": "Surgeon, F-Zero Racer",
+        "memberOf": {
+          "@type": "Organization",
+          "name": "F-Zero Execution Project"
+        }
+      }
     }
     </script>
-</head>
-<body>
 
     <div class="safari-window">
         <!-- Safari Toolbar -->
         <div class="safari-toolbar">
             <div class="window-controls">
-                <div class="dot dot-red"></div>
-                <div class="dot dot-yellow"></div>
-                <div class="dot dot-green"></div>
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
             </div>
-            <div class="nav-arrows">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <div class="flex gap-4 mr-4 text-gray-600">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
             </div>
             <div class="address-bar">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                https://fzero.fandom.com/wiki/Dr._Stewart
+                <span class="opacity-50 mr-1">🔒</span> https://fzero.fandom.com/wiki/Dr._Stewart
             </div>
-            <div class="flex gap-4 items-center ml-4 text-gray-600">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <div class="flex gap-4 ml-4 text-gray-600">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </div>
         </div>
 
-        <!-- Wiki Content Area -->
-        <div class="wiki-content">
-            <div class="wiki-header">
-                <div class="flex items-center gap-4">
-                    <span class="fandom-logo">FANDOM</span>
-                    <span class="text-sm font-bold uppercase tracking-widest">F-Zero Wiki</span>
-                </div>
-                <div class="flex gap-4 text-sm font-medium">
-                    <span>EXPLORE</span>
-                    <span>DISCUSS</span>
-                </div>
-            </div>
+        <!-- Wiki Content Container -->
+        <div class="wiki-viewport">
+            <nav class="fandom-nav">
+                <span class="text-xl tracking-tighter">FANDOM</span>
+                <span class="mx-3 opacity-30">|</span>
+                <span class="uppercase text-xs font-bold">F-Zero Wiki</span>
+            </nav>
 
-            <div class="wiki-container">
-                <!-- Main Text Column -->
-                <div class="main-column">
-                    <h1 class="text-4xl font-bold mb-4">Dr. Stewart</h1>
-                    
-                    <p class="mb-4">
-                        <b>Dr. Stewart</b> (<span lang="ja">ドクター スチュワート</span>, <i>Dokutā Suchuwāto</i>) is a recurring character in the <a href="#" class="wiki-link">F-Zero series</a>. He is a high-class surgeon who has participated in the Grand Prix since the original <a href="#" class="wiki-link">F-Zero</a> game for the SNES.
-                    </p>
+            <header class="fandom-header">
+                <h1>Dr. Stewart</h1>
+                <div class="text-sm text-gray-500 italic">“I’m a doctor first, a racer second.”</div>
+            </header>
+
+            <main class="wiki-container">
+                <!-- Main Article Content -->
+                <section class="content-body">
+                    <p><b>Dr. Stewart</b> (<span lang="ja">ドクター スチュワート</span>, <em>Dokutā Suchuwāto</em>), better known as <b>Robert Stewart</b>, is a major character and one of the original four pilots in the <i>F-Zero</i> series. He is a world-class surgeon who took up F-Zero racing after his father’s death, utilizing his surgical precision to handle high-speed maneuvers.</p>
 
                     <div class="toc">
                         <div class="toc-title">Contents</div>
-                        <ul class="list-decimal list-inside space-y-1">
-                            <li><a href="#biography" class="wiki-link">Biography</a></li>
-                            <li><a href="#golden-fox" class="wiki-link">The Golden Fox</a></li>
-                            <li><a href="#profiles" class="wiki-link">Profiles and Statistics</a></li>
-                            <li><a href="#trivia" class="wiki-link">Trivia</a></li>
+                        <ul>
+                            <li>1 Biography</li>
+                            <li>2 F-Zero Legend</li>
+                            <li>3 Machine: Golden Fox</li>
+                            <li>4 Stats</li>
+                            <li>5 Gallery</li>
                         </ul>
                     </div>
 
-                    <h2 id="biography" class="section-title">Biography</h2>
-                    <p class="mb-4">
-                        Dr. Robert Stewart was once a top-tier surgeon who lived a comfortable life. However, following the death of his father, Kevin Stewart, he inherited both a vast fortune and the legendary racing machine, the <b>Golden Fox</b>.
-                    </p>
-                    <p class="mb-4">
-                        Unlike many other pilots who race for fame or fortune, Dr. Stewart views the F-Zero Grand Prix as a way to honor his father’s memory and to prove the capabilities of the machine he left behind. He is known for his calm, analytical approach to racing, often using his medical knowledge to understand the physiological limits of a pilot during high-speed maneuvers.
-                    </p>
+                    <h2>Biography</h2>
+                    <p>Dr. Stewart was a long-time surgeon whose surgical skills were considered legendary. After the death of his father, Kevin Stewart, Robert decided to participate in the F-Zero Grand Prix. Unlike many other racers who are motivated by fame or money, Stewart often races to fund his medical research or to provide aid to those in need.</p>
+                    <p>His calm demeanor and focus under pressure make him a formidable opponent. He is known for his signature golden suit and yellow scarf, reflecting his aristocratic and refined personality.</p>
 
-                    <h2 id="golden-fox" class="section-title">Golden Fox</h2>
-                    <p class="mb-4">
-                        The <b>Golden Fox</b> is machine #03 in the F-Zero lineup. It is famous for its exceptional acceleration and boost capabilities, though it lacks the high top speed and body strength of machines like the <a href="#" class="wiki-link">Blue Falcon</a> or <a href="#" class="wiki-link">Fire Stingray</a>.
-                    </p>
-                    <div class="bg-gray-100 p-4 rounded-lg mb-4 border-l-4 border-yellow-500">
-                        <ul class="space-y-1 text-sm">
-                            <li><b>Engine:</b> GF-2612 × 2</li>
-                            <li><b>Weight:</b> 1020 kg</li>
-                            <li><b>Acceleration:</b> A</li>
-                            <li><b>Top Speed:</b> D</li>
-                            <li><b>Body:</b> D</li>
-                        </ul>
-                    </div>
-
-                    <h2 id="trivia" class="section-title">Trivia</h2>
-                    <ul class="list-disc list-inside space-y-2 mb-8">
-                        <li>In the <i>F-Zero: GP Legend</i> anime, he is portrayed as a member of the High Stakes racing team.</li>
-                        <li>His design has remained remarkably consistent across all games, featuring his signature yellow scarf and sunglasses.</li>
-                        <li>He is considered one of the "Original Four" pilots, alongside Captain Falcon, Samurai Goroh, and Pico.</li>
-                    </ul>
-                </div>
-
-                <!-- Sidebar / Infobox Column -->
-                <div class="sidebar">
-                    <div class="infobox">
-                        <div class="infobox-header">Dr. Stewart</div>
-                        <img src="https://static.wikia.nocookie.net/fzero/images/f/f7/Drstewart.jpg" height="250px"><br>Artwork in <i>F-Zero GX</i>
-                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs p-4 text-center">
-                                Robert Stewart (Classic Appearance)
-                            </div>
-                        </div>
-
-                        <div class="infobox-row">
-                            <div class="infobox-label">Full name</div>
-                            <div class="infobox-value">Robert Stewart</div>
-                        </div>
-                        <div class="infobox-row">
-                            <div class="infobox-label">Gender</div>
-                            <div class="infobox-value">Male</div>
-                        </div>
-                        <div class="infobox-row">
-                            <div class="infobox-label">Occupation</div>
-                            <div class="infobox-value">Doctor, Pilot</div>
-                        </div>
-                        <div class="infobox-row">
-                            <div class="infobox-label">Machine</div>
-                            <div class="infobox-value"><a href="Golden-Fox" class="wiki-link">Golden Fox</a></div>
-                        </div>
-                        <div class="infobox-row">
-                            <div class="infobox-label">Number</div>
-                            <div class="infobox-value">03</div>
-                        </div>
-                        <div class="infobox-row">
-                            <div class="infobox-label">First Game</div>
-                            <div class="infobox-value"><i>F-Zero</i> (SNES)</div>
-                        </div>
-                    </div>
+                    <h2>Machine: Golden Fox</h2>
+                    <p>The <b>Golden Fox</b> is one of the oldest machines in the F-Zero circuit. It was originally designed by his father. It is famous for its exceptional acceleration and recovery capabilities, though it lacks the high top speed and durability of heavier machines like the <i>Blue Falcon</i> or <i>Fire Stingray</i>.</p>
                     
-                    <div class="mt-6 p-4 border border-dashed border-gray-400 rounded text-center text-xs text-gray-500">
-                        ADVERTISEMENT
-                        <div class="bg-gray-200 h-40 mt-2 flex items-center justify-center italic">
-                            Buy F-Zero 99 today!
+                    <ul class="list-disc ml-8 mt-2 space-y-2">
+                        <li><b>Pilot:</b> Dr. Stewart</li>
+                        <li><b>Body:</b> D</li>
+                        <li><b>Boost:</b> A</li>
+                        <li><b>Grip:</b> D</li>
+                    </ul>
+
+                    <h2>Trivia</h2>
+                    <ul class="list-disc ml-8 mt-2 space-y-2">
+                        <li>In the <i>F-Zero: GP Legend</i> anime, he is a member of the High Stakes racing team.</li>
+                        <li>He is the only racer to have appeared in every single <i>F-Zero</i> game to date.</li>
+                        <li>His design was inspired by 1970s disco icons and classic refined gentlemen.</li>
+                    </ul>
+                </section>
+
+                <!-- Sidebar / Infobox -->
+                <aside class="sidebar">
+                    <div class="portable-infobox">
+                        <div class="pi-header">Dr. Stewart</div>
+                        <div class="pi-image-container">
+                            <img src="https://static.wikia.nocookie.net/fzero/images/f/f7/Drstewart.jpg" alt="Dr. Stewart" class="pi-image">
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Full Name</div>
+                            <div class="pi-data-value">Robert Stewart</div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Gender</div>
+                            <div class="pi-data-value">Male</div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Age</div>
+                            <div class="pi-data-value">42 (F-Zero GX)</div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Occupation</div>
+                            <div class="pi-data-value">Surgeon</div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Machine</div>
+                            <div class="pi-data-value"><span class="text-blue-600 cursor-pointer hover:underline">Golden Fox</span></div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">Home World</div>
+                            <div class="pi-data-value">Earth</div>
+                        </div>
+                        <div class="pi-data">
+                            <div class="pi-data-label">First App.</div>
+                            <div class="pi-data-value"><i>F-Zero</i> (1990)</div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Footer area -->
-            <div class="bg-gray-800 text-white p-10 text-center text-sm mt-12">
-                <p>&copy; Fandom, Inc. | Nintendo</p>
-                <div class="flex justify-center gap-4 mt-4 text-gray-400">
-                    <span>About</span>
-                    <span>Careers</span>
-                    <span>Press</span>
-                    <span>Contact</span>
+                    <div class="mt-6 p-4 bg-white border border-gray-200 rounded text-sm shadow-sm">
+                        <h4 class="font-bold mb-2">Explore Properties</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-2 py-1 rounded text-xs">F-Zero GX</span>
+                            <span class="bg-gray-100 px-2 py-1 rounded text-xs">Golden Fox</span>
+                            <span class="bg-gray-100 px-2 py-1 rounded text-xs">Pilots</span>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+
+            <footer class="mt-12 p-10 bg-gray-900 text-gray-500 text-center text-xs">
+                <div>Fandom, Inc. All rights reserved. © Nintendo.</div>
+                <div class="mt-4 flex justify-center gap-4">
+                    <span>Community Central</span>
+                    <span>Support</span>
+                    <span>Help</span>
                 </div>
-            </div>
+            </footer>
         </div>
     </div>
 
     <script>
-        // Interactive Elements for the Simulator
-        document.addEventListener('DOMContentLoaded', () => {
-            const addressBar = document.querySelector('.address-bar');
-            
-            // Simulation of address bar interaction
-            addressBar.addEventListener('click', () => {
-                const url = prompt("Enter URL:", "https://fzero.fandom.com/wiki/Dr._Stewart");
-                if (url) {
-                    addressBar.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>${url}`;
-                }
-            });
+        // Simple interactivity for the 'Safari' window
+        document.querySelector('.close').addEventListener('click', () => {
+            if(confirm('Close this tab?')) {
+                document.body.innerHTML = '<div style="color:white; font-size: 2rem;">Browser closed. Refresh to restart.</div>';
+            }
+        });
 
-            // Handle anchor link smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        // Visual highlight
-                        target.classList.add('search-active');
-                        setTimeout(() => target.classList.remove('search-active'), 2000);
-                    }
-                });
+        // Add hover effects for TOC
+        const tocItems = document.querySelectorAll('.toc li');
+        tocItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const text = item.innerText.split(' ')[1].toLowerCase();
+                const target = Array.from(document.querySelectorAll('h2')).find(h => h.innerText.toLowerCase().includes(text));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     </script>

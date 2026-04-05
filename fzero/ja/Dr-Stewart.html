@@ -3,330 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドクター スチュワート | F-ZERO Wiki | Fandom</title>
+    <title>ドクター スチュワート - F-ZERO Wiki - Fandom (Safari Simulation)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* CSS: Fandom Wiki Style Reset & Basics */
         :root {
-            --fandom-global-nav-bg: #000000;
-            --fandom-wiki-header-bg: #0a1f35;
-            --fandom-text-color: #3a3a3a;
-            --fandom-link-color: #0645ad;
-            --fandom-link-hover: #0b0080;
-            --fandom-bg: #e6e6e6;
-            --infobox-bg: #f9f9f9;
-            --infobox-border: #cccccc;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --fandom-bg: #f5f5f5;
+            --fandom-accent: #00d6d6;
+            --fandom-text: #3a3a3a;
+            --safari-top: #ebebeb;
         }
 
         body {
             font-family: sans-serif;
-            background-color: var(--fandom-bg);
-            color: var(--fandom-text-color);
-            line-height: 1.6;
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
 
-        a {
-            color: var(--fandom-link-color);
-            text-decoration: none;
+        /* Safari Window Styles */
+        .safari-window {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        a:hover {
-            text-decoration: underline;
-            color: var(--fandom-link-hover);
-        }
-
-        /* Fandom Global & Wiki Headers */
-        .global-navigation {
-            background-color: var(--fandom-global-nav-bg);
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 14px;
+        .safari-toolbar {
+            background: var(--safari-top);
+            height: 52px;
             display: flex;
             align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid #d1d1d1;
+            user-select: none;
         }
 
-        .global-navigation span {
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+        .dot { height: 12px; width: 12px; border-radius: 50%; margin-right: 8px; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
 
-        .wiki-header {
-            background-color: var(--fandom-wiki-header-bg);
-            background-image: linear-gradient(to bottom, #112e4f, #0a1f35);
-            color: #fff;
-            padding: 30px 20px 20px;
-            text-align: center;
-        }
-
-        .wiki-header h1 {
-            font-size: 28px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* Main Content Container */
-        .page-container {
-            max-width: 1060px;
-            margin: 20px auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-        }
-
-        .main-content {
-            padding: 30px;
+        .address-bar {
+            background: white;
             flex-grow: 1;
-            width: 100%;
-        }
-
-        /* Page Title */
-        .page-header h1 {
-            font-size: 32px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
-
-        /* Infobox (Right Sidebar) */
-        .portable-infobox {
-            float: right;
-            width: 300px;
-            margin: 0 0 20px 20px;
-            background-color: var(--infobox-bg);
-            border: 1px solid var(--infobox-border);
-            border-radius: 4px;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        .infobox-title {
-            background-color: #f7a800; /* Golden Fox theme color */
-            color: #fff;
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 8px;
-            border-radius: 2px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .infobox-image {
-            text-align: center;
-            margin-bottom: 10px;
-            background-color: #e0e0e0;
-            height: 200px;
+            margin: 0 40px;
+            height: 28px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
-            border: 1px dashed #aaa;
+            font-size: 13px;
+            color: #555;
+            border: 1px solid #c8c8c8;
         }
 
-        .infobox-data {
-            display: flex;
-            border-bottom: 1px solid #e6e6e6;
-            padding: 6px 0;
+        /* Fandom Wiki Layout */
+        .wiki-container {
+            display: grid;
+            grid-template-columns: 200px 1fr 320px;
+            gap: 20px;
+            padding: 20px;
+            background: #fafafa;
+            height: calc(90vh - 52px);
+            overflow-y: auto;
         }
 
-        .infobox-data:last-child {
-            border-bottom: none;
-        }
-
-        .infobox-label {
-            font-weight: bold;
-            width: 35%;
-            color: #222;
-        }
-
-        .infobox-value {
-            width: 65%;
-        }
-
-        /* Table of Contents */
-        .toc {
-            background-color: #f8f9fa;
-            border: 1px solid #a2a9b1;
-            display: table;
-            padding: 10px 15px;
-            margin: 20px 0;
+        .wiki-sidebar {
             font-size: 14px;
+            color: #555;
         }
 
-        .toc-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .wiki-main {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .wiki-infobox {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        .infobox-header {
+            background: #002a32;
+            color: white;
+            padding: 8px;
+            text-align: center;
             font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 16px;
         }
 
-        .toc-toggle {
-            font-size: 12px;
-            font-weight: normal;
-            cursor: pointer;
-            color: var(--fandom-link-color);
-            margin-left: 15px;
+        .infobox-image {
+            width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            margin-top: 10px;
         }
 
-        .toc-list {
-            list-style-type: none;
+        .infobox-table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
         }
 
-        .toc-list li {
-            margin-bottom: 3px;
+        .infobox-table th {
+            text-align: left;
+            padding: 4px 8px;
+            background: #eee;
+            width: 40%;
         }
 
-        .toc-list li ul {
-            list-style-type: none;
-            margin-left: 20px;
+        .infobox-table td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #eee;
         }
 
-        /* Content Styles */
-        h2 {
-            font-size: 24px;
-            border-bottom: 1px solid #a2a9b1;
-            padding-bottom: 3px;
-            margin: 30px 0 10px;
-            font-weight: normal;
-        }
-
-        h3 {
-            font-size: 18px;
-            margin: 20px 0 10px;
-        }
-
-        p {
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            border-bottom: 1px solid #ccc;
             margin-bottom: 15px;
+            padding-bottom: 5px;
+            color: #000;
         }
 
-        /* Clearfix for float */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
+        .wiki-nav {
+            display: flex;
+            border-bottom: 2px solid var(--fandom-accent);
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .nav-item.active {
+            background: var(--fandom-accent);
+            color: white;
+        }
+
+        /* Icons */
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: #777;
+        }
+
+        @media (max-width: 1000px) {
+            .wiki-container {
+                grid-template-columns: 1fr;
+            }
+            .wiki-sidebar { display: none; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ドクター スチュワート - F-ZERO Wiki",
+      "description": "F-ZEROシリーズのキャラクター、ドクター スチュワートについての詳細情報。",
+      "breadcrumb": "F-ZERO Wiki > キャラクター > ドクター スチュワート"
+    }
+    </script>
 </head>
 <body>
 
-    <nav class="global-navigation">
-        <span>FANDOM</span>
-    </nav>
-
-    <header class="wiki-header">
-        <h1>F-ZERO Wiki</h1>
-    </header>
-
-    <div class="page-container">
-        <main class="main-content clearfix">
+    <div class="safari-window">
+        <!-- Safari Toolbar -->
+        <div class="safari-toolbar">
+            <div class="flex items-center">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
             
-            <div class="page-header">
-                <h1>ドクター スチュワート</h1>
+            <div class="flex space-x-4 ml-6">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                <svg class="icon" viewBox="0 0 24 24" style="opacity: 0.3;"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             </div>
 
-            <aside class="portable-infobox">
-                <div class="infobox-title">ドクター スチュワート<br>Dr. Stewart</div>
-                <div class="infobox-image">
-                    <span>[画像プレースホルダー]<br>ドクター スチュワートの画像</span>
+            <div class="address-bar">
+                <svg class="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                https://fzero.fandom.com/ja/wiki/ドクター_スチュワート
+            </div>
+
+            <div class="flex space-x-4">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12.89 3L14.85 3.4L11.11 21L9.15 20.6L12.89 3Z"/></svg>
+            </div>
+        </div>
+
+        <!-- Wiki Content Area -->
+        <div class="wiki-container">
+            
+            <!-- Left Sidebar -->
+            <aside class="wiki-sidebar">
+                <div class="mb-8">
+                    <img src="https://vignette.wikia.nocookie.net/fzero/images/e/e6/Site-logo.png/revision/latest?cb=20210202170321" alt="Logo" class="w-32 mb-4">
+                    <ul class="space-y-2">
+                        <li class="font-bold text-black">探索</li>
+                        <li>メインページ</li>
+                        <li>コミュニティ</li>
+                        <li>最近の変更</li>
+                        <li>ランダムページ</li>
+                    </ul>
                 </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">本名</div>
-                    <div class="infobox-value">ロバート スチュワート<br>(Robert Stewart)</div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">年齢</div>
-                    <div class="infobox-value">42歳 (F-ZERO X以降)</div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">性別</div>
-                    <div class="infobox-value">男</div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">搭乗マシン</div>
-                    <div class="infobox-value"><a href="Golden-Fox">ゴールデンフォックス</a></div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">マシンNo.</div>
-                    <div class="infobox-value">03</div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">初登場作品</div>
-                    <div class="infobox-value"><a href="#">F-ZERO</a> (SFC)</div>
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-label">職業</div>
-                    <div class="infobox-value">医師、F-ZEROパイロット</div>
+                <div>
+                    <ul class="space-y-2">
+                        <li class="font-bold text-black">Wikiツール</li>
+                        <li>アップロード</li>
+                        <li>特別ページ</li>
+                    </ul>
                 </div>
             </aside>
 
-            <p><strong>ドクター スチュワート</strong>（Dr. Stewart）は、任天堂のレースゲーム『<a href="#">F-ZERO</a>』シリーズに登場する架空の人物である。キャプテン ファルコン、ピコ、サムライ ゴロ―と共に、初代『F-ZERO』から登場している初期キャラクター4人のうちの1人。</p>
-
-            <div class="toc" id="toc-container">
-                <div class="toc-header">
-                    目次
-                    <span class="toc-toggle" id="toc-toggle-btn">[非表示]</span>
+            <!-- Main Content -->
+            <main class="wiki-main">
+                <div class="text-sm text-gray-500 mb-2">F-ZERO Wiki > キャラクター</div>
+                <h1>ドクター スチュワート</h1>
+                
+                <div class="wiki-nav">
+                    <div class="nav-item active">記事</div>
+                    <div class="nav-item">議論</div>
+                    <div class="nav-item">履歴</div>
                 </div>
-                <ul class="toc-list" id="toc-list">
-                    <li><a href="#概要">1 概要</a></li>
-                    <li><a href="#搭乗マシン">2 搭乗マシン</a>
-                        <ul>
-                            <li><a href="#ゴールデンフォックス">2.1 ゴールデンフォックス</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#プロフィール・設定">3 プロフィール・設定</a></li>
-                    <li><a href="#登場作品">4 登場作品</a></li>
-                </ul>
-            </div>
 
-            <h2 id="概要">概要</h2>
-            <p>本名はロバート スチュワート。かつては優秀な外科医として名を馳せていたが、同じく医師であり、宇宙超動力学の権威でもあった父ケビン スチュワートの死をきっかけにF-ZEROパイロットへと転身した。パイロットとなってからも医師としての顔を持っており、レースでの賞金は自身の診療所の資金や、父の遺したマシンのメンテナンス費用に充てている。</p>
-            <p>常に冷静沈着で紳士的な態度を崩さないプレイボーイであり、女性ファンからの人気も高い。</p>
+                <div class="prose max-w-none text-gray-800 leading-relaxed">
+                    <p class="mb-4">
+                        <b>ドクター スチュワート</b>（<span lang="en">Dr. Stewart</span>）は、F-ZEROシリーズに登場するパイロットの一人。
+                        かつては有名な外科医であったが、父の死をきっかけにF-ZEROパイロットとしての道を歩み始めた。
+                    </p>
+                    
+                    <h2 class="text-xl font-bold border-bottom border-gray-300 mt-6 mb-3 pb-1 border-b">概要</h2>
+                    <p class="mb-4">
+                        ドクター スチュワートは初代『F-ZERO』から登場している4人のオリジナルパイロットの1人である。
+                        愛機は黄金色の機体、<b>ゴールデンフォックス（GOLDEN FOX）</b>。
+                    </p>
+                    
+                    <h2 class="text-xl font-bold border-bottom border-gray-300 mt-6 mb-3 pb-1 border-b">人物</h2>
+                    <p class="mb-4">
+                        冷静沈着で知的な人物。彼の外科医としての腕前は超一流であり、レース界でもその精密なテクニックは高く評価されている。
+                        F-ZERO GPに参戦する理由は、亡き父の遺志を継ぐため、そして多額の賞金を自身の医療研究に充てるためと言われている。
+                    </p>
 
-            <h2 id="搭乗マシン">搭乗マシン</h2>
-            <h3 id="ゴールデンフォックス">ゴールデンフォックス (GOLDEN FOX)</h3>
-            <p>父であるケビン・スチュワートが設計・開発したF-ZEROマシン。ゼッケンナンバーは「03」。</p>
-            <p>初代『F-ZERO』以来、一貫してスチュワートの愛機として登場する。非常に軽量に作られており、凄まじい加速力と高いコーナリング性能を誇るが、その代償としてボディ強度は極めて低く、最高速度も控えめに設定されている。グリップ力も弱いため、スライドしやすいピーキーな性能を持つ上級者向けのマシンである。</p>
+                    <h2 class="text-xl font-bold border-bottom border-gray-300 mt-6 mb-3 pb-1 border-b">出演作品</h2>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>F-ZERO (SFC)</li>
+                        <li>F-ZERO X (N64)</li>
+                        <li>F-ZERO GX (NGC)</li>
+                        <li>F-ZERO ファルコン伝説 (GBA / アニメ)</li>
+                    </ul>
+                </div>
+            </main>
 
-            <h2 id="プロフィール・設定">プロフィール・設定</h2>
-            <ul>
-                <li><strong>年齢:</strong> 42歳（『F-ZERO X』、『F-ZERO GX』設定）</li>
-                <li><strong>趣味:</strong> 車のコレクション、クラシック音楽の鑑賞</li>
-                <li><strong>性格:</strong> 紳士的で頭脳明晰。しかしレース中はアグレッシブな一面を見せることもある。</li>
-            </ul>
+            <!-- Right Infobox -->
+            <aside>
+                <div class="wiki-infobox">
+                    <div class="infobox-header">ドクター スチュワート <br> Dr. Stewart</div>
+                    <img src="https://static.wikia.nocookie.net/fzero/images/f/f7/Drstewart.jpg" alt="Dr. Stewart" class="infobox-image">
+                    
+                    <table class="infobox-table text-xs">
+                        <tr>
+                            <th>本名</th>
+                            <td>ロバート スチュワート</td>
+                        </tr>
+                        <tr>
+                            <th>性別</th>
+                            <td>男性</td>
+                        </tr>
+                        <tr>
+                            <th>年齢</th>
+                            <td>42歳 (GX)</td>
+                        </tr>
+                        <tr>
+                            <th>職業</th>
+                            <td>外科医</td>
+                        </tr>
+                        <tr>
+                            <th>搭乗マシン</th>
+                            <td><span class="text-blue-600 cursor-pointer">ゴールデン・フォックス</span></td>
+                        </tr>
+                        <tr>
+                            <th>初登場作品</th>
+                            <td>F-ZERO</td>
+                        </tr>
+                    </table>
 
-            <h2 id="登場作品">登場作品</h2>
-            <ul>
-                <li><a href="#">F-ZERO</a> (スーパーファミコン)</li>
-                <li><a href="#">F-ZERO X</a> (NINTENDO64)</li>
-                <li><a href="#">F-ZERO GX/AX</a> (ニンテンドーゲームキューブ/アーケード)</li>
-                <li><a href="#">F-ZERO ファルコン伝説</a> (ゲームボーイアドバンス / アニメ)</li>
-                <li><a href="#">大乱闘スマッシュブラザーズシリーズ</a> (フィギュアやスピリッツとして登場)</li>
-            </ul>
+                    <div class="mt-4 bg-gray-200 p-2 text-center font-bold text-xs">
+                        マシンスペック
+                    </div>
+                    <table class="infobox-table text-xs">
+                        <tr>
+                            <th>No.</th>
+                            <td>03</td>
+                        </tr>
+                        <tr>
+                            <th>エンジン</th>
+                            <td>GF-2671×2</td>
+                        </tr>
+                        <tr>
+                            <th>重量</th>
+                            <td>1020 kg</td>
+                        </tr>
+                    </table>
+                </div>
 
-        </main>
+                <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-800">
+                    <strong>豆知識:</strong> 彼は『F-ZERO GX』のムービーシーンで、キャプテン ファルコンの診察を試みたことがある。
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- Safari Footer / Status Bar (Optional) -->
+        <div class="h-6 bg-gray-100 border-t border-gray-300 flex items-center px-4 justify-between text-[10px] text-gray-500">
+            <div>読み込み完了</div>
+            <div>Safari 17.4</div>
+        </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleBtn = document.getElementById('toc-toggle-btn');
-            const tocList = document.getElementById('toc-list');
-
-            toggleBtn.addEventListener('click', function() {
-                if (tocList.style.display === 'none') {
-                    tocList.style.display = 'block';
-                    toggleBtn.textContent = '[非表示]';
-                } else {
-                    tocList.style.display = 'none';
-                    toggleBtn.textContent = '[表示]';
-                }
+        // Simple interactive mock logic
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
             });
         });
+
+        // Mimic Safari's subtle behavior
+        console.log("Safari Simulation Loaded: Dr. Stewart Wiki Page");
     </script>
 </body>
 </html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πρόσκοπος - Team Fortress Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --safari-bg: #e9e9e9;
+            --wiki-bg: #f6f6f6;
+            --wiki-sidebar: #f6f6f6;
+            --tf2-red: #b8383b;
+            --tf2-blue: #5b7a8c;
+            --border-color: #a2a9b1;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #313339;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Safari Browser Styling */
+        .safari-window {
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+
+        .safari-toolbar {
+            background: linear-gradient(to bottom, #efefef, #d1d1d1);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid #b5b5b5;
+            user-select: none;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .address-bar {
+            flex-grow: 1;
+            background: white;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #333;
+            border: 1px solid #b5b5b5;
+            margin: 0 40px;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Wiki Content Styling */
+        .wiki-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            background-color: white;
+            color: #202122;
+        }
+
+        .wiki-sidebar {
+            width: 176px;
+            padding: 1rem;
+            background-color: var(--wiki-sidebar);
+            border-right: 1px solid #a7d7f9;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .wiki-main {
+            flex-grow: 1;
+            padding: 1.5rem 2.5rem;
+            line-height: 1.6;
+        }
+
+        .wiki-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.2rem;
+        }
+
+        .infobox {
+            float: right;
+            width: 300px;
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 5px;
+            font-size: 0.85rem;
+        }
+
+        .infobox-header {
+            background-color: var(--tf2-red);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+            font-size: 1.1rem;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .infobox-image {
+            background-color: #e1e1e1;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox th {
+            text-align: left;
+            padding: 4px 8px;
+            width: 40%;
+            vertical-align: top;
+        }
+
+        .infobox td {
+            padding: 4px 8px;
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 15px;
+            display: inline-block;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .wiki-link {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .wiki-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Tabs */
+        .wiki-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: -1px;
+            font-size: 0.85rem;
+        }
+
+        .wiki-tab {
+            padding: 8px 12px;
+            background: #f6f6f6;
+            border: 1px solid #a2a9b1;
+            border-bottom: none;
+            cursor: pointer;
+        }
+
+        .wiki-tab.active {
+            background: white;
+            font-weight: bold;
+            border-bottom: 1px solid white;
+        }
+
+        /* Scrollbar styling */
+        .wiki-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .wiki-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .wiki-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .wiki-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Πρόσκοπος - Team Fortress Wiki",
+      "description": "Η σελίδα wiki για τον Πρόσκοπο (Scout) στο «Team Fortress 2».",
+      "breadcrumb": "TF2 Wiki > Classes > Scout",
+      "mainEntity": {
+        "@type": "GameCharacter",
+        "name": "Πρόσκοπος (Scout)",
+        "game": "Team Fortress 2",
+        "origin": "Βοστώνη, Μασαχουσέτη, ΗΠΑ"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <div class="safari-window">
+        <!-- Safari Toolbar -->
+        <div class="safari-toolbar">
+            <div class="traffic-lights">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+            <div class="flex gap-4 text-gray-500 mr-4">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div class="address-bar">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2 opacity-50"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                wiki.teamfortress.com/wiki/Scout/el
+            </div>
+            <div class="ml-4 text-gray-600">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+            </div>
+        </div>
+
+        <!-- Wiki Content -->
+        <div class="wiki-container">
+            <!-- Sidebar -->
+            <aside class="wiki-sidebar">
+                <div class="mb-8">
+                    <img src="https://wiki.teamfortress.com/w/images/thumb/4/48/TF2_Crossed_Axes.png/120px-TF2_Crossed_Axes.png" alt="TF2 Logo" class="w-32 mx-auto">
+                </div>
+                <nav class="space-y-4">
+                    <div>
+                        <h4 class="font-bold border-b border-blue-200 mb-1">Πλοήγηση</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="wiki-link">Κύρια Σελίδα</a></li>
+                            <li><a href="#" class="wiki-link">Ενημερώσεις</a></li>
+                            <li><a href="#" class="wiki-link">Τυχαία σελίδα</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold border-b border-blue-200 mb-1">Κοινότητα</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="wiki-link">Πύλη κοινότητας</a></li>
+                            <li><a href="#" class="wiki-link">Συζητήσεις</a></li>
+                            <li><a href="#" class="wiki-link">Βοήθεια</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="wiki-main">
+                <div class="wiki-tabs">
+                    <div class="wiki-tab active">Σελίδα</div>
+                    <div class="wiki-tab">Συζήτηση</div>
+                    <div class="flex-grow"></div>
+                    <div class="wiki-tab">Ανάγνωση</div>
+                    <div class="wiki-tab">Προβολή κώδικα</div>
+                    <div class="wiki-tab">Ιστορικό</div>
+                </div>
+
+                <h1 class="wiki-title">Πρόσκοπος</h1>
+                <p class="italic text-gray-600 mb-4">Από το Team Fortress Wiki</p>
+
+                <div class="infobox">
+                    <div class="infobox-header">Πρόσκοπος</div>
+                    <div class="infobox-image">
+                        <img id="scoutImage" src="https://wiki.teamfortress.com/w/images/6/69/Scout.png" alt="Scout" class="max-w-full h-auto" onerror="this.src='https://via.placeholder.com/300x450?text=Scout+Image'">
+                        <div class="flex justify-center gap-2 mt-2">
+                            <button onclick="changeTeam('red')" class="px-3 py-1 bg-red-700 text-white text-xs rounded">RED</button>
+                            <button onclick="changeTeam('blue')" class="px-3 py-1 bg-blue-700 text-white text-xs rounded">BLU</button>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><th>Είδος</th><td>Επιθετική</td></tr>
+                        <tr><th>Υγεία</th><td>125 / 185</td></tr>
+                        <tr><th>Ταχύτητα</th><td>133% (400v)</td></tr>
+                        <tr><th>Καταγωγή</th><td>Βοστώνη, ΗΠΑ</td></tr>
+                        <tr><th>Φωνή</th><td>Nathan Vetterlein</td></tr>
+                    </table>
+                </div>
+
+                <p>
+                    Γεννημένος και μεγαλωμένος στην <a href="#" class="wiki-link">Βοστώνη</a> της Μασαχουσέτης, ο <b>Πρόσκοπος</b> (Scout) είναι ένας γρήγορος δρομέας και λάτρης του μπέιζμπολ. Είναι η ταχύτερη κλάση στο πεδίο της μάχης και η μοναδική που μπορεί να κάνει <b>διπλό άλμα</b>.
+                </p>
+
+                <div class="toc">
+                    <div class="toc-title">Περιεχόμενα</div>
+                    <ul class="space-y-1">
+                        <li>1 <a href="#bio" class="wiki-link">Βιογραφία</a></li>
+                        <li>2 <a href="#strategy" class="wiki-link">Βασική Στρατηγική</a></li>
+                        <li>3 <a href="#weapons" class="wiki-link">Όπλα</a></li>
+                        <li>4 <a href="#gallery" class="wiki-link">Γκαλερί</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="bio" class="section-header">Βιογραφία</h2>
+                <p>
+                    Ο μικρότερος από οκτώ αδέρφια, ο Πρόσκοπος έπρεπε να μάθει να τρέχει γρήγορα για να προλάβει το φαγητό πριν από τους μεγαλύτερους αδερφούς του. Αυτό το πείσμα και η ταχύτητά του τον έκαναν έναν από τους πιο επικίνδυνους μισθοφόρους.
+                </p>
+
+                <h2 id="strategy" class="section-header">Βασική Στρατηγική</h2>
+                <ul class="list-disc ml-8 space-y-2">
+                    <li>Χρησιμοποιήστε την ταχύτητά σας για να αποφύγετε τα εχθρικά πυρά.</li>
+                    <li>Το <b>διπλό άλμα</b> σας επιτρέπει να φτάσετε σε μέρη που άλλες κλάσεις δεν μπορούν.</li>
+                    <li>Είστε πιο αποτελεσματικοί σε μάχες σώμα με σώμα με το Scattergun σας.</li>
+                    <li>Καταλαμβάνετε σημεία ελέγχου (Control Points) και σπρώχνετε το καρότσι (Payload) με <b>διπλάσια ταχύτητα</b>.</li>
+                </ul>
+
+                <h2 id="weapons" class="section-header">Όπλα</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="border p-3 rounded bg-gray-50 flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <div class="font-bold">Scattergun</div>
+                            <div class="text-xs text-gray-500">Πρωτεύον Όπλο</div>
+                        </div>
+                    </div>
+                    <div class="border p-3 rounded bg-gray-50 flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <div class="font-bold">Pistol</div>
+                            <div class="text-xs text-gray-500">Δευτερεύον Όπλο</div>
+                        </div>
+                    </div>
+                    <div class="border p-3 rounded bg-gray-50 flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <div class="font-bold">Bat</div>
+                            <div class="text-xs text-gray-500">Όπλο Σώμα με Σώμα</div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="mt-12 pt-8 border-t text-xs text-gray-400">
+                    <p>Τελευταία τροποποίηση αυτής της σελίδας: 14 Μαΐου 2024.</p>
+                    <p>Το περιεχόμενο είναι διαθέσιμο υπό την CC BY-NC-SA 3.0 εκτός αν αναφέρεται διαφορετικά.</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function changeTeam(team) {
+            const img = document.getElementById('scoutImage');
+            const header = document.querySelector('.infobox-header');
+            
+            if (team === 'red') {
+                img.src = "https://wiki.teamfortress.com/w/images/6/69/Scout.png";
+                header.style.backgroundColor = "var(--tf2-red)";
+            } else {
+                // Approximate URL for Blue Scout if needed, or just change UI color
+                img.src = "https://wiki.teamfortress.com/w/images/b/b3/Scout_Blue.png";
+                header.style.backgroundColor = "var(--tf2-blue)";
+            }
+        }
+
+        // Handle image fallbacks if official wiki links fail
+        window.addEventListener('DOMContentLoaded', () => {
+            const img = document.getElementById('scoutImage');
+            img.onerror = function() {
+                this.src = "https://wiki.teamfortress.com/w/images/thumb/6/69/Scout.png/250px-Scout.png";
+            };
+        });
+    </script>
+</body>
+</html>

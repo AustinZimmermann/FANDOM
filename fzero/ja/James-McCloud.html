@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ジェームズ マクラウド | F-ZERO Wiki | Fandom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD for Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "ジェームズ マクラウド",
+      "alternateName": "James McCloud",
+      "description": "F-ZEROシリーズの登場人物。遊撃隊『ギャラクシードッグ』のリーダー。",
+      "image": "https://static.wikia.nocookie.net/fzero/images/6/69/023.jpg",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Galaxy Dog"
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* macOS Safari Window Styling */
+        .safari-window {
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #d1d1d1;
+        }
+
+        .safari-toolbar {
+            background: #f1f1f1;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #d1d1d1;
+            user-select: none;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+        }
+
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            color: #757575;
+        }
+
+        .address-bar {
+            flex-grow: 1;
+            background: #e3e3e3;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .address-bar i {
+            margin-right: 6px;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Fandom Wiki Specific Styles */
+        .wiki-container {
+            display: flex;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .wiki-sidebar {
+            width: 66px;
+            background: #002a32;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            flex-shrink: 0;
+        }
+
+        .wiki-content {
+            flex-grow: 1;
+            padding: 20px 40px;
+            color: #3a3a3a;
+            max-width: 900px;
+        }
+
+        .wiki-header {
+            border-bottom: 1px solid #ccd0d3;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .wiki-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #ccd0d3;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .infobox-header {
+            background: #2e3d4c;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .infobox-image {
+            padding: 10px;
+            text-align: center;
+            background: #f0f0f0;
+        }
+
+        .infobox-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        .infobox-section {
+            background: #eaeced;
+            padding: 4px 8px;
+            font-weight: bold;
+            border-top: 1px solid #ccd0d3;
+            border-bottom: 1px solid #ccd0d3;
+        }
+
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox th {
+            text-align: left;
+            padding: 6px 8px;
+            width: 40%;
+            vertical-align: top;
+            font-weight: 600;
+        }
+
+        .infobox td {
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+
+        .article-body p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            border-bottom: 1px solid #ccd0d3;
+            margin: 30px 0 15px 0;
+            padding-bottom: 5px;
+        }
+
+        /* Mock Tab bar */
+        .tab-bar {
+            background: #e3e3e3;
+            height: 32px;
+            display: flex;
+            align-items: flex-end;
+            padding-left: 80px;
+        }
+
+        .tab {
+            background: #fff;
+            height: 28px;
+            padding: 0 20px;
+            border-radius: 6px 6px 0 0;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #d1d1d1;
+            border-bottom: none;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tab-inactive {
+            background: transparent;
+            border: none;
+            color: #666;
+        }
+
+        /* Scrollbar styling */
+        .wiki-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .wiki-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .wiki-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+        .wiki-container::-webkit-scrollbar-thumb:hover {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="safari-window">
+    <!-- Safari Toolbar -->
+    <div class="safari-toolbar">
+        <div class="traffic-lights">
+            <div class="light red"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+        <div class="nav-buttons">
+            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="address-bar">
+            <i class="fas fa-lock"></i>
+            <span>fzero.fandom.com/ja/ジェームズ_マクラウド</span>
+        </div>
+        <div class="flex gap-4 text-gray-500 ml-auto">
+            <i class="fas fa-share-square"></i>
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-clone"></i>
+        </div>
+    </div>
+
+    <!-- Safari Tabs -->
+    <div class="tab-bar">
+        <div class="tab">
+            <i class="fab fa-wikipedia-w text-blue-500"></i>
+            <span>ジェームズ マクラウド | F-ZERO...</span>
+            <i class="fas fa-times text-[10px] ml-2 opacity-50"></i>
+        </div>
+        <div class="tab tab-inactive">
+            <span>F-ZERO Wiki</span>
+        </div>
+    </div>
+
+    <!-- Wiki Content Area -->
+    <div class="wiki-container">
+        <!-- Wiki Sidebar (Fandom style) -->
+        <div class="wiki-sidebar">
+            <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center mb-6 overflow-hidden">
+                <img src="https://www.fandom.com/fandom-static/images/logo/fandom-logo.svg" alt="Fandom" class="w-8">
+            </div>
+            <div class="flex flex-col gap-6 text-white opacity-70 text-lg">
+                <i class="fas fa-home"></i>
+                <i class="fas fa-compass"></i>
+                <i class="fas fa-random"></i>
+                <i class="fas fa-user-friends"></i>
+            </div>
+        </div>
+
+        <!-- Main Article Area -->
+        <div class="wiki-content">
+            <nav class="text-xs text-gray-500 mb-4">
+                F-ZERO Wiki > キャラクター > <span class="hover:underline cursor-pointer">ジェームズ マクラウド</span>
+            </nav>
+
+            <header class="wiki-header">
+                <h1 class="wiki-title">ジェームズ マクラウド</h1>
+            </header>
+
+            <!-- Infobox -->
+            <aside class="infobox">
+                <div class="infobox-header">ジェームズ マクラウド<br>James McCloud</div>
+                <div class="infobox-image">
+                    <img src="https://static.wikia.nocookie.net/fzero/images/6/69/023.jpg" alt="ジェームズ マクラウド">
+                    <div class="text-[10px] mt-1 text-gray-500">『F-ZERO GX』での公式アートワーク</div>
+                </div>
+                <div class="infobox-section">基本情報</div>
+                <table>
+                    <tr>
+                        <th>登場作品</th>
+                        <td>F-ZERO X<br>F-ZERO GX</td>
+                    </tr>
+                    <tr>
+                        <th>パイロットNo.</th>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <th>搭乗マシン</th>
+                        <td>リトルワイバーン</td>
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td>男性</td>
+                    </tr>
+                    <tr>
+                        <th>年齢</th>
+                        <td>32歳 (GX)</td>
+                    </tr>
+                    <tr>
+                        <th>職業</th>
+                        <td>遊撃隊「ギャラクシードッグ」リーダー</td>
+                    </tr>
+                </table>
+            </aside>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p>
+                    <strong>ジェームズ マクラウド</strong>（英：<span lang="en">James McCloud</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空の人物。
+                </p>
+                <p>
+                    銀河の平和を守る遊撃隊「ギャラクシードッグ」のリーダーであり、かつては銀河連邦軍の軍人であった経歴を持つ。その外見や名前、そしてリーダーを務めるチームの名など、同社の『スターフォックス』シリーズに登場するフォックス・マクラウドの父「ジェームズ・マクラウド」と酷似している。
+                </p>
+
+                <h2 class="section-title">人物像</h2>
+                <p>
+                    非常に正義感が強く、規律を重んじる。家族を養うためにF-ZEROグランプリへの参戦を決意したという背景があり、軍人時代に培った操縦技術はF-ZEROマシンにおいても遺憾なく発揮されている。
+                </p>
+                <p>
+                    彼の所属する「ギャラクシードッグ」は、金のために動く傭兵ではなく、あくまでも正義と平和のために行動する組織として描かれている。
+                </p>
+
+                <h2 class="section-title">搭乗マシン</h2>
+                <p>
+                    彼の愛機は<strong>リトルワイバーン（LITTLE WYVERN）</strong>。かつて彼が連邦軍で操縦していた戦闘機をレース用に改造したものとされており、軽量ながらもバランスの取れた性能を持つ。
+                </p>
+                <div class="bg-gray-100 p-4 border-l-4 border-blue-500 my-4 text-sm italic">
+                    「このマシンなら、どんなコースでも自由自在だ。俺のテクニックについてこれるか？」
+                </div>
+
+                <h2 class="section-title">スターフォックスとの関連</h2>
+                <p>
+                    公式には「スターフォックスの世界のジェームズ本人ではない」とされているが、デザインや背景設定に多くのオマージュが含まれている。特に『F-ZERO GX』のエンディングでは、フォックス・マクラウドを彷彿とさせる息子について言及する場面があるなど、ファンサービス的な要素が強い。
+                </p>
+            </div>
+
+            <footer class="mt-20 pt-10 border-t border-gray-200 text-xs text-gray-400 pb-10">
+                最終更新: 2024年1月1日<br>
+                コンテンツは特に記載のない限りCC BY-SA 3.0で利用可能です。
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simple interactions for the Safari mock
+    document.addEventListener('DOMContentLoaded', () => {
+        const addressBar = document.querySelector('.address-bar');
+        
+        // Visual feedback when clicking the address bar
+        addressBar.addEventListener('click', () => {
+            addressBar.classList.add('bg-white', 'ring-2', 'ring-blue-400');
+            addressBar.style.justifyContent = 'flex-start';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!addressBar.contains(e.target)) {
+                addressBar.classList.remove('bg-white', 'ring-2', 'ring-blue-400');
+                addressBar.style.justifyContent = 'center';
+            }
+        });
+
+        // Close button mock functionality
+        document.querySelector('.red').addEventListener('click', () => {
+            if(confirm('ブラウザのウィンドウを閉じますか？')) {
+                document.querySelector('.safari-window').style.display = 'none';
+                setTimeout(() => {
+                    document.querySelector('.safari-window').style.display = 'flex';
+                }, 2000);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

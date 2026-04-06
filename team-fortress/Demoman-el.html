@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Δυναμίτης - Team Fortress Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Safari UI Elements */
+        .safari-toolbar {
+            background: linear-gradient(to bottom, #ebebeb, #d1d1d1);
+            border-bottom: 1px solid #ababab;
+            height: 75px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+            user-select: none;
+        }
+
+        .safari-buttons {
+            display: flex;
+            align-items: center;
+            height: 38px;
+            gap: 15px;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 10px;
+        }
+
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .address-bar {
+            background: white;
+            border: 1px solid #c3c3c3;
+            border-radius: 5px;
+            flex-grow: 1;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wiki Specific Layout */
+        .wiki-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .wiki-sidebar {
+            width: 160px;
+            padding: 0 10px;
+            font-size: 13px;
+        }
+
+        .wiki-sidebar h3 {
+            border-bottom: 1px solid #a7d7f9;
+            margin-bottom: 5px;
+            margin-top: 15px;
+            font-weight: normal;
+            color: #444;
+        }
+
+        .wiki-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .wiki-sidebar li {
+            margin-bottom: 4px;
+        }
+
+        .wiki-sidebar a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .wiki-sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .wiki-main {
+            flex-grow: 1;
+            background: white;
+            border: 1px solid #a7d7f9;
+            padding: 20px;
+            margin-left: 10px;
+        }
+
+        .wiki-header {
+            border-bottom: 1px solid #aaa;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        .wiki-header h1 {
+            font-size: 28px;
+            font-family: serif;
+            margin: 0;
+        }
+
+        /* Info Box */
+        .infobox {
+            float: right;
+            width: 270px;
+            background: #f9f9f9;
+            border: 1px solid #aaa;
+            margin: 0 0 10px 10px;
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        .infobox-header {
+            background: #312a25;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            background: #4e443a;
+            margin-top: 5px;
+        }
+
+        .infobox-table {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .infobox-table td {
+            padding: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .label {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        /* Content Styles */
+        .toc {
+            background: #f9f9f9;
+            border: 1px solid #aaa;
+            padding: 10px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .section-header {
+            border-bottom: 1px solid #aaa;
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+            font-family: serif;
+        }
+
+        .quote-box {
+            background: #f0f0f0;
+            border-left: 4px solid #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #aaa;
+            padding-top: 10px;
+        }
+
+        /* Tabs UI */
+        .wiki-tabs {
+            display: flex;
+            margin-bottom: -1px;
+            font-size: 13px;
+        }
+
+        .tab {
+            padding: 5px 12px;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab-active {
+            background: white;
+            border: 1px solid #a7d7f9;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+        }
+
+        .tab-link {
+            color: #0645ad;
+        }
+    </style>
+    <!-- JSON-LD for Search Engine Simulation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Δυναμίτης (Demoman)",
+      "description": "Η σελίδα του Δυναμίτη από το Team Fortress Wiki.",
+      "breadcrumb": "TF2 Wiki > Classes > Δυναμίτης",
+      "mainEntity": {
+        "@type": "GameCharacter",
+        "name": "Δυναμίτης",
+        "game": "Team Fortress 2"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Safari Browser UI -->
+    <div class="safari-toolbar">
+        <div class="safari-buttons">
+            <div class="traffic-lights">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+            <div class="flex gap-4 text-gray-600 text-lg">
+                <i class="fa-solid fa-chevron-left cursor-pointer"></i>
+                <i class="fa-solid fa-chevron-right cursor-not-allowed opacity-30"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="address-bar">
+                <i class="fa-solid fa-lock text-[10px] mr-2 text-green-600"></i>
+                wiki.teamfortress.com/wiki/Demoman/el
+            </div>
+            <div class="flex gap-4 text-gray-600 text-lg ml-auto">
+                <i class="fa-solid fa-share-nodes"></i>
+                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-copy"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wiki Content -->
+    <div class="wiki-container">
+        <!-- Sidebar -->
+        <aside class="wiki-sidebar">
+            <div class="mb-4">
+                <img src="https://wiki.teamfortress.com/w/images/thumb/7/70/Tf2_wiki_logo_2.png/135px-Tf2_wiki_logo_2.png" alt="Logo" class="w-full">
+            </div>
+            
+            <h3>Πλοήγηση</h3>
+            <ul>
+                <li><a href="#">Κύρια σελίδα</a></li>
+                <li><a href="#">Πρόσφατες αλλαγές</a></li>
+                <li><a href="#">Τυχαία σελίδα</a></li>
+                <li><a href="#">Βοήθεια</a></li>
+            </ul>
+
+            <h3>Κλάσεις</h3>
+            <ul>
+                <li><a href="#">Πρόσκοπος</a></li>
+                <li><a href="#">Στρατιώτης</a></li>
+                <li><a href="#">Πυροτεχνουργός</a></li>
+                <li><a href="#" class="font-bold">Δυναμίτης</a></li>
+                <li><a href="#">Βαρύς</a></li>
+                <li><a href="#">Μηχανικός</a></li>
+                <li><a href="#">Γιατρός</a></li>
+                <li><a href="#">Ελεύθερος Σκοπευτής</a></li>
+                <li><a href="#">Κατάσκοπος</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Page Area -->
+        <main class="flex-grow">
+            <!-- Tabs -->
+            <div class="flex justify-end">
+                <div class="wiki-tabs">
+                    <div class="tab tab-active">Σελίδα</div>
+                    <div class="tab tab-link">Συζήτηση</div>
+                </div>
+                <div class="wiki-tabs ml-4">
+                    <div class="tab tab-active">Ανάγνωση</div>
+                    <div class="tab tab-link">Επεξεργασία</div>
+                    <div class="tab tab-link">Ιστορικό</div>
+                </div>
+            </div>
+
+            <div class="wiki-main">
+                <div class="wiki-header">
+                    <h1>Δυναμίτης</h1>
+                    <div class="text-[11px] text-gray-500">Από το Team Fortress Wiki</div>
+                </div>
+
+                <!-- Info Box -->
+                <div class="infobox">
+                    <div class="infobox-header">Ο Δυναμίτης</div>
+                    <img src="https://wiki.teamfortress.com/w/images/f/fd/Demoman.png" alt="Demoman">
+                    <table class="infobox-table">
+                        <tr>
+                            <td class="label">Εικόνα</td>
+                            <td><i class="fa-solid fa-shield-halved text-gray-600"></i> Αμυντικός</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Όνομα</td>
+                            <td>Tavish Finnegan DeGroot</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Καταγωγή</td>
+                            <td>Ullapool, Σκωτία</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Υγεία</td>
+                            <td>175 / 260 HP</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Ταχύτητα</td>
+                            <td>93%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="quote-box">
+                    "Τι κάνει έναν καλό Δυναμίτη; Αν ήμουν κακός Δυναμίτης, δεν θα καθόμουν εδώ να το συζητάω μαζί σου, έτσι δεν είναι;"
+                    <div class="text-right font-bold">— Ο Δυναμίτης</div>
+                </div>
+
+                <p class="mb-4">
+                    Ο <b>Δυναμίτης</b> είναι ένας μονόφθαλμος λάτρης των εκρηκτικών από το Ullapool της Σκωτίας. Είναι μία από τις πιο ευέλικτες κλάσεις στο παιχνίδι, ικανός τόσο για άμυνα όσο και για επίθεση.
+                </p>
+
+                <div class="toc">
+                    <div class="toc-title">Περιεχόμενα</div>
+                    <ul class="pl-4">
+                        <li>1. <a href="#bio" class="text-blue-700">Βιογραφία</a></li>
+                        <li>2. <a href="#strategy" class="text-blue-700">Βασική Στρατηγική</a></li>
+                        <li>3. <a href="#weapons" class="text-blue-700">Όπλα</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="bio" class="section-header">Βιογραφία</h2>
+                <p class="mb-4">
+                    Ένας φανατικός των εκρηκτικών με τρομερή ιδιοσυγκρασία, ο Δυναμίτης (Tavish Finnegan DeGroot) έχασε το μάτι του και τους θετούς γονείς του σε ένα ατύχημα που περιλάμβανε το Nessie, ένα μαγικό βιβλίο και πολύ δυναμίτη. Τώρα εργάζεται ως μισθοφόρος για την Reliable Excavation Demolition (RED) ή την Builders League United (BLU).
+                </p>
+
+                <h2 id="strategy" class="section-header">Βασική Στρατηγική</h2>
+                <ul class="list-disc pl-8 space-y-2">
+                    <li>Χρησιμοποιήστε το <b>Stickybomb Launcher</b> για να στήσετε παγίδες γύρω από τα σημεία ελέγχου.</li>
+                    <li>Το <b>Grenade Launcher</b> είναι εξαιρετικό για άμεση ζημιά, αλλά απαιτεί καλή στόχευση.</li>
+                    <li>Μπορείτε να κάνετε "sticky jump" πυροδοτώντας μια βόμβα κάτω από τα πόδια σας ενώ πηδάτε.</li>
+                </ul>
+
+                <h2 id="weapons" class="section-header">Όπλα</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="border p-2 bg-gray-50 flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">💣</div>
+                        <div>
+                            <div class="font-bold text-blue-800">Grenade Launcher</div>
+                            <div class="text-xs">Πρωτεύον Όπλο</div>
+                        </div>
+                    </div>
+                    <div class="border p-2 bg-gray-50 flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">🧨</div>
+                        <div>
+                            <div class="font-bold text-blue-800">Stickybomb Launcher</div>
+                            <div class="text-xs">Δευτερεύον Όπλο</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Αυτή η σελίδα τροποποιήθηκε τελευταία φορά στις 6 Απριλίου 2026. Το περιεχόμενο είναι διαθέσιμο υπό την άδεια CC BY-NC-SA 3.0 εκτός αν αναφέρεται διαφορετικά.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple interaction for the browser buttons
+        document.querySelector('.red').onclick = () => {
+            if(confirm('Θέλετε να κλείσετε το παράθυρο;')) {
+                document.body.innerHTML = '<div class="flex h-screen items-center justify-center text-gray-400 font-sans">Το παράθυρο έκλεισε.</div>';
+            }
+        };
+
+        // Scroll to sections logic
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.onclick = function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            };
+        });
+    </script>
+</body>
+</html>

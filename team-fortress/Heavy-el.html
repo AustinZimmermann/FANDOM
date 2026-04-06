@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Βαρύς - Team Fortress Wiki</title>
+    <style>
+        /* macOS Safari Mockup Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .safari-window {
+            width: 90%;
+            max-width: 1100px;
+            margin-top: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 1px solid #d1d1d1;
+        }
+
+        /* Safari Toolbar */
+        .toolbar {
+            background: linear-gradient(to bottom, #ebebeb, #d1d1d1);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #b5b5b5;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f57; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #28c840; }
+
+        .address-bar {
+            background: white;
+            flex-grow: 1;
+            margin: 0 50px;
+            height: 24px;
+            border-radius: 5px;
+            border: 1px solid #c3c3c3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Wiki Layout */
+        .wiki-content {
+            padding: 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            color: #202122;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            border-bottom: 1px solid #a2a9b1;
+            margin-bottom: 0.25em;
+            font-weight: normal;
+        }
+
+        .main-text p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* TF2 Wiki Infobox */
+        .infobox {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 5px;
+            width: 300px;
+            font-size: 0.9em;
+        }
+
+        .infobox-header {
+            background-color: #312a25;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        .infobox-image {
+            text-align: center;
+            background: #2b2b2b;
+            padding: 10px;
+        }
+
+        .infobox-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .info-row {
+            display: flex;
+            border-bottom: 1px solid #a2a9b1;
+            padding: 5px 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            width: 40%;
+            padding-left: 5px;
+        }
+
+        .info-data {
+            width: 60%;
+        }
+
+        .link { color: #0645ad; text-decoration: none; }
+        .link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="safari-window">
+    <div class="toolbar">
+        <div class="buttons">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <div class="address-bar">
+            wiki.teamfortress.com/wiki/Heavy/el
+        </div>
+    </div>
+
+    <div class="wiki-content">
+        <h1>Βαρύς</h1>
+
+        <div class="main-text">
+            <p>
+                Ο <b>Βαρύς</b> (Heavy) είναι μια από τις πιο εμβληματικές κλάσεις στο <i>Team Fortress 2</i>. Συχνά αποκαλούμενος και ως “Heavy Weapons Guy”, είναι η πιο ανθεκτική αλλά και η πιο αργή κλάση στο παιχνίδι.
+            </p>
+            <p>
+                Με το τεράστιο Minigun του, μπορεί να προκαλέσει τεράστια ζημιά σε κοντινή απόσταση, ενώ η μεγάλη του υγεία του επιτρέπει να ηγείται των επιθέσεων της ομάδας του, ειδικά όταν συνοδεύεται από έναν <a href="#" class="link">Medic</a>.
+            </p>
+            <h3>Βασική Στρατηγική</h3>
+            <ul>
+                <li>Χρησιμοποιήστε το δευτερεύον αντικείμενο Σάντουιτς για να θεραπεύσετε τον εαυτό σας ή τους συμπαίκτες σας.</li>
+                <li>Προσέχετε τους <a href="#" class="link">Snipers</a> και τους <a href="#" class="link">Spies</a>, καθώς είστε εύκολος στόχος λόγω ταχύτητας.</li>
+            </ul>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-header">Βαρύς</div>
+            <div class="infobox-image">
+                <img src="https://wiki.teamfortress.com/w/images/0/08/Heavy.png" alt="Heavy Weapons Guy">
+            </div>
+            
+            <div class="info-row">
+                <div class="info-label">Είδος</div>
+                <div class="info-data">Άμυνα</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Καταγωγή</div>
+                <div class="info-data">ΕΣΣΔ</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Υγεία</div>
+                <div class="info-data">300 / 450</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Ταχύτητα</div>
+                <div class="info-data">77%</div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    // Simple logic to mimic browser interactions if needed
+    console.log("Team Fortress Wiki Simulator (Greek) loaded.");
+</script>
+
+</body>
+</html>

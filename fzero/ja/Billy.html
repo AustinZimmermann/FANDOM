@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビリー | F-ZERO Wiki | Fandom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --fandom-bg: #f5f8fa;
+            --fandom-nav: #ffffff;
+            --fandom-accent: #00d6d6;
+            --fandom-text: #3a3a3a;
+            --safari-top: #e0e0e0;
+            --wiki-border: #ccd6dd;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: #2c2c2c;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+
+        /* Safari Window Chrome */
+        .safari-window {
+            width: 95%;
+            max-width: 1200px;
+            background: var(--fandom-bg);
+            border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .safari-toolbar {
+            background: linear-gradient(to bottom, #ebebeb, #d1d1d1);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            border-bottom: 1px solid #ababab;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .address-bar {
+            flex-grow: 1;
+            background: white;
+            height: 28px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #555;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+
+        /* Wiki Content */
+        .fandom-container {
+            display: flex;
+            height: calc(90vh - 52px);
+            overflow-y: auto;
+        }
+
+        .fandom-sidebar {
+            width: 66px;
+            background: #0e1111;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            gap: 15px;
+        }
+
+        .fandom-main {
+            flex-grow: 1;
+            background: white;
+            padding: 20px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .wiki-header {
+            border-bottom: 1px solid var(--wiki-border);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .wiki-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Infobox Styling */
+        .infobox {
+            float: right;
+            width: 320px;
+            border: 1px solid var(--wiki-border);
+            background: #f8f9fa;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .infobox-header {
+            background: #002b5b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .infobox-image {
+            padding: 10px;
+            background: white;
+            text-align: center;
+        }
+
+        .infobox-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+        }
+
+        .infobox-section {
+            background: #eaeff4;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-top: 1px solid var(--wiki-border);
+            border-bottom: 1px solid var(--wiki-border);
+        }
+
+        .infobox-row {
+            display: flex;
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .infobox-label {
+            width: 40%;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .infobox-value {
+            width: 60%;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            color: var(--fandom-text);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--wiki-border);
+            margin: 30px 0 15px 0;
+            padding-bottom: 5px;
+        }
+
+        /* Mock Search */
+        .search-container {
+            margin-left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-icon {
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .fandom-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--fandom-accent);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ビリー - F-ZERO Wiki",
+      "description": "『F-ZERO』シリーズに登場するキャラクター、ビリーについての解説ページ。",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Fandom",
+        "logo": "https://www.fandom.com/fandom-logo.png"
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "name": "ビリー",
+        "alternateName": "Billy",
+        "description": "F-ZEROレーサー。マッドウルフのパイロット。",
+        "image": "https://static.wikia.nocookie.net/fzero/images/e/e1/Billy.jpg"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <div class="safari-window">
+        <!-- Safari Toolbar -->
+        <div class="safari-toolbar">
+            <div class="traffic-lights">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="search-container">
+                <span class="nav-icon">◀</span>
+                <span class="nav-icon">▶</span>
+            </div>
+            <div class="address-bar">
+                <span style="margin-right: 5px; color: #aaa;">🔒</span> fzero.fandom.com/ja/wiki/ビリー
+            </div>
+            <div style="margin-left: 20px; display: flex; gap: 15px;">
+                <span class="nav-icon">⟳</span>
+                <span class="nav-icon">+</span>
+                <span class="nav-icon">⧉</span>
+            </div>
+        </div>
+
+        <div class="fandom-container">
+            <!-- Left Sidebar Navigation -->
+            <div class="fandom-sidebar">
+                <div class="fandom-logo">F</div>
+                <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
+                <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
+                <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
+            </div>
+
+            <!-- Main Wiki Content -->
+            <div class="fandom-main">
+                <div class="wiki-header">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">F-ZERO Wiki</div>
+                    <h1 class="wiki-title">ビリー</h1>
+                </div>
+
+                <div class="article-content">
+                    <!-- Infobox -->
+                    <aside class="infobox">
+                        <div class="infobox-header">ビリー<br>Billy</div>
+                        <div class="infobox-image">
+                            <img src="https://static.wikia.nocookie.net/fzero/images/e/e1/Billy.jpg" alt="Billy from F-ZERO">
+                        </div>
+                        <div class="infobox-section">基本情報</div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">性別</div>
+                            <div class="infobox-value">オス</div>
+                        </div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">年齢</div>
+                            <div class="infobox-value">7歳 (猿年齢)</div>
+                        </div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">職業</div>
+                            <div class="infobox-value">F-ZEROレーサー</div>
+                        </div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">搭乗マシン</div>
+                            <div class="infobox-value"><a href="#" class="text-blue-600 hover:underline">マッドウルフ</a></div>
+                        </div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">初登場</div>
+                            <div class="infobox-value">F-ZERO X</div>
+                        </div>
+                        <div class="infobox-section">身体データ</div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">身長</div>
+                            <div class="infobox-value">145cm</div>
+                        </div>
+                        <div class="infobox-row">
+                            <div class="infobox-label">体重</div>
+                            <div class="infobox-value">58kg</div>
+                        </div>
+                    </aside>
+
+                    <p>
+                        <b>ビリー</b>（<span lang="en">Billy</span>）は、任天堂のレースゲーム『<a href="#" class="text-blue-600 hover:underline">F-ZERO</a>』シリーズに登場する架空のキャラクター。
+                    </p>
+
+                    <p>
+                        F-ZERO史上初の人類以外のレーサー。その正体は、かつて天才的なパイロットとして名を馳せた父親の技術を受け継いだ猿である。非常に優れた動体視力と反射神経を持っており、マシン「<a href="#" class="text-blue-600 hover:underline">マッドウルフ</a>」を自在に操る。
+                    </p>
+
+                    <h2 class="section-title">人物</h2>
+                    <p>
+                        見た目はごく普通の猿だが、その知能は極めて高く、人間と意思疎通を図ることも可能。実験動物として育てられていたが、その才能を見出されF-ZEROグランプリへの参戦が決定した。
+                    </p>
+                    <p>
+                        常に冷静沈着であり、レース中も感情を乱すことなく、計算された精密なドライビングを見せる。彼の目的は、かつて事故で亡くなった父の無念を晴らすこと、そして猿という種族が人間よりも優れたパイロットであることを証明することにある。
+                    </p>
+
+                    <h2 class="section-title">搭乗マシン</h2>
+                    <div class="bg-gray-50 p-4 border-l-4 border-blue-800 italic mb-4">
+                        詳細は「<a href="#" class="text-blue-600 hover:underline">マッドウルフ</a>」を参照
+                    </div>
+                    <p>
+                        ビリーの愛機である<b>マッドウルフ（MAD WOLF）</b>は、バランスの取れた性能を持つマシンである。特にコーナリング性能に秀でており、テクニカルなコースでその真価を発揮する。
+                    </p>
+
+                    <h2 class="section-title">登場作品</h2>
+                    <ul class="list-disc ml-6 space-y-2">
+                        <li>F-ZERO X</li>
+                        <li>F-ZERO GX</li>
+                        <li>F-ZERO ファルコン伝説 (アニメ)</li>
+                        <li>F-ZERO 99</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interaction for the simulator
+        document.querySelectorAll('.nav-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const action = icon.innerText;
+                console.log(`Safari Action: ${action}`);
+                // In a real simulator, we'd handle back/forward logic here
+            });
+        });
+    </script>
+</body>
+</html>

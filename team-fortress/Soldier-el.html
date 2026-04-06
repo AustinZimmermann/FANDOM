@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Στρατιώτης - Team Fortress Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --safari-top-bg: #e6e6e6;
+            --wiki-link: #0645ad;
+            --wiki-bg: #f6f6f6;
+            --tf2-red: #bd3b3b;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Safari Interface Styles */
+        .safari-window {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .safari-toolbar {
+            background: var(--safari-top-bg);
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #c0c0c0;
+            gap: 15px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .address-bar {
+            flex-grow: 1;
+            background: #fff;
+            border-radius: 5px;
+            padding: 4px 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #333;
+            border: 1px solid #d1d1d1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Wiki Content Styles */
+        .wiki-container {
+            display: flex;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            background: white;
+        }
+
+        .wiki-sidebar {
+            width: 170px;
+            padding: 20px 10px;
+            font-size: 13px;
+            border-right: 1px solid #a7d7f9;
+            background: var(--wiki-bg);
+            flex-shrink: 0;
+        }
+
+        .wiki-sidebar a {
+            color: var(--wiki-link);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .wiki-main {
+            flex-grow: 1;
+            padding: 20px 40px;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .wiki-title {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            border-bottom: 1px solid #a2a9b1;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        .infobox {
+            float: right;
+            width: 300px;
+            border: 1px solid #a2a9b1;
+            background: #f8f9fa;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            padding: 5px;
+            font-size: 13px;
+        }
+
+        .infobox-header {
+            background: #2f2f2f;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            background: #eee;
+            margin-top: 5px;
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox-table td {
+            padding: 4px;
+            border-bottom: 1px solid #eaecf0;
+        }
+
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-header {
+            font-size: 22px;
+            border-bottom: 1px solid #a2a9b1;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .wiki-link {
+            color: var(--wiki-link);
+            cursor: pointer;
+        }
+
+        .wiki-link:hover {
+            text-decoration: underline;
+        }
+
+        .role-icon {
+            width: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        /* Mock Scrollbar for Safari look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Στρατιώτης - Team Fortress Wiki",
+      "description": "Πληροφορίες για την κλάση Στρατιώτης (Soldier) από το παιχνίδι «Team Fortress 2».",
+      "breadcrumb": "TF2 Wiki > Classes > Soldier",
+      "mainEntity": {
+        "@type": "GameCharacter",
+        "name": "Soldier",
+        "alternateName": "Στρατιώτης",
+        "game": "Team Fortress 2",
+        "role": "Offense"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <div class="safari-window">
+        <!-- Safari Header -->
+        <div class="safari-toolbar">
+            <div class="dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
+            <div style="color: #666; font-size: 18px; margin-left: 10px;">
+                <span>&#10094;</span> <span style="margin-left: 15px;">&#10095;</span>
+            </div>
+            <div class="address-bar">
+                <span style="color: #888;">&#128274;</span> wiki.teamfortress.com/wiki/Soldier/el
+            </div>
+            <div style="color: #666; font-size: 18px;">
+                <span>&#8631;</span>
+            </div>
+        </div>
+
+        <!-- Wiki Content -->
+        <div class="wiki-container">
+            <!-- Sidebar -->
+            <aside class="wiki-sidebar">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="https://wiki.teamfortress.com/w/images/thumb/1/1d/Wiki_Logo_EL.png/135px-Wiki_Logo_EL.png" alt="TF2 Wiki" style="width: 120px;">
+                </div>
+                <div class="mb-4">
+                    <b class="block border-b mb-1">Πλοήγηση</b>
+                    <a href="#">Κύρια σελίδα</a>
+                    <a href="#">Ενημερώσεις</a>
+                    <a href="#">Κλάσεις</a>
+                    <a href="#">Αντικείμενα</a>
+                    <a href="#">Στρατηγική</a>
+                </div>
+                <div class="mb-4">
+                    <b class="block border-b mb-1">Εργαλεία</b>
+                    <a href="#">Τι συνδέεται εδώ</a>
+                    <a href="#">Σχετικές αλλαγές</a>
+                    <a href="#">Ειδικές σελίδες</a>
+                </div>
+            </aside>
+
+            <!-- Main Page -->
+            <main class="wiki-main">
+                <div class="wiki-title">Στρατιώτης</div>
+                
+                <p>
+                    Ο <b>Στρατιώτης</b> (Soldier) είναι μια τρελή, αγριοφωνάρα και πατριωτική κλάση επιθέσεως από τις Μεσοδυτικές Πολιτείες των ΗΠΑ. Παρόλο που φαίνεται σαν ένας τυπικός στρατιωτικός, δεν είναι.
+                </p>
+
+                <!-- Infobox -->
+                <div class="infobox">
+                    <div class="infobox-header">Ο Στρατιώτης</div>
+                    <img src="https://wiki.teamfortress.com/w/images/7/7b/Soldier.png" alt="Soldier">
+                    <table class="infobox-table">
+                        <tr>
+                            <td class="infobox-label">Εικόνα</td>
+                            <td>Επίσημο μοντέλο</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Ρόλος</td>
+                            <td><span class="wiki-link">Επίθεση</span></td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Υγεία</td>
+                            <td>200 (300 με υπερθεραπεία)</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Ταχύτητα</td>
+                            <td>80% (240v)</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Καταγωγή</td>
+                            <td>Μεσοδυτικές Πολιτείες, <span class="wiki-link">ΗΠΑ</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p>
+                    Οπλισμένος με τον <span class="wiki-link">Εκτοξευτή Πυραύλων</span> του και μια γερή δόση αυτοπεποίθησης, ο Στρατιώτης είναι μία από τις πιο ευέλικτες κλάσεις στο παιχνίδι. Αν και αργός στο περπάτημα, μπορεί να χρησιμοποιήσει την <span class="wiki-link">Πυραυλοκίνητη Άλμα</span> (rocket jump) για να φτάσει σε απρόσιτα σημεία και να αιφνιδιάσει τους εχθρούς από ψηλά.
+                </p>
+
+                <div class="toc">
+                    <div class="toc-title">Περιεχόμενα</div>
+                    <ul>
+                        <li><span class="wiki-link">1 Βιογραφία</span></li>
+                        <li><span class="wiki-link">2 Υγεία</span></li>
+                        <li><span class="wiki-link">3 Ταχύτητα</span></li>
+                        <li><span class="wiki-link">4 Βασική Στρατηγική</span></li>
+                        <li><span class="wiki-link">5 Όπλα</span></li>
+                    </ul>
+                </div>
+
+                <h2 class="section-header">Βιογραφία</h2>
+                <p>
+                    Αν και ήθελε απεγνωσμένα να πολεμήσει στον Δεύτερο Παγκόσμιο Πόλεμο, ο Στρατιώτης απορρίφθηκε από κάθε κλάδο του αμερικανικού στρατού. Απτόητος, αγόρασε το δικό του εισιτήριο για την Ευρώπη, εγκαταστάθηκε στην Πολωνία και άρχισε να "εκπαιδεύει" τους ντόπιους στις πολεμικές τέχνες, σκοτώνοντας Ναζί μέχρι το 1949, οπότε και έμαθε ότι ο πόλεμος είχε τελειώσει.
+                </p>
+
+                <h2 class="section-header">Βασική Στρατηγική</h2>
+                <ul class="list-disc ml-8">
+                    <li>Χρησιμοποιήστε το <b>Rocket Jump</b> για να κερδίσετε το πλεονέκτημα του ύψους.</li>
+                    <li>Στοχεύστε στα πόδια των εχθρών για να προκαλέσετε ζημιά από την έκρηξη και να τους πετάξετε στον αέρα.</li>
+                    <li>Φροντίστε να έχετε πάντα γεμάτο τον Εκτοξευτή Πυραύλων σας πριν από μια συμπλοκή.</li>
+                    <li>Η Σκανδάλι (Shotgun) είναι το ιδανικό δευτερεύον όπλο για να τελειώσετε εχθρούς με χαμηλή υγεία.</li>
+                </ul>
+
+                <h2 class="section-header">Όπλα</h2>
+                <p>Σημείωση: Τα όπλα εμφανίζονται ανάλογα με τη χρήση τους (Βασικό, Δευτερεύον, Σώμα με Σώμα).</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="border p-3 bg-gray-50 rounded">
+                        <b class="block text-red-700">Εκτοξευτής Πυραύλων</b>
+                        <p class="text-sm">Το κύριο όπλο του Στρατιώτη. Εκτοξεύει πυραύλους που προκαλούν μεγάλη ζημιά σε περιοχή.</p>
+                    </div>
+                    <div class="border p-3 bg-gray-50 rounded">
+                        <b class="block text-red-700">Σκανδάλι (Shotgun)</b>
+                        <p class="text-sm">Αξιόπιστο όπλο για κοντινές αποστάσεις όταν τελειώνουν οι πύραυλοι.</p>
+                    </div>
+                    <div class="border p-3 bg-gray-50 rounded">
+                        <b class="block text-red-700">Φτυάρι</b>
+                        <p class="text-sm">Το βασικό όπλο για μάχες σώμα με σώμα.</p>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-5 border-t text-xs text-gray-500">
+                    Τελευταία τροποποίηση αυτής της σελίδας: 12:45, 15 Μαρτίου 2024.<br>
+                    Το περιεχόμενο είναι διαθέσιμο υπό την CC BY-NC-SA 3.0 εκτός αν αναφέρεται διαφορετικά.
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Simple interaction simulation
+        document.querySelectorAll('.wiki-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = e.target.innerText;
+                console.log(`Navigating to: ${target}`);
+                // In a real simulator, this would change the content
+            });
+        });
+
+        // Handle window resizing for responsive behavior
+        window.addEventListener('resize', () => {
+            // Adjustments if necessary
+        });
+    </script>
+</body>
+</html>

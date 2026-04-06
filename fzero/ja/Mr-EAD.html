@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari - ミスター イー・エイ・ディ | F-ZERO Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ミスター イー・エイ・ディ (Mr. EAD)",
+      "image": "https://static.wikia.nocookie.net/fzero/images/3/32/019.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "F-ZERO Wiki"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FANDOM",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.fandom.com/fandom-logo.png"
+        }
+      },
+      "description": "『F-ZERO』シリーズに登場するアンドロイド、ミスター イー・エイ・ディの詳細情報。"
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Safari Window Styles */
+        .safari-window {
+            width: 95vw;
+            height: 90vh;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .safari-toolbar {
+            background: #e5e5e7;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid #c6c6c8;
+            flex-shrink: 0;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
+        .green { background: #27c93f; border: 0.5px solid #1aab29; }
+
+        .address-bar {
+            flex-grow: 1;
+            background: #fff;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #333;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #d1d1d3;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            background-color: #f6f6f6;
+            display: flex;
+        }
+
+        /* Fandom Layout Styles */
+        .wiki-sidebar {
+            width: 250px;
+            background: #fff;
+            border-right: 1px solid #e6e6e6;
+            padding: 20px;
+            display: none; /* Hidden on smaller screens */
+        }
+        @media (min-width: 1024px) {
+            .wiki-sidebar { display: block; }
+        }
+
+        .wiki-main {
+            flex-grow: 1;
+            background: #fff;
+            padding: 24px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        .fandom-header {
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 10px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .infobox-title {
+            background: #002a32;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .infobox-image {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #a2a9b1;
+            margin-bottom: 10px;
+        }
+
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            padding: 4px;
+        }
+
+        .infobox-data {
+            padding: 4px;
+        }
+
+        h1 { font-size: 32px; font-weight: 700; color: #3a3a3a; }
+        h2 { font-size: 24px; font-weight: 600; border-bottom: 1px solid #a2a9b1; margin-top: 30px; margin-bottom: 15px; color: #3a3a3a; }
+        p { line-height: 1.6; color: #202122; margin-bottom: 15px; }
+
+        .fandom-nav {
+            background: #00d6d6;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: #002a32;
+            font-weight: bold;
+            font-size: 14px;
+            gap: 20px;
+        }
+
+        /* Custom Scrollbar */
+        .content-area::-webkit-scrollbar {
+            width: 10px;
+        }
+        .content-area::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .content-area::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+        .content-area::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="safari-window">
+        <!-- Safari Toolbar -->
+        <div class="safari-toolbar">
+            <div class="window-controls">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="flex gap-4 text-gray-500 mr-4">
+                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="address-bar">
+                <i class="fas fa-lock text-[10px] mr-2 text-gray-400"></i>
+                fzero.fandom.com/ja/wiki/ミスター_イー・エイ・ディ
+            </div>
+            <div class="flex gap-4 text-gray-500 ml-4">
+                <i class="fas fa-share-square"></i>
+                <i class="fas fa-plus"></i>
+                <i class="fas fa-copy"></i>
+            </div>
+        </div>
+
+        <!-- Fandom Top Nav -->
+        <div class="fandom-nav">
+            <span>FANDOM</span>
+            <span>ゲーム</span>
+            <span>アニメ</span>
+            <span>映画</span>
+            <div class="ml-auto flex gap-4">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <!-- Sidebar (Desktop only) -->
+            <aside class="wiki-sidebar">
+                <div class="mb-8">
+                    <img src="https://vignette.wikia.nocookie.net/fzero/images/b/bc/Wiki.png/revision/latest?cb=20130602010156" alt="F-ZERO Wiki" class="w-32 mb-4">
+                    <div class="text-sm font-bold text-gray-600 mb-2">Wiki内ナビゲーション</div>
+                    <ul class="text-xs space-y-2 text-blue-600">
+                        <li>メインページ</li>
+                        <li>最近の更新</li>
+                        <li>ランダムページ</li>
+                        <li>コミュニティ</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Wiki Article -->
+            <main class="wiki-main">
+                <div class="fandom-header">
+                    <div class="text-xs text-blue-500 mb-1">F-ZERO Wiki > キャラクター</div>
+                    <h1>ミスター イー・エイ・ディ</h1>
+                </div>
+
+                <!-- Infobox -->
+                <div class="infobox">
+                    <div class="infobox-title">ミスター イー・エイ・ディ<br>(Mr. EAD)</div>
+                    <img src="https://static.wikia.nocookie.net/fzero/images/3/32/019.jpg" alt="Mr. EAD" class="infobox-image">
+                    <table class="w-full">
+                        <tr><td class="infobox-label">性別</td><td class="infobox-data">男性型</td></tr>
+                        <tr><td class="infobox-label">年齢</td><td class="infobox-data">不明</td></tr>
+                        <tr><td class="infobox-label">職業</td><td class="infobox-data">アンドロイド</td></tr>
+                        <tr><td class="infobox-label">出身地</td><td class="infobox-data">EAD (開発グループ)</td></tr>
+                        <tr><td class="infobox-label">マシン</td><td class="infobox-data text-blue-600">グレートスター</td></tr>
+                        <tr><td class="infobox-label">初登場</td><td class="infobox-data">F-ZERO X</td></tr>
+                    </table>
+                </div>
+
+                <p>
+                    <strong>ミスター イー・エイ・ディ</strong>（<span lang="en">Mr. EAD</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するパイロットの一人。
+                </p>
+
+                <h2>概要</h2>
+                <p>
+                    謎の組織「EAD」の開発グループによって製作されたアンドロイド。完璧なアンドロイドを目指して設計されており、その外見は某有名配管工を彷彿とさせる。
+                </p>
+                <p>
+                    彼の主な目的は、F-ZEROグランプリで優勝し、その高性能を世界に証明することである。食事の代わりに特別なバッテリーで駆動し、性格は非常に誠実で規律正しい。
+                </p>
+
+                <h2>マシン：グレートスター (GREAT STAR)</h2>
+                <p>
+                    マシン番号は09。全体的にバランスの取れた性能を持つが、特にボディの耐久性が高く設計されている。
+                </p>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><strong>エンジン:</strong> YS801×2</li>
+                    <li><strong>総重量:</strong> 1870 kg</li>
+                    <li><strong>性能評価 (GX):</strong>
+                        <ul class="ml-4 text-sm mt-1">
+                            <li>Body: B</li>
+                            <li>Boost: A</li>
+                            <li>Grip: D</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>エピソード</h2>
+                <p>
+                    『F-ZERO GX』のインタビューモードでは、彼の製作者たちの意図や、彼の個人的な趣味（料理や掃除）について語られることがある。一見無機質なアンドロイドに見えるが、時折人間味のある反応を見せることがファンの間で人気となっている。
+                </p>
+
+                <div class="bg-gray-100 p-4 border-l-4 border-cyan-500 my-8 text-sm italic">
+                    “私は最高のレースを行うために設計されました。勝利こそが、私の開発チームへの最高の恩返しです。”
+                </div>
+
+                <!-- References Section -->
+                <div class="mt-12 pt-4 border-t border-gray-200 text-xs text-gray-500">
+                    カテゴリ: <span class="text-blue-500">パイロット | アンドロイド | F-ZERO Xの登場キャラクター | F-ZERO GXの登場キャラクター</span>
+                </div>
+            </main>
+        </div>
+
+        <!-- Safari Bottom Status Bar -->
+        <div class="h-6 bg-gray-100 border-t border-gray-300 flex items-center px-4 text-[10px] text-gray-500">
+            <span>Done</span>
+            <div class="ml-auto flex gap-2">
+                <i class="fas fa-signal"></i>
+                <span>100%</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interaction handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const addressBar = document.querySelector('.address-bar');
+            
+            addressBar.addEventListener('click', () => {
+                const url = addressBar.innerText.trim();
+                console.log(`Navigating to: ${url}`);
+                // In a simulator, we might change styles to show focus
+                addressBar.classList.add('ring-2', 'ring-blue-400');
+                setTimeout(() => addressBar.classList.remove('ring-2', 'ring-blue-400'), 1000);
+            });
+
+            // Handle window control hover effects (simplified)
+            const redDot = document.querySelector('.red');
+            redDot.addEventListener('mouseenter', () => redDot.innerHTML = '<span class="text-[8px] flex items-center justify-center h-full">×</span>');
+            redDot.addEventListener('mouseleave', () => redDot.innerHTML = '');
+        });
+    </script>
+</body>
+</html>

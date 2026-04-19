@@ -3,115 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>バイオ レックス | F-ZERO Wiki | Fandom</title>
-    <link rel="stylesheet" href="https://pages-themes.github.io/cayman/assets/css/style.css">
+    <title>F-ZERO Wiki - バイオ レックス (Bio Rex)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Wikia-style sidebar (Infobox) customization */
-        .infobox {
-            float: right;
-            width: 300px;
-            background: #f8f9fa;
-            border: 1px solid #a2a9b1;
-            padding: 10px;
-            margin-left: 20px;
-            font-size: 0.9em;
-            color: #202122;
+        :root {
+            --rex-green: #22c55e;
+            --rex-dark-green: #14532d;
+            --fzero-dark: #020617;
         }
-        .infobox-title {
-            text-align: center;
+
+        body {
+            background-color: var(--fzero-dark);
+            color: #f1f5f9;
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 1rem;
+        }
+
+        .stat-bar-bg {
+            height: 10px;
+            background: #1e293b;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #16a34a, #4ade80);
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        .dino-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+            opacity: 0.05;
+        }
+
+        .glow-green {
+            text-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+        }
+
+        .section-title {
+            border-left: 4px solid var(--rex-green);
+            padding-left: 1rem;
             font-weight: bold;
-            font-size: 1.2em;
-            background: #e1e1e1;
-            padding: 5px;
-            margin-bottom: 10px;
         }
-        .infobox-image {
-            text-align: center;
-            margin-bottom: 10px;
+
+        .machine-card {
+            background: linear-gradient(135deg, #064e3b 0%, #020617 100%);
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
-        .infobox-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
+
+        /* アニメーション */
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
-        .infobox table {
-            width: 100%;
-            border-collapse: collapse;
+        .bg-pulse {
+            animation: pulse-slow 4s infinite;
         }
-        .infobox th {
-            text-align: left;
-            width: 40%;
-            padding: 3px;
-        }
-        .infobox td {
-            padding: 3px;
-        }
-        .main-content {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
-        .quote { font-style: italic; color: #555; border-left: 3px solid #0056b3; padding-left: 15px; margin: 20px 0; }
     </style>
 </head>
-<body style="font-family: sans-serif;">
-
-    <section class="page-header">
-        <h1 class="project-name">F-ZERO Wiki</h1>
-        <h2 class="project-tagline">バイオ レックス (Bio Rex)</h2>
-    </section>
-
-    <section class="main-content">
-        <aside class="infobox">
-            <div class="infobox-title">バイオ レックス <br> Bio Rex</div>
-            <div class="infobox-image">
-                <img src="https://static.wikia.nocookie.net/fzero/images/9/94/Biorex.jpg" alt="Bio Rex">
+<body class="relative">
+    <div class="fixed inset-0 dino-texture pointer-events-none"></div>
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-black/90 border-b border-green-500/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-green-900/50">
+                        <i class="fa-solid fa-dragon"></i>
+                    </div>
+                    <span class="font-orbitron font-bold tracking-tighter text-green-400 text-xl">F-ZERO ARCHIVE</span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-xs uppercase font-bold tracking-widest text-slate-400">
+                    <a href="#overview" class="hover:text-green-400 transition-colors">Overview</a>
+                    <a href="#profile" class="hover:text-green-400 transition-colors">Profile</a>
+                    <a href="#machine" class="hover:text-green-400 transition-colors">Machine</a>
+                    <a href="#history" class="hover:text-green-400 transition-colors">History</a>
+                </div>
             </div>
-            <table>
-                <tr><th>登場作品</th><td>F-ZERO X, GX, ファルコン伝説, CLIMAX</td></tr>
-                <tr><th>マシン</th><td>ビッグファング</td></tr>
-                <tr><th>ナンバー</th><td>15</td></tr>
-                <tr><th>年齢</th><td>9歳 (GX時点)</td></tr>
-                <tr><th>性別</th><td>オス</td></tr>
-                <tr><th>声優</th><td>藤本 隆行 (アニメ版)</td></tr>
-            </table>
-        </aside>
-
-        <p><strong>バイオ レックス</strong>（Bio Rex）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するキャラクター。NINTENDO 64用ソフト『F-ZERO X』で初登場して以来、シリーズの常連となっている。</p>
-        
-        <div class="quote">
-            <blockquote>「驚いてやがるな！ これが恐竜の実力だ！」<br>—バイオ レックス（GX 優勝インタビュー）</blockquote>
         </div>
+    </nav>
 
-        <h2>概要</h2>
-        <p>バイオテクノロジーによって卵の化石から蘇った恐竜。再生の過程でDNA操作が加えられており、人間並みの知能を持っている。しかし、肉食恐竜としての攻撃的な本能も併せ持っており、その気性はピコに匹敵するほど荒い。</p>
+    <!-- Hero Section -->
+    <header id="overview" class="relative py-20 px-4 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-green-900/10 blur-3xl rounded-full bg-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-5/12">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-green-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
+                        <img src="https://static.wikia.nocookie.net/fzero/images/9/94/Biorex.jpg" 
+                             alt="バイオ レックス" 
+                             class="relative rounded-xl border border-green-500/30 shadow-2xl w-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                             onerror="this.src='https://via.placeholder.com/500x600/14532d/ffffff?text=BIO+REX'">
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-green-400 border border-green-500/50 px-3 py-1 font-orbitron text-sm rounded">
+                            DNA REPLICANT
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-7/12 space-y-6">
+                    <div class="space-y-2">
+                        <h1 class="text-5xl md:text-7xl font-orbitron font-bold tracking-tighter glow-green">BIO REX</h1>
+                        <h2 class="text-3xl font-bold text-green-500">バイオ レックス</h2>
+                    </div>
+                    <p class="text-lg text-slate-300 leading-relaxed border-l-2 border-green-900 pl-6">
+                        遺伝子工学によって現代に蘇った恐竜。1億4千万年前のDNAから再生された肉食恐竜であり、知能を強化する脳の改良を経て、一流のF-ZEROパイロットとしての技術を習得した。
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center gap-2 bg-green-950/50 border border-green-500/30 px-4 py-2 rounded-full">
+                            <i class="fa-solid fa-dna text-green-400"></i>
+                            <span class="text-sm font-bold">クローン恐竜</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-red-950/50 border border-red-500/30 px-4 py-2 rounded-full text-red-200">
+                            <i class="fa-solid fa-utensils"></i>
+                            <span class="text-sm font-bold">肉食</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-blue-950/50 border border-blue-500/30 px-4 py-2 rounded-full text-blue-200">
+                            <i class="fa-solid fa-skull"></i>
+                            <span class="text-sm font-bold">ダークミリオン</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <h2>人物像</h2>
-        <ul>
-            <li><strong>食欲:</strong> 非常に旺盛な食欲を持っており、特にマンモス肉が大好物。優勝賞金で宇宙中の肉を買い占めることを夢見ている。</li>
-            <li><strong>知性:</strong> 「恐竜は人間よりも賢い」と自負しており、自身のマシンである「ビッグファング」の設計にも関わっている。</li>
-            <li><strong>アニメ版:</strong> 『F-ZERO ファルコン伝説』ではブラック シャドー率いる組織「ダークミリオン」の一員。オクトマンとコンビを組むことが多い。ゲーム版に比べると、どこか憎めないコミカルな悪役として描かれている。</li>
-        </ul>
+    <main class="max-w-7xl mx-auto px-4 pb-24 space-y-24">
+        
+        <!-- Profile & Personality -->
+        <section id="profile" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-1 glass-panel p-8 space-y-6 shadow-xl border-t-4 border-t-green-600">
+                <h3 class="text-xl font-orbitron font-bold text-green-400 flex items-center gap-2">
+                    <i class="fa-solid fa-address-card"></i> DATA SHEET
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-slate-400 text-sm">性別</span>
+                        <span class="font-bold">オス</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-slate-400 text-sm">年齢</span>
+                        <span class="font-bold">9歳（再生後）</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-slate-400 text-sm">マシンナンバー</span>
+                        <span class="font-orbitron font-bold text-green-400 text-xl">15</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-slate-400 text-sm">初登場作品</span>
+                        <span class="font-bold">F-ZERO X</span>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Sponsors</div>
+                    <div class="p-3 bg-black/40 rounded border border-white/5 text-center font-bold text-sm tracking-tighter">
+                        GALACTIC GENETICS INC.
+                    </div>
+                </div>
+            </div>
 
-        <h2>搭乗マシン</h2>
-        <h3>ビッグファング (BIG FANG)</h3>
-        <p>ダイナソー レーシング チームによって製作されたマシン。バイオ レックスの荒々しいドライビングに耐えうる頑丈なボディと、鋭いハンドリング性能を兼ね備えている。加速性能はやや低いが、最高速とグリップ力に優れる。</p>
+            <div class="md:col-span-2 glass-panel p-8 space-y-6">
+                <h3 class="text-2xl font-bold section-title">人物像</h3>
+                <div class="text-slate-300 space-y-4 leading-relaxed">
+                    <p>
+                        本能に忠実かつ極めて凶暴な性格である。常に空腹を感じており、レースに参戦する最大の動機は<span class="text-green-400 font-bold">「優勝賞金で腹一杯の肉を食らうこと」</span>という単純明快なものである。
+                    </p>
+                    <p>
+                        知能は高いものの、恐竜本来の闘争本能が強く、自分より弱いと判断した相手に対しては容赦がない。また、非常に短気であり、レース中に進路を妨害されると激昂し、マシンごと相手を粉砕しようとする傾向がある。
+                    </p>
+                    <p>
+                        一方で、自分の生みの親である科学者たちに対しては、ある程度の愛着や従順さを見せることもある。しかし、基本的には「サーキットの捕食者」としての立ち振舞いを崩さない。
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <h2>主な出演作品</h2>
-        <ul>
-            <li>F-ZERO X (N64)</li>
-            <li>F-ZERO GX (GC)</li>
-            <li>F-ZERO ファルコン伝説 (GBA / アニメ)</li>
-            <li>F-ZERO CLIMAX (GBA)</li>
-            <li>大乱闘スマッシュブラザーズ SPECIAL (スピリットとして登場)</li>
-        </ul>
+        <!-- Machine Section -->
+        <section id="machine" class="space-y-12">
+            <div class="text-center space-y-2">
+                <h3 class="text-sm uppercase tracking-widest text-green-400 font-orbitron">Personal Machine</h3>
+                <h4 class="text-4xl font-bold font-orbitron">BIG FANG</h4>
+            </div>
 
-        <footer class="site-footer">
-            <span class="site-footer-owner">Created for F-ZERO Wiki Fans.</span>
-        </footer>
-    </section>
+            <div class="machine-card rounded-2xl overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 lg:p-12 space-y-10">
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-bold uppercase text-slate-400">
+                                    <span>Body Strength</span>
+                                    <span class="text-green-400">Grade A (GX) / B (X)</span>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-bold uppercase text-slate-400">
+                                    <span>Boost Power</span>
+                                    <span class="text-green-400">Grade D</span>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 35%;"></div></div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-bold uppercase text-slate-400">
+                                    <span>Grip Control</span>
+                                    <span class="text-green-400">Grade B (GX) / C (X)</span>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 70%;"></div></div>
+                            </div>
+                        </div>
 
+                        <div class="prose prose-invert prose-sm text-slate-400 italic border-l-4 border-green-600 pl-4 bg-green-950/20 py-4 rounded-r">
+                            その名の通り「巨大な牙」を連想させるスパルタ風の武骨なデザインが特徴。全マシンの中でもトップクラスのボディ強度を誇り、衝突に非常に強い。反面、加速性能は低く、一度速度を落とすと復帰に時間がかかる。
+                        </div>
+                    </div>
+                    
+                    <div class="relative min-h-[300px] flex items-center justify-center bg-black/40 p-12 overflow-hidden">
+                        <i class="fa-solid fa-gears text-[200px] text-green-500/5 absolute -right-10 -bottom-10 rotate-12"></i>
+                        <div class="text-center z-10">
+                            <div class="text-[120px] font-orbitron font-bold text-green-500/20 select-none">#15</div>
+                            <p class="text-slate-500 text-sm mt-4 font-bold tracking-widest uppercase">Heavy Armor Class</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section id="history" class="space-y-8">
+            <h3 class="text-3xl font-bold section-title">劇中での活躍</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 border-b-2 border-transparent hover:border-green-500 transition-all group">
+                    <div class="w-12 h-12 rounded bg-green-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="font-orbitron font-bold text-green-400">X</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 underline decoration-green-800">F-ZERO X</h4>
+                    <p class="text-sm text-slate-400">
+                        初登場。バイオテクノロジーの結晶として、他の人間パイロットたちを震え上がらせる存在として描かれた。
+                    </p>
+                </div>
+                <div class="glass-panel p-6 border-b-2 border-transparent hover:border-green-500 transition-all group">
+                    <div class="w-12 h-12 rounded bg-green-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="font-orbitron font-bold text-green-400">GX</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 underline decoration-green-800">F-ZERO GX</h4>
+                    <p class="text-sm text-slate-400">
+                        食欲に関する描写が増加。インタビューでは「次は誰を食べてやろうか」と豪語し、表彰台では野生剥き出しのパフォーマンスを披露する。
+                    </p>
+                </div>
+                <div class="glass-panel p-6 border-b-2 border-transparent hover:border-green-500 transition-all group">
+                    <div class="w-12 h-12 rounded bg-green-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="font-orbitron font-bold text-green-400">TV</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 underline decoration-green-800">ファルコン伝説</h4>
+                    <p class="text-sm text-slate-400">
+                        ダークミリオン所属のパイロットとして登場。知能はやや低く設定され、本能のままに暴れる怪獣のような役割で主人公たちを追い詰めた。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relations -->
+        <section class="glass-panel p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-green-500/5 rounded-full blur-3xl"></div>
+            <h3 class="text-2xl font-bold mb-10 flex items-center gap-3">
+                <i class="fa-solid fa-link text-green-500"></i> 関連キャラクター
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="flex gap-6">
+                    <div class="w-14 h-14 rounded-full bg-slate-800 flex-shrink-0 flex items-center justify-center border border-green-500/30">
+                        <i class="fa-solid fa-burst text-red-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-400 mb-1 italic">Pico / ピコ</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">同じく凶暴な性格を持つパイロット。ライバルとして意識しているか、あるいは「美味そうな獲物」として見ている節がある。</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-14 h-14 rounded-full bg-slate-800 flex-shrink-0 flex items-center justify-center border border-green-500/30">
+                        <i class="fa-solid fa-user-ninja text-blue-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-400 mb-1 italic">Beastman / ビーストマン</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">猛獣使い。バイオ レックスを「しつける」対象として見ており、捕食者と調教師としての緊張関係にある。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 px-4 border-t border-green-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left space-y-2">
+                <div class="font-orbitron font-bold text-2xl text-green-500 tracking-tighter">F-ZERO ARCHIVE</div>
+                <p class="text-slate-500 text-xs uppercase tracking-widest font-bold">Confidential: Bio-Hazard Class 4</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="window.scrollTo(0,0)" class="px-6 py-2 bg-green-600 hover:bg-green-500 text-white font-bold rounded transition-colors uppercase text-sm font-orbitron">
+                    Return to Top
+                </button>
+            </div>
+        </div>
+        <div class="mt-12 text-center text-slate-700 text-[10px] uppercase tracking-[0.3em]">
+            This terminal is provided by the Galactic Federation for Research purposes only.
+        </div>
+    </footer>
+
+    <script>
+        // スクロール時のヘッダーアニメーション
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-[0_0_20px_rgba(0,0,0,0.5)]');
+                nav.style.paddingTop = '2px';
+                nav.style.paddingBottom = '2px';
+            } else {
+                nav.classList.remove('shadow-[0_0_20px_rgba(0,0,0,0.5)]');
+                nav.style.paddingTop = '0';
+                nav.style.paddingBottom = '0';
+            }
+        });
+
+        // ページ内リンクのスムーススクロール補正
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = target.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,225 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゾーダ | F-ZERO Wiki | Fandom</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "GameObject",
-      "name": "ゾーダ (Zoda)",
-      "description": "『F-ZERO』シリーズに登場する悪役。ゾルゲール星からやってきた謎の怪人。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/1/1f/057.jpg",
-      "genre": "Racing Game",
-      "character": {
-        "@type": "Person",
-        "name": "Zoda"
-      }
-    }
-    </script>
-
+    <title>F-ZERO Wiki - ゾーダ (Zoda)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* macOS Safari Mockup UI */
         :root {
-            --fandom-bg: #f5f8fa;
-            --fandom-accent: #00d6d6;
-            --wiki-border: #ccd6dd;
-            --safari-top: #e0e0e0;
+            --fzero-purple: #6b21a8;
+            --fzero-neon: #a855f7;
+            --fzero-dark: #0f172a;
+            --zoda-green: #22c55e;
         }
 
         body {
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
+            background-color: var(--fzero-dark);
+            color: #e2e8f0;
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            background-image: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
+            background-attachment: fixed;
         }
 
-        /* Safari Window Chrome */
-        .browser-window {
-            width: 1000px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .safari-toolbar {
-            background: linear-gradient(to bottom, #efefef, #d1d1d1);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid #aaa;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 8px;
-            margin-right: 20px;
-        }
-
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .address-bar {
-            background: white;
-            flex-grow: 1;
-            height: 28px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            color: #555;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        /* Fandom Content Styling */
-        .wiki-content {
-            height: 700px;
-            overflow-y: scroll;
-            background-color: var(--fandom-bg);
-            color: #3a3a3a;
-        }
-
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--wiki-border);
-            padding: 10px 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .fandom-logo {
-            font-weight: bold;
-            color: var(--fandom-accent);
-            font-size: 24px;
-        }
-
-        main {
-            padding: 20px 40px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-
-        h1 {
-            font-size: 36px;
-            border-bottom: 1px solid var(--wiki-border);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .infobox {
-            background: white;
-            border: 1px solid var(--wiki-border);
-            padding: 15px;
-            font-size: 14px;
-        }
-
-        .infobox h2 {
-            background: var(--fandom-accent);
-            color: white;
-            text-align: center;
-            margin: -15px -15px 15px -15px;
-            padding: 10px;
-            font-size: 18px;
-        }
-
-        .infobox img {
-            width: 100%;
+        .stat-bar {
+            height: 8px;
             border-radius: 4px;
-            margin-bottom: 10px;
+            background: #334155;
+            overflow: hidden;
+            position: relative;
         }
 
-        .info-row {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 5px 0;
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--zoda-green), #4ade80);
+            box-shadow: 0 0 10px var(--zoda-green);
         }
 
-        .info-label {
-            font-weight: bold;
-            width: 100px;
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
         }
 
-        .article-text p {
-            line-height: 1.6;
+        .zoda-gradient {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            border-left: 4px solid var(--zoda-green);
+        }
+
+        .character-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 80px;
+            color: rgba(34, 197, 94, 0.2);
+            font-family: serif;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen pb-20">
 
-<div class="browser-window">
-    <div class="safari-toolbar">
-        <div class="buttons">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass-card mx-4 mt-4 px-6 py-4 flex justify-between items-center border-b border-white/10">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center font-fzero font-bold text-white shadow-lg shadow-purple-500/50">F</div>
+            <span class="font-fzero tracking-widest text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">F-ZERO WIKI</span>
         </div>
-        <div class="address-bar">
-            <span>🔒 fzero.fandom.com/ja/wiki/ゾーダ</span>
-        </div>
-    </div>
+        <nav class="hidden md:flex space-x-8 text-sm font-bold tracking-tighter">
+            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Machines</a>
+            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Pilots</a>
+            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Tracks</a>
+        </nav>
+    </header>
 
-    <div class="wiki-content">
-        <header>
-            <div class="fandom-logo">FANDOM</div>
-            <nav>Explore Wikis • Community</nav>
-        </header>
-
-        <main>
-            <div class="article-text">
-                <h1>ゾーダ</h1>
-                <p>
-                    <strong>ゾーダ</strong>（<span lang="en">Zoda</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するキャラクター。悪の組織のリーダーであり、キャプテン ファルコンの宿敵の一人。
-                </p>
-                <p>
-                    ゾルゲール星から地球征服のためにやってきたと自称する怪人。常に不気味な笑みを浮かべており、クレイジーな言動が目立つが、そのレーシング技術は極めて高い。
-                </p>
-                <h2>性格・特徴</h2>
-                <p>
-                    非常に残忍かつ傲慢な性格。自分以外のすべての存在を自らの支配下におくべき下等生物と考えている。
-                </p>
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+        <!-- Hero Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Left: Character Image & Basic Info -->
+            <div class="md:col-span-1 space-y-6">
+                <div class="character-img-container aspect-[3/4] bg-gray-800 flex items-center justify-center">
+                    <img id="zoda-image" src="https://static.wikia.nocookie.net/fzero/images/1/1f/057.jpg" alt="ゾーダ" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://via.placeholder.com/400x500/1e1b4b/22c55e?text=ZODA';">
+                </div>
+                
+                <div class="glass-card p-6">
+                    <h2 class="font-fzero text-zoda-green text-lg mb-4 border-b border-zoda-green/30 pb-2">PROFILE</h2>
+                    <table class="w-full text-sm">
+                        <tr class="border-b border-white/5">
+                            <td class="py-3 text-gray-400 font-bold">名前</td>
+                            <td class="py-3 text-right">ゾーダ (Zoda)</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-3 text-gray-400 font-bold">参戦番号</td>
+                            <td class="py-3 text-right font-fzero text-yellow-400">13</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-3 text-gray-400 font-bold">性別</td>
+                            <td class="py-3 text-right">男</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-3 text-gray-400 font-bold">年齢</td>
+                            <td class="py-3 text-right">不明</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-3 text-gray-400 font-bold">職業</td>
+                            <td class="py-3 text-right text-xs">ゾルタン・リーダー / テロリスト</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 text-gray-400 font-bold">キャッチコピー</td>
+                            <td class="py-3 text-right text-red-400 font-bold">狂気の独裁者</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
-            <aside class="infobox">
-                <h2>ゾーダ <br> Zoda</h2>
-                <img src="https://static.wikia.nocookie.net/fzero/images/1/1f/057.jpg" alt="Zoda">
-                <div class="info-row">
-                    <div class="info-label">性別</div>
-                    <div class="info-value">不明</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">年齢</div>
-                    <div class="info-value">不明</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">マシン</div>
-                    <div class="info-value">デスアンカー（DEATH ANCHOR）</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">初登場</div>
-                    <div class="info-value">F-ZERO X (N64)</div>
-                </div>
-            </aside>
-        </main>
-    </div>
-</div>
+            <!-- Right: Content -->
+            <div class="md:col-span-2 space-y-8">
+                <!-- Title & Overview -->
+                <section>
+                    <h1 class="text-5xl font-black mb-4 tracking-tighter">ゾーダ <span class="font-fzero text-2xl text-gray-500 ml-4 italic">Zoda</span></h1>
+                    <div class="p-6 zoda-gradient rounded-r-lg shadow-xl">
+                        <p class="leading-relaxed text-lg">
+                            全宇宙の支配を目論む秘密結社「ゾルタン」のリーダー。地球連邦政府の転覆を狙うテロリストであり、数多くの凶悪犯罪に関与している。緑色の肌と、頭部の独特なモヒカンが特徴的なエイリアンである。
+                        </p>
+                        <p class="mt-4 leading-relaxed">
+                            性格は極めて凶暴かつ、狂気に満ちている。レースに参加する理由は、賞金を得て活動資金にするためだけでなく、レースそのものを通じた破壊活動や混乱を楽しむためでもある。
+                        </p>
+                    </div>
+                </section>
 
-<script>
-    // Simple JavaScript to simulate interactivity
-    document.querySelector('.address-bar').addEventListener('click', () => {
-        alert("This is a simulated Wiki page for Zoda.");
-    });
-</script>
+                <!-- Machine Section -->
+                <section class="glass-card p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold flex items-center">
+                            <span class="w-2 h-8 bg-red-600 mr-4"></span>
+                            搭乗マシン: デスアンカー
+                        </h2>
+                        <span class="font-fzero text-3xl font-bold text-gray-600 italic">No.13</span>
+                    </div>
 
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                極限までスピードを追求した設計となっており、最高速度とブースト性能はトップクラスである。しかし、ボディ強度は壊滅的に低く、一瞬のミスが即リタイアに繋がる。
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Body</span><span class="text-red-500">E</span></div>
+                                    <div class="stat-bar"><div class="stat-fill" style="width: 20%; background: #ef4444;"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Boost</span><span class="text-zoda-green">A</span></div>
+                                    <div class="stat-bar"><div class="stat-fill" style="width: 95%;"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Grip</span><span class="text-yellow-400">C</span></div>
+                                    <div class="stat-bar"><div class="stat-fill" style="width: 50%; background: #fbbf24;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-black/40 rounded-lg p-4 flex flex-col justify-center items-center border border-white/5">
+                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">Max Speed</div>
+                            <div class="text-4xl font-fzero font-bold text-white">1082 <span class="text-sm">km/h</span></div>
+                            <div class="mt-4 px-4 py-1 border border-zoda-green text-zoda-green text-[10px] uppercase font-bold tracking-widest">Advanced Pilot Only</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- History Section -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold flex items-center">劇中での活躍</h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="p-5 border-l-2 border-purple-500 bg-white/5 rounded-r-lg">
+                            <h3 class="font-bold text-purple-400 mb-2">F-ZERO X / GX</h3>
+                            <p class="text-sm leading-relaxed text-gray-300">
+                                ストーリーモード等では悪役としてのポジションを確立。『GX』のムービーシーンでは、彼の狂気的な一面や、独裁者としての振る舞いが強調して描かれた。
+                            </p>
+                        </div>
+                        <div class="p-5 border-l-2 border-blue-500 bg-white/5 rounded-r-lg">
+                            <h3 class="font-bold text-blue-400 mb-2">F-ZERO ファルコン伝説 (アニメ)</h3>
+                            <p class="text-sm leading-relaxed text-gray-300">
+                                ダークリオンの幹部として登場。元々は「ジャック レビン」とコンビを組んでいた警察官であったが、ある事件をきっかけに悪の道へと墜ちたという背景を持つ。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quotes Section -->
+                <section>
+                    <h2 class="text-2xl font-bold mb-6">主な台詞</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="quote-card glass-card p-6 relative italic">
+                            「ヒャッハッハッハ！ 全宇宙は、このゾーダ様のものだ！」
+                        </div>
+                        <div class="quote-card glass-card p-6 relative italic">
+                            「このスピード……これこそが破壊の快感よ！」
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Related Characters -->
+                <section class="glass-card p-6">
+                    <h2 class="text-xl font-bold mb-4">関連キャラクター</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-red-900/30 border border-red-500/30 rounded-full text-xs font-bold hover:bg-red-500/50 transition-colors cursor-pointer">スーパー アロー</span>
+                        <span class="px-4 py-2 bg-pink-900/30 border border-pink-500/30 rounded-full text-xs font-bold hover:bg-pink-500/50 transition-colors cursor-pointer">ミセス アロー</span>
+                        <span class="px-4 py-2 bg-gray-900/30 border border-gray-500/30 rounded-full text-xs font-bold hover:bg-gray-500/50 transition-colors cursor-pointer text-gray-300">ブラック シャドー</span>
+                        <span class="px-4 py-2 bg-blue-900/30 border border-blue-500/30 rounded-full text-xs font-bold hover:bg-blue-500/50 transition-colors cursor-pointer">キャプテン ファルコン</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 text-center text-gray-600 text-xs border-t border-white/5 pt-10">
+        <p class="mb-2">© F-ZERO Wiki - Characters Database</p>
+        <p>This is a fan-made informational page based on the F-ZERO series by Nintendo.</p>
+    </footer>
+
+    <script>
+        // Simple hover effect for machine stats
+        document.querySelectorAll('.stat-bar').forEach(bar => {
+            bar.addEventListener('mouseenter', () => {
+                bar.querySelector('.stat-fill').style.filter = 'brightness(1.5)';
+            });
+            bar.addEventListener('mouseleave', () => {
+                bar.querySelector('.stat-fill').style.filter = 'none';
+            });
+        });
+    </script>
 </body>
 </html>

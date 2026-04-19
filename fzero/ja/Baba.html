@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-ZERO Wiki - ババ (Baba)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --fzero-yellow: #facc15;
+            --fzero-dark: #0f172a;
+            --fzero-accent: #3b82f6;
+        }
+
+        body {
+            background-color: var(--fzero-dark);
+            color: #f8fafc;
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(250, 204, 21, 0.2);
+            border-radius: 1rem;
+        }
+
+        .machine-stat-bar {
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .machine-stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--fzero-yellow), #fbbf24);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: var(--fzero-yellow);
+            transition: all 0.3s ease;
+        }
+
+        /* 虎模様のデコレーション */
+        .tiger-stripe {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--fzero-yellow),
+                var(--fzero-yellow) 20px,
+                #000 20px,
+                #000 40px
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-black/80 border-b border-yellow-500/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-yellow-400 rounded-sm flex items-center justify-center text-black font-bold font-orbitron">F</div>
+                    <span class="font-bold tracking-widest text-yellow-400">F-ZERO WIKI</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex space-x-8 text-sm uppercase tracking-tighter">
+                        <a href="#overview" class="hover:text-yellow-400 transition-colors">概要</a>
+                        <a href="#profile" class="hover:text-yellow-400 transition-colors">プロフィール</a>
+                        <a href="#machine" class="hover:text-yellow-400 transition-colors">マシン</a>
+                        <a href="#history" class="hover:text-yellow-400 transition-colors">経歴</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-12 pb-20 px-4">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none tiger-stripe"></div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-yellow-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                    <img id="char-image" src="https://static.wikia.nocookie.net/fzero/images/e/e2/Baba.jpg" alt="ババ" 
+                         class="relative rounded-xl border-2 border-yellow-500/50 shadow-2xl w-full max-w-md object-cover"
+                         onerror="this.src='https://via.placeholder.com/400x500?text=BABA+IMAGE'">
+                    <div class="absolute bottom-4 right-4 bg-yellow-400 text-black px-4 py-1 font-orbitron font-bold text-2xl skew-x-[-10deg]">
+                        NO. 04
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-6">
+                <h1 class="text-6xl md:text-8xl font-orbitron font-bold glow-text">BABA</h1>
+                <h2 class="text-3xl text-yellow-400 font-bold">ババ</h2>
+                <p class="text-xl text-slate-300 leading-relaxed max-w-xl">
+                    かつては大富豪のスカウトによって芸能界入りした元ダンサー。その身体能力とリズム感を活かし、F-ZEROの世界へ参戦した。プライドが高く傲慢な性格だが、実力は本物である。
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/50 text-yellow-400 rounded-full text-sm">元ダンサー</span>
+                    <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/50 text-blue-400 rounded-full text-sm">テクニカルタイプ</span>
+                    <span class="px-4 py-2 bg-red-500/10 border border-red-500/50 text-red-400 rounded-full text-sm">ダーク・ミリオン</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 space-y-24">
+        
+        <!-- Profile Grid -->
+        <section id="profile" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 glass-panel p-8 space-y-6 card-hover">
+                <h3 class="text-2xl font-bold border-l-4 border-yellow-400 pl-4 mb-6">プロフィール</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-slate-400">性別</span>
+                        <span class="font-bold">男性</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-slate-400">年齢</span>
+                        <span class="font-bold">19歳 (X) / 20歳 (GX)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-slate-400">職業</span>
+                        <span class="font-bold">パイロット / 元ダンサー</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-slate-400">マシンナンバー</span>
+                        <span class="font-bold font-orbitron text-yellow-400">04</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-slate-400">初登場</span>
+                        <span class="font-bold">F-ZERO X</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 glass-panel p-8 card-hover">
+                <h3 class="text-2xl font-bold border-l-4 border-yellow-400 pl-4 mb-6">人物像</h3>
+                <div class="prose prose-invert max-w-none text-slate-300 space-y-4">
+                    <p>
+                        ババは、ある大富豪プロデューサーによってその才能を見出された。もともとはダンスのオーディションで選ばれたのだが、そのプロデューサーが「F-ZEROパイロットとして育成する」という突飛な方針を打ち出したため、特殊な訓練を受けることとなった。
+                    </p>
+                    <p>
+                        過酷な特訓の結果、ババは野生の勘に近い反射神経を身につけ、一流のパイロットへと成長した。しかし、甘やかされて育った面もあり、態度は非常に大きく、他のパイロットを見下すような発言も目立つ。
+                    </p>
+                    <p>
+                        衣装は虎をモチーフにした派手なものであり、パフォーマンスを重視するダンサー時代の名残が随所に見られる。勝利に対する執着心は人一倍強く、トップに立つためには手段を選ばない狡猾さも併せ持つ。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Machine Section -->
+        <section id="machine" class="glass-panel overflow-hidden border-2 border-yellow-500/30">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="p-8 md:p-12 space-y-8">
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest text-yellow-400 mb-2 font-orbitron">Registered Machine</h3>
+                        <h4 class="text-4xl font-orbitron font-bold">IRON TIGER</h4>
+                        <p class="text-xl text-slate-400">アイアンタイガー</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-end">
+                                <span class="text-sm font-bold uppercase">Body Strength</span>
+                                <span class="font-orbitron text-yellow-400">Grade B</span>
+                            </div>
+                            <div class="machine-stat-bar"><div class="machine-stat-fill" style="width: 75%;"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-end">
+                                <span class="text-sm font-bold uppercase">Boost Power</span>
+                                <span class="font-orbitron text-yellow-400">Grade C</span>
+                            </div>
+                            <div class="machine-stat-bar"><div class="machine-stat-fill" style="width: 50%;"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-end">
+                                <span class="text-sm font-bold uppercase">Grip Control</span>
+                                <span class="font-orbitron text-yellow-400">Grade B</span>
+                            </div>
+                            <div class="machine-stat-bar"><div class="machine-stat-fill" style="width: 70%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <p class="text-slate-300 leading-relaxed italic">
+                            「バランスの取れた性能を持つが、特に加速性能とグリップ力に定評がある。急なカーブでも安定した走行が可能であり、初心者から中級者まで扱いやすい設計となっている。」
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-yellow-500/20 to-black p-12 flex flex-col justify-center items-center relative">
+                    <!-- マシンのイメージ代わりにアイコンや装飾 -->
+                    <i class="fa-solid fa-bolt text-9xl text-yellow-500/20 absolute"></i>
+                    <div class="z-10 text-center">
+                        <div class="text-8xl font-orbitron font-bold text-white/10 mb-4">#04</div>
+                        <p class="text-slate-400 text-sm max-w-xs">漆黒と黄色のボディは、まさにサーキットを駆ける鉄の虎。過激なドライビングスタイルに耐えうる強度を誇る。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Timeline -->
+        <section id="history" class="space-y-12">
+            <h3 class="text-3xl font-bold text-center font-orbitron">OPERATIONAL HISTORY</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 space-y-4 border-t-4 border-white/20 hover:border-yellow-400 transition-all">
+                    <div class="text-yellow-400 font-orbitron font-bold text-xl uppercase">F-ZERO X</div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        シリーズ初参戦。04番という不吉な数字（欧米等での認識）を背負いながら、強豪たちと渡り合う。野心的な新人としてその名を轟かせた。
+                    </p>
+                </div>
+                <div class="glass-panel p-8 space-y-4 border-t-4 border-white/20 hover:border-yellow-400 transition-all">
+                    <div class="text-yellow-400 font-orbitron font-bold text-xl uppercase">F-ZERO GX</div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        高慢なキャラクターがさらに強調された。優勝時には派手なダンスを披露するなど自己顕示欲を爆発させる。「自分の美しさに酔いしれるがいい」と豪語する。
+                    </p>
+                </div>
+                <div class="glass-panel p-8 space-y-4 border-t-4 border-white/20 hover:border-yellow-400 transition-all">
+                    <div class="text-yellow-400 font-orbitron font-bold text-xl uppercase">Anime Series</div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        『ファルコン伝説』ではダーク・ミリオンの一員として登場。組織のボスの命令に従い、リュウ・スザクやファルコンを妨害する悪役として立ち回った。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relations -->
+        <section class="glass-panel p-8 md:p-12">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-4">
+                <i class="fa-solid fa-users text-yellow-400"></i>
+                関連人物
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center border-2 border-slate-500">
+                        <i class="fa-solid fa-user-secret text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">キャプテン・ファルコン</h4>
+                        <p class="text-slate-400 text-sm">常に打倒の対象としてライバル視している。実力を認めつつも、そのカリスマ性を超えようと野心を燃やす。</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center border-2 border-slate-500">
+                        <i class="fa-solid fa-briefcase text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">大富豪（プロデューサー）</h4>
+                        <p class="text-slate-400 text-sm">ババの才能を見出し、F-ZEROの世界へ送り込んだ恩人。彼の無茶な方針がなければ、現在のパイロットとしてのババは存在しなかった。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 border-t border-yellow-500/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="font-orbitron font-bold text-xl text-yellow-400 mb-2">F-ZERO WIKI</div>
+                <p class="text-slate-500 text-xs tracking-widest">GALACTIC RACING FEDERATION DATABASE © 2560</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="https://www.nintendo.co.jp/ngc/gfzj/chara/13.html" target="_blank" class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-sm hover:bg-yellow-400 transition-colors uppercase text-sm">
+                    公式プロファイルを見る
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 画像読み込み失敗時のフォールバック処理などはHTML内に記載済み
+        // 必要に応じてスクロールアニメーションなどを追加可能
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>

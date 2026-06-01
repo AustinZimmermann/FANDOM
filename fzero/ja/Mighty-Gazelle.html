@@ -1,206 +1,385 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja-JP">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safari - マイティ ガゼル</title>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "name": "マイティ ガゼル (Mighty Gazelle)",
-      "genre": "F-ZERO",
-      "description": "F-ZEROシリーズに登場するサイボーグパイロット、マイティ ガゼルが操るマシン。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg"
-    }
-    </script>
+    <title>マイティー ガゼル | F-ZERO Wiki | Fandom</title>
     <style>
         :root {
-            --safari-gray: #e0e0e0;
-            --fandom-blue: #002a32;
-            --fandom-accent: #fa005a;
-            --text-main: #3a3a3a;
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --sidebar-bg: #1a1a24;
+            --border-color: #45a29e;
+            --text-color: #c5c6c7;
+            --text-bright: #66fcf1;
+            --accent-color: #1f4068;
+            --tab-active: #45a29e;
         }
 
         body {
-            margin: 0;
             font-family: sans-serif;
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            padding-top: 50px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        /* Safari Browser Chrome */
-        .browser-window {
-            width: 900px;
-            height: 90vh;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .browser-toolbar {
-            background: var(--safari-gray);
-            height: 40px;
+        /* Fandom Global Nav Mimic */
+        header.fandom-header {
+            background-color: #000;
+            padding: 10px 20px;
+            border-bottom: 3px solid var(--border-color);
             display: flex;
             align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid #bcbcbc;
+            justify-content: space-between;
         }
 
-        .traffic-lights {
-            display: flex;
-            gap: 8px;
-        }
-
-        .light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .address-bar {
-            background: white;
-            height: 24px;
-            flex-grow: 1;
-            margin: 0 50px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* Wiki Content */
-        .wiki-content {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 20px 40px;
-            color: var(--text-main);
-        }
-
-        .wiki-header {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-
-        h1 { font-size: 32px; margin-bottom: 10px; }
-
-        .infobox {
-            float: right;
-            width: 300px;
-            background: #f8f9fa;
-            border: 1px solid #a2a9b1;
-            padding: 10px;
-            margin-left: 20px;
-            font-size: 13px;
-        }
-
-        .infobox-title {
-            background: var(--fandom-blue);
-            color: white;
-            text-align: center;
-            padding: 5px;
+        header.fandom-header .logo {
             font-weight: bold;
-            margin: -10px -10px 10px -10px;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
         }
 
-        .infobox img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ccc;
+        header.fandom-header .logo span {
+            color: var(--text-bright);
+        }
+
+        /* Main Layout */
+        .wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        main {
+            flex: 1;
+            min-width: 300px;
+            background: var(--container-bg);
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Infobox Styles (Fandom Style) */
+        aside.portable-infobox {
+            width: 320px;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            align-self: flex-start;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .wrapper { flex-direction: column; }
+            aside.portable-infobox { width: 100%; box-sizing: border-box; }
+        }
+
+        h1 {
+            color: #fff;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        h2 {
+            color: var(--text-bright);
+            border-bottom: 1px solid #45a29e55;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        /* Infobox elements */
+        .infobox-title {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--text-bright);
             margin-bottom: 10px;
+        }
+
+        .infobox-image {
+            text-align: center;
+            background: #000;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            margin-bottom: 15px;
+        }
+
+        .infobox-image svg {
+            width: 120px;
+            height: 120px;
+            fill: var(--text-bright);
         }
 
         .infobox-data {
             width: 100%;
             border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .infobox-data th, .infobox-data td {
+            padding: 8px;
+            border-bottom: 1px solid #333;
+            text-align: left;
         }
 
         .infobox-data th {
-            text-align: left;
-            width: 40%;
-            padding: 5px 0;
+            color: #999;
+            width: 35%;
+            font-weight: normal;
         }
 
-        .description {
-            line-height: 1.6;
+        /* Tabs UI */
+        .tab-container {
+            margin-top: 20px;
         }
 
-        .stats-badge {
-            display: inline-block;
-            background: #eee;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #333;
+            gap: 5px;
+        }
+
+        .tab-btn {
+            background: #111;
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
             font-weight: bold;
-            color: var(--fandom-accent);
+            border-radius: 4px 4px 0 0;
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: #222;
+            color: #fff;
+        }
+
+        .tab-btn.active {
+            background: var(--tab-active);
+            color: #000;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Interactive Interview Terminal */
+        .interview-box {
+            background: #0a0f1d;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .interview-display {
+            height: 120px;
+            overflow-y: auto;
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #0f0;
+            margin-bottom: 10px;
+            border: 1px solid #222;
+        }
+
+        .interview-btns button {
+            background: #1f4068;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .interview-btns button:hover {
+            background: var(--border-color);
+            color: #000;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
 
-<div class="browser-window">
-    <div class="browser-toolbar">
-        <div class="traffic-lights">
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-        </div>
-        <div class="address-bar">fzero.fandom.com/ja/wiki/マイティ_ガゼル</div>
-    </div>
+    <header class="fandom-header">
+        <div style="font-size: 0.85rem; color: #888;">F-ZERO Wiki</div>
+    </header>
 
-    <div class="wiki-content">
-        <aside class="infobox">
-            <div class="infobox-title">マイティ ガゼル <br> Mighty Gazelle</div>
-            <img src="https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg" alt="Mighty Gazelle">
+    <div class="wrapper">
+        <main>
+            <h1>マイティー ガゼル (Mighty Gazelle)</h1>
+            <p><strong>マイティー ガゼル</strong>（Mighty Gazelle）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のパイロットであり、サイボーグ。マシンナンバーは「01」。初登場は1998年発売のNINTENDO64用ソフト『F-ZERO X』である。</p>
+
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(event, 'profile')">設定・経歴</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'machine')">マシンデータ</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'anime')">アニメ版</button>
+                </div>
+
+                <div id="profile" class="tab-content active">
+                    <h2>概要・経歴</h2>
+                    <p>かつて『F-ZEROグランプリ』の開催中止の原因となった大事故（『F-ZERO X』の3～4年前に発生）において、最も凄惨な被害を受けたパイロット。奇跡的に一命を取り留めたものの、肉体の大部分を失う。しかし、サイバースティック（サイバスティック）社の高度な技術により、身体のほぼ全てを機械化したサイボーグとして蘇った。</p>
+                    <p>生身の人間であった頃は、明るい肌と頑丈な骨格、そして赤い髪を持つ男であった。サイボーグ化した現在の外見は人型を保っているものの、露出している部位は全て金属製である。胴体と肩の間には大きなタイヤ状の円盤が固定され、頭部にはアンテナ、瞳孔が青く光る黒い両眼が特徴である。</p>
+                    <p>F-ZEROで走り続けることだけを生き甲斐としており、周囲の猛反対を押し切ってレースに復帰した。サイボーグとなったことで死への恐怖が完全に排除され、常人では不可能な超人的な反射神経と技に磨きがかかっている。</p>
+
+                    <h2>F-ZERO TV 優勝インタビュー</h2>
+                    <p>『F-ZERO GX』において優勝した際、ミスター ゼロによるインタビューへ以下のように答える（ボタンを押すとログが表示される）。</p>
+                    
+                    <div class="interview-box">
+                        <div class="interview-display" id="interview-log">【質問を選択してください】</div>
+                        <div class="interview-btns">
+                            <button onclick="playInterview('victory')">優勝コメント</button>
+                            <button onclick="playInterview('reason')">レーサーになった理由</button>
+                            <button onclick="playInterview('cyborg')">サイボーグの身体について</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="machine" class="tab-content">
+                    <h2>レッド ガゼル (RED GAZELLE)</h2>
+                    <p>サイバースティック社が設計・製造した、マイティー ガゼル専用のF-ZEROマシン。サイボーグであるガゼルの肉体特性に完全に同調するよう調整されている。</p>
+                    
+                    <h3>基本スペック（GX版）</h3>
+                    <ul>
+                        <li><strong>ボディ：</strong> E</li>
+                        <li><strong>ブースト：</strong> A</li>
+                        <li><strong>グリップ：</strong> C</li>
+                        <li><strong>総重量：</strong> 1330kg</li>
+                        <li><strong>エンジン：</strong> CY-96-Z × 1</li>
+                    </ul>
+                    <p>ガゼル自身の肉体が頑強な機械であるため、マシン自体のボディ強度は極限まで軽量化（Eランク）されている。その反面、ブースト性能は最高クラスの「A」を誇り、ガゼルの超人的な反射神経ユニットによって制御されるテクニカルな機体へと仕上がっている。</p>
+                </div>
+
+                <div id="anime" class="tab-content">
+                    <h2>アニメ『F-ZERO ファルコン伝説』</h2>
+                    <p>テレビアニメ版（2003～2004年放映）におけるガゼルは、ゲーム版とは一部異なる独自のバックストーリーが与えられている。</p>
+                    <p>元々は<strong>銀河警察の有能なスパイ</strong>であったが、ある重大な事件に巻き込まれたことをきっかけに肉体を喪失する。その後、ドクター スチュワートの手によってサイボーグとして蘇生された。なぜスチュワートが彼を救い、サイボーグ化したのかについては、謎に包まれている部分が多いミステリアスな存在として描かれている。</p>
+                </div>
+            </div>
+
+            <h2>登場作品</h2>
+            <ul>
+                <li>F-ZERO X (NINTENDO64)</li>
+                <li>F-ZERO GX / AX (ニンテンドーゲームキューブ / アーケード)</li>
+                <li>F-ZERO GP LEGEND (ゲームボーイアドバンス)</li>
+                <li>F-ZERO CLIMAX (ゲームボーイアドバンス)</li>
+                <li>大乱闘スマッシュブラザーズ SPECIAL (スピリッツとして登場。憑依ファイターはロックマン)</li>
+            </ul>
+        </main>
+
+        <aside class="portable-infobox">
+            <div class="infobox-title">マイティー ガゼル</div>
+            <div class="infobox-image">
+                <img src="https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg">
+                <div style="font-size: 0.75rem; color: #666; margin-top:5px;">Mighty Gazelle (Cyborg Form)</div>
+            </div>
             <table class="infobox-data">
-                <tr><th>マシンナンバー</th><td>01</td></tr>
-                <tr><th>重量</th><td>760 kg</td></tr>
-                <tr><th>最高速度</th><td>1040 km/h</td></tr>
-                <tr><th>エンジン</th><td>BF2001×4</td></tr>
-                <tr><th>ボディ</th><td><span class="stats-badge">A</span></td></tr>
-                <tr><th>ブースト</th><td><span class="stats-badge">B</span></td></tr>
-                <tr><th>グリップ</th><td><span class="stats-badge">C</span></td></tr>
+                <tr>
+                    <th>キャラクター名</th>
+                    <td>マイティー ガゼル</td>
+                </tr>
+                <tr>
+                    <th>英語名</th>
+                    <td>Mighty Gazelle</td>
+                </tr>
+                <tr>
+                    <th>マシン名</th>
+                    <td>レッドガゼル (No.01)</td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>男 (サイボーグ)</td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>36歳 (X) / 37歳 (GX)</td>
+                </tr>
+                <tr>
+                    <th>所属</th>
+                    <td>サイバースティック社<br><small>(アニメ版：元銀河警察)</small></td>
+                </tr>
+                <tr>
+                    <th>初登場作品</th>
+                    <td>F-ZERO X (1998)</td>
+                </tr>
+                <tr>
+                    <th>CV</th>
+                    <td>稲田徹 (アニメ版)</td>
+                </tr>
             </table>
         </aside>
-
-        <header class="wiki-header">
-            <h1>マイティ ガゼル</h1>
-        </header>
-
-        <section class="description">
-            <p><strong>マイティ ガゼル</strong>（<span lang="en">Mighty Gazelle</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するパイロットおよび彼の使用するマシンの名称である。</p>
-            <p>かつては大事故により再起不能と言われていたが、サイボーグ化手術を受け、全身を機械に置き換えることでサーキットに復帰した。恐怖心を克服したその走りは、多くの観客を魅了し続けている。</p>
-            
-            <h3>特徴</h3>
-            <ul>
-                <li>高いボディ強度を誇る。</li>
-                <li>加速性能と最高速のバランスが良い。</li>
-                <li>サイボーグゆえの精密なハンドリング。</li>
-            </ul>
-        </section>
     </div>
-</div>
 
-<script>
-    // Interaction logic: simple log to show JS is running
-    console.log("Safari Simulator: Page 'マイティ ガゼル' loaded successfully.");
-    
-    // Simulate Safari's address bar focus effect
-    const addressBar = document.querySelector('.address-bar');
-    addressBar.addEventListener('click', () => {
-        addressBar.style.border = "2px solid #75a7ff";
-    });
-</script>
+    <script>
+        // Tab switching logic
+        function switchTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
 
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // F-ZERO TV Interview Simulator Logic
+        function playInterview(type) {
+            const display = document.getElementById("interview-log");
+            let text = "";
+
+            if (type === 'victory') {
+                text = "ミスター ゼロ: 優勝おめでとう！\nガゼル: 「大事故を乗り越え、オレはここに帰ってきたぜ！」";
+            } else if (type === 'reason') {
+                text = "ミスター ゼロ: なぜF-ZEROレーサーになったんだい？\nガゼル: 「栄光のためさ！」";
+            } else if (type === 'cyborg') {
+                text = "ミスター ゼロ: その身体になって不自由は？\nガゼル: 「恐怖を失ったこの肉体こそ、最高のレーシングデバイスだ！」";
+            }
+
+            display.innerText = text;
+        }
+    </script>
 </body>
 </html>

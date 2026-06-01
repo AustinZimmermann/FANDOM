@@ -4,232 +4,383 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ケイト アレン | F-ZERO Wiki | Fandom</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "ケイト アレン",
-      "description": "『F-ZERO』シリーズのキャラクター、ケイト アレンの解説ページ。",
-      "publisher": {
-        "@type": "Organization",
-        "name": "F-ZERO Wiki"
-      }
-    }
-    </script>
-
     <style>
+        /* F-ZERO Neon & Fandom Archive Aesthetic */
         :root {
-            --fandom-bg: #f5f8fa;
-            --fandom-nav: #282a2e;
-            --fandom-accent: #00d6d6;
-            --wiki-border: #ccd0d3;
-            --text-color: #3a3a3a;
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-purple: #8a2be2;
+            --fzero-pink: #ff007f;
+            --fzero-yellow: #f8b400;
+            --infobox-bg: #151a21;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            font-family: sans-serif;
-            background-color: var(--fandom-bg);
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.5;
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
 
-        /* Safari macOS Top Bar Simulation */
-        .safari-toolbar {
-            background: linear-gradient(to bottom, #e0e0e0, #cdcdcd);
-            height: 38px;
+        /* Header Navigation Simulation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-pink);
+            padding: 15px 20px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid #a5a5a5;
         }
 
-        .safari-dots {
-            display: flex;
-            gap: 8px;
+        .wiki-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
+        .wiki-logo span {
+            color: var(--fzero-pink);
+        }
 
-        .address-bar {
-            background: white;
-            height: 24px;
-            margin-left: 20px;
-            flex-grow: 1;
-            border-radius: 5px;
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1200px;
+            margin: 15px auto 0 auto;
+            padding: 0 20px;
             font-size: 12px;
+            color: #888;
+        }
+        .breadcrumbs a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Main Content Styling */
+        .content-body {
+            background-color: var(--container-bg);
+            border: 1px solid #2c3e50;
+            border-radius: 4px;
+            padding: 25px;
+        }
+
+        h1.page-title {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid var(--fzero-pink);
+            padding-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid var(--accent-blue);
+            padding-bottom: 5px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #555;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* Fandom Wiki Layout */
-        .fandom-nav {
-            background-color: var(--fandom-nav);
-            height: 46px;
-            width: 100%;
+        h2::before {
+            content: "■ ";
+            color: var(--fzero-pink);
+            margin-right: 8px;
+            font-size: 16px;
         }
 
-        .container {
-            max-width: 1060px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        h3 {
+            color: var(--text-light);
+            font-size: 18px;
+            margin: 20px 0 10px 0;
         }
 
-        h1 {
-            border-bottom: 1px solid var(--wiki-border);
-            padding-bottom: 10px;
-            font-size: 2.2em;
-            margin-top: 0;
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
-        /* The Infobox */
-        .portable-infobox {
-            float: right;
-            width: 300px;
-            border: 1px solid var(--wiki-border);
-            background: #fff;
-            margin-left: 20px;
-            margin-bottom: 20px;
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Infobox Sidebar Styling */
+        .infobox {
+            background-color: var(--infobox-bg);
+            border: 2px solid var(--fzero-purple);
             border-radius: 4px;
+            width: 100%;
             overflow: hidden;
+            font-size: 13px;
+            align-self: start;
+        }
+
+        .infobox-title {
+            background: linear-gradient(90deg, var(--fzero-purple), var(--fzero-pink));
+            color: var(--text-light);
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .infobox-image-container {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .placeholder-art {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #555, #111);
+            line-height: 120px;
+            margin: 0 auto;
+            color: var(--fzero-yellow);
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px dashed var(--accent-neon);
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox-table th, .infobox-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #222;
+            text-align: left;
+        }
+
+        .infobox-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #aaa;
+            width: 35%;
+            font-weight: normal;
+        }
+
+        .infobox-table td {
+            color: var(--text-light);
         }
 
         .infobox-header {
-            background-color: var(--fandom-accent);
-            color: white;
-            text-align: center;
-            padding: 10px;
+            background-color: rgba(138, 43, 226, 0.2);
+            color: var(--accent-neon);
             font-weight: bold;
-            font-size: 1.2em;
+            text-align: center !important;
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
-        .infobox-image {
-            width: 100%;
-            display: block;
-            border-bottom: 1px solid var(--wiki-border);
+        /* Interactive Tabs for Game Appearances */
+        .tab-container {
+            margin-top: 20px;
         }
 
-        .infobox-section {
-            padding: 8px;
-            font-size: 0.9em;
-        }
-
-        .infobox-row {
+        .tab-buttons {
             display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 5px 0;
+            gap: 5px;
+            border-bottom: 2px solid #333;
         }
 
-        .infobox-label {
-            width: 40%;
+        .tab-btn {
+            background-color: #111;
+            color: var(--text-color);
+            border: 1px solid #333;
+            border-bottom: none;
+            padding: 10px 15px;
+            cursor: pointer;
             font-weight: bold;
-            color: #555;
+            transition: 0.2s;
         }
 
-        .infobox-data {
-            width: 60%;
+        .tab-btn.active {
+            background-color: var(--container-bg);
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            border-bottom: 2px solid var(--container-bg);
+            margin-bottom: -2px;
         }
 
-        /* Content Styles */
-        .content-text p {
-            margin-bottom: 1em;
+        .tab-content {
+            display: none;
+            padding: 20px 0;
         }
 
-        .toc {
-            background: #f9f9f9;
-            border: 1px solid var(--wiki-border);
-            padding: 15px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-        }
-
-        .toc-title {
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
+        .tab-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="safari-toolbar">
-        <div class="safari-dots">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-        </div>
-        <div class="address-bar">
-            fzero.fandom.com/ja/wiki/ケイト_アレン
-        </div>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>WIKI</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ</div>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="#">F-ZERO Wiki</a> &gt; <a href="#">登場パイロット</a> &gt; ケイト・アレン
     </div>
 
-    <div class="fandom-nav"></div>
+    <div class="main-container">
+        
+        <div class="content-body">
+            <h1 class="page-title">ケイト アレン</h1>
+            <div class="subtitle">Kate Alen — メガ・ポップスターにして、超高速の歌姫。</div>
 
-    <div class="container">
-        <h1>ケイト アレン</h1>
+            <p>
+                <strong>ケイト アレン</strong>（Kate Alen）は、任天堂のレースゲームシリーズ『F-ZERO』に登場する架空のキャラクターであり、F-ZEROグランプリに参戦する女性パイロットの一人である。
+            </p>
+            <p>
+                数々のヒット曲を持つトップシンガーでありながら、自ら最高時速を超えるF-ZEROマシンを駆り、過酷なレースへと身を投じる異色の経歴を持つ。
+            </p>
 
-        <aside class="portable-infobox">
-            <div class="infobox-header">ケイト アレン <br> Kate Alen</div>
-            <img src="https://static.wikia.nocookie.net/fzero/images/5/54/Katealen.jpg" alt="Kate Alen" class="infobox-image">
-            <div class="infobox-section">
-                <div class="infobox-row">
-                    <div class="infobox-label">性別</div>
-                    <div class="infobox-data">女性</div>
+            <h2>人物背景</h2>
+            <p>
+                元々はダンスミュージック界のカリスマ歌姫であり、その圧倒的な歌唱力とパワフルなダンスで、全宇宙に数多くのファンを抱えるメガ・ポップスターである。
+            </p>
+            <p>
+                数々の栄誉を手にした彼女であったが、音楽業界の商業主義的な狂騒に次第に倦怠感を抱くようになる。精神的なブレイクスルーを求めていた彼女が出会ったのが、スピードとスリルが全てを支配する「F-ZEROグランプリ」であった。
+            </p>
+            <p>
+                彼女は単なる客寄せパンダとしての参戦ではなく、プロのレーサーとして通用するだけの過酷なトレーニングを積み、周囲の懸念を払拭して見せた。ステージで見せる鋭いリズム感と抜群の反射神経は、時速1,000kmを超える超高速レースの世界においても遺憾なく発揮されている。
+            </p>
+
+            <h2>搭乗マシン：スーパーピラニア</h2>
+            <p>
+                ケイト アレンが操縦するマシンは、「<b>スーパーピラニア（SUPER PIRANHA）</b>」（マシンナンバー12）である。
+            </p>
+            <p>
+                このマシンは、F-ZEROサーキットにおいて非常に高い総合バランスを誇る機体として調整されている。特にコーナリング性能とグリップの安定感に優れており、初心者から熟練者まで扱いやすい設計が特徴である。
+            </p>
+            <p>
+                一方で、最高速度への到達時間や、ブースト発動時の持続力においては、やや爆発力に欠ける側面も併せ持つ。しかし、ケイトが持つ正確無比なライン取りの技術によって、そのポテンシャルは極限まで引き出されている。
+            </p>
+
+            <h2>ゲーム作品における特徴</h2>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(event, 'fzero-x')">F-ZERO X</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'fzero-gx')">F-ZERO GX</button>
                 </div>
-                <div class="infobox-row">
-                    <div class="infobox-label">年齢</div>
-                    <div class="infobox-data">30歳 (GX)</div>
+
+                <div id="fzero-x" class="tab-content active">
+                    <h3>『F-ZERO X』（NINTENDO 64）</h3>
+                    <p>本作にて初登場を果たす。30台が同時にひしめき合うデスレースの中でも、安定したグリップ性能を活かして確実に生き残る立ち回りが可能である。全体的にバランスの取れた扱いやすいキャラクターとして位置づけられている。</p>
                 </div>
-                <div class="infobox-row">
-                    <div class="infobox-label">職業</div>
-                    <div class="infobox-data">歌手</div>
-                </div>
-                <div class="infobox-row">
-                    <div class="infobox-label">搭乗マシン</div>
-                    <div class="infobox-data">スーパーピラニア</div>
-                </div>
-                <div class="infobox-row">
-                    <div class="infobox-label">初出作品</div>
-                    <div class="infobox-base">F-ZERO X (N64)</div>
+
+                <div id="fzero-gx" class="tab-content">
+                    <h3>『F-ZERO GX』（ニンテンドー ゲームキューブ）</h3>
+                    <p>グラフィックの大幅な進化に伴い、彼女のディーヴァ（歌姫）としての絢爛な衣装やキャラクター性がより鮮明に描写された。ムービーシーンでは、ポップスターらしい華麗なパフォーマンスを披露している。ゲーム内性能としては、やはりマシンの高いボディ強度とグリップ力が強みである。</p>
                 </div>
             </div>
+
+            <h2>トリビア</h2>
+            <ul>
+                <li>彼女の愛車である「スーパーピラニア」のカラーリングは、彼女のステージ衣装と調和するような鮮やかなパープルとピンクを基調としている。</li>
+                <li>グランプリの開会式や、彼女が優勝した際のインタビューでは、メディア向けのサービス精神旺盛なファンパフォーマンスを忘れないプロフェッショナルである。</li>
+            </ul>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">ケイト アレン</div>
+            
+            <div class="infobox-image-container">
+                <div class="placeholder-art">No.12</div>
+                <div style="margin-top: 10px; font-weight: bold; color: var(--text-light);">Kate Alen</div>
+            </div>
+
+            <table class="infobox-table">
+                <tr><th colspan="2" class="infobox-header">基本情報</th></tr>
+                <tr><th>性別</th><td>女性</td></tr>
+                <tr><th>職業</th><td>歌手 / F-ZEROパイロット</td></tr>
+                <tr><th>初登場作品</th><td>『F-ZERO X』(1998)</td></tr>
+
+                <tr><th colspan="2" class="infobox-header">マシンスペック</th></tr>
+                <tr><th>搭乗マシン</th><td>スーパーピラニア (SUPER PIRANHA)</td></tr>
+                <tr><th>マシンナンバー</th><td>12</td></tr>
+                <tr><th>製造者</th><td>チーム・スーパーピラニア</td></tr>
+                <tr><th>ボディ強度</th><td>B</td></tr>
+                <tr><th>ブースト</th><td>C</td></tr>
+                <tr><th>グリップ</th><td>A</td></tr>
+            </table>
         </aside>
 
-        <div class="toc">
-            <div class="toc-title">目次</div>
-            <div>1. 概要</div>
-            <div>2. マシン</div>
-            <div>3. ギャラリー</div>
-        </div>
-
-        <div class="content-text">
-            <p><strong>ケイト アレン</strong>（<span lang="en">Kate Alen</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するキャラクターである。</p>
-            
-            <p>人気絶頂のポップシンガーであり、彼女のパワフルな歌声とダンスは銀河中で愛されている。しかし、彼女はその栄光に満足することなく、更なる刺激を求めてF-ZEROグランプリへの参戦を決意した。</p>
-
-            <h2>概要</h2>
-            <p>ケイトは幼少期から歌とダンスの英才教育を受けてきた。彼女の身体能力は非常に高く、ステージで見せるキレのある動きは、過酷なGが掛かるF-ZEROマシンの操縦にも役立っている。性格は非常に情熱的で、ファンを大切にする一面も持っている。</p>
-
-            <h2>マシン</h2>
-            <p>彼女の愛機である「<strong>スーパーピラニア（SUPER PIRANHA）</strong>」は、高い加速性能とグリップ力を誇るマシンである。ボディの耐久性はやや低いが、テクニカルなコースでその真価を発揮する。</p>
-        </div>
     </div>
 
     <script>
-        // Simple interaction to mimic macOS feel
-        document.title = "ケイト アレン | F-ZERO Wiki | Fandom (Simulated)";
-        console.log("F-ZERO Wiki Simulator Initialized.");
+        function switchTab(evt, gameId) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // Show current tab content and activate button
+            document.getElementById(gameId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>

@@ -3,239 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F-ZERO Wiki - ゾーダ (Zoda)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ゾーダ | F-ZERO Wiki | Fandom</title>
     <style>
+        /* F-ZERO Neon & Fandom Styling */
         :root {
-            --fzero-purple: #6b21a8;
-            --fzero-neon: #a855f7;
-            --fzero-dark: #0f172a;
-            --zoda-green: #22c55e;
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --sidebar-bg: #151b24;
+            --accent-purple: #9b5de5;
+            --accent-neon: #00f5d4;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--fzero-dark);
-            color: #e2e8f0;
             font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
-            background-image: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
-            background-attachment: fixed;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
 
-        .stat-bar {
-            height: 8px;
+        /* Wiki Header Navigation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--accent-purple);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wiki-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wiki-logo span {
+            color: var(--accent-purple);
+        }
+
+        .breadcrumbs {
+            font-size: 12px;
+            margin: 15px calc(50% - 600px);
+            padding: 0 20px;
+            color: #888;
+        }
+
+        /* Main Content Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Article Formatting */
+        .article-body h1 {
+            color: var(--text-light);
+            font-size: 32px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .article-body h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .article-body h3 {
+            color: var(--fzero-yellow);
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Wiki Infobox (Right Sidebar Styling) */
+        .infobox {
+            background-color: var(--sidebar-bg);
+            border: 2px solid var(--accent-purple);
             border-radius: 4px;
-            background: #334155;
-            overflow: hidden;
-            position: relative;
+            padding: 15px;
+            align-self: start;
         }
 
-        .stat-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--zoda-green), #4ade80);
-            box-shadow: 0 0 10px var(--zoda-green);
+        .infobox-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            background-color: var(--accent-purple);
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 2px;
         }
 
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
+        .infobox-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #2c003e, #000);
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-neon);
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
 
-        .zoda-gradient {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            border-left: 4px solid var(--zoda-green);
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
         }
 
-        .character-img-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        .infobox-table th, .infobox-table td {
+            padding: 8px;
+            border-bottom: 1px solid #2a3545;
+            text-align: left;
         }
 
-        .quote-card::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            font-size: 80px;
-            color: rgba(34, 197, 94, 0.2);
-            font-family: serif;
+        .infobox-table th {
+            color: var(--fzero-yellow);
+            width: 40%;
+        }
+
+        /* Media Tabs Component */
+        .tab-box {
+            background-color: var(--container-bg);
+            border: 1px solid #334455;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            background: #111;
+            color: var(--text-color);
+            border: 1px solid var(--accent-purple);
+            padding: 6px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent-purple);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: var(--accent-neon);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="min-h-screen pb-20">
+<body>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 glass-card mx-4 mt-4 px-6 py-4 flex justify-between items-center border-b border-white/10">
-        <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center font-fzero font-bold text-white shadow-lg shadow-purple-500/50">F</div>
-            <span class="font-fzero tracking-widest text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">F-ZERO WIKI</span>
-        </div>
-        <nav class="hidden md:flex space-x-8 text-sm font-bold tracking-tighter">
-            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Machines</a>
-            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Pilots</a>
-            <a href="#" class="hover:text-purple-400 transition-colors uppercase">Tracks</a>
-        </nav>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>Wiki</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ</div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 mt-8">
-        <!-- Hero Section -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="breadcrumbs">
+        <a href="#">メインページ</a> &gt; <a href="#">パイロット一覧</a> &gt; ゾーダ
+    </div>
+
+    <div class="main-container">
+        
+        <div class="article-body">
+            <h1>ゾーダ</h1>
             
-            <!-- Left: Character Image & Basic Info -->
-            <div class="md:col-span-1 space-y-6">
-                <div class="character-img-container aspect-[3/4] bg-gray-800 flex items-center justify-center">
-                    <img id="zoda-image" src="https://static.wikia.nocookie.net/fzero/images/1/1f/057.jpg" alt="ゾーダ" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://via.placeholder.com/400x500/1e1b4b/22c55e?text=ZODA';">
+            <p>
+                <strong>ゾーダ</strong>（Zoda）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、同シリーズにおける代表的な悪役（ヴィラン）の一人である。宇宙の支配を企む凶悪な犯罪者であり、主人公である<a href="Captain-Falcon">キャプテン ファルコン</a>とは長年にわたり激しく対立している因縁のライバル関係にある。
+            </p>
+
+            <h2>概要</h2>
+            <p>
+                不気味な半魚人のような容姿に、パンク・ロック風の奇抜な衣装を身にまとった怪人である。悪の組織の首領であり、銀河連邦警察（GDPC）から巨額の賞金が懸けられている指名手配犯でもある。
+            </p>
+            <p>
+                自身の欲望に極めて忠実であり、全宇宙を混沌と恐怖に陥れることを至上の喜びとしている。かつて地球を征服しようと試みたが、当時警察官であったキャプテン ファルコン（本名：ダグラス ジェイ ファルコン）および<a href="Super-Arrow">スーパー アロー</a>によってその野望を阻止された過去を持つ。この事件以降、ファルコンに対して凄まじい執念と憎悪を抱くようになったのである。
+            </p>
+
+            <h2>F-ZEROグランプリへの参戦理由</h2>
+            <p>
+                彼が過酷なF-ZEROグランプリに身を投じる理由は、単なる富や名声のためではない。グランプリで獲得できる莫大な賞金を自身の組織の資金源とし、宇宙征服のための軍備を拡張することが真の目的である。同時に、宿敵であるキャプテン ファルコンをレースの戦火の中で合法的に抹殺する機会を常に窺っている。
+            </p>
+
+            <h2>搭乗マシン</h2>
+            <h3>デスアンカー (DEATH ANCHOR)</h3>
+            <p>
+                ゾーダが操るNo.13の専用マシンである。彼の邪悪な思想を体現したかのような、赤と黒を基調とした禍々しい形状が特徴である。
+            </p>
+            <p>
+                最高速度の伸びと強力なブースト性能を誇る超攻撃型マシンであり、ストレート主体のコースにおいて圧倒的な脅威となる。しかしその反面、ボディの耐久力が非常に低く、グリップ力も極めて脆弱である。操作には極めて高度な技術を要し、一瞬の操作ミスが致命的な大クラッシュへと直結する、まさに「諸刃の剣」と呼ぶにふさわしい機体である。
+            </p>
+
+            <h2>各作品における動向</h2>
+            
+            <div class="tab-box">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="changeVersion(event, 'x-era')">F-ZERO X</button>
+                    <button class="tab-btn" onclick="changeVersion(event, 'gx-era')">F-ZERO GX</button>
+                    <button class="tab-btn" onclick="changeVersion(event, 'anime-era')">ファルコン伝説 (アニメ)</button>
                 </div>
-                
-                <div class="glass-card p-6">
-                    <h2 class="font-fzero text-zoda-green text-lg mb-4 border-b border-zoda-green/30 pb-2">PROFILE</h2>
-                    <table class="w-full text-sm">
-                        <tr class="border-b border-white/5">
-                            <td class="py-3 text-gray-400 font-bold">名前</td>
-                            <td class="py-3 text-right">ゾーダ (Zoda)</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="py-3 text-gray-400 font-bold">参戦番号</td>
-                            <td class="py-3 text-right font-fzero text-yellow-400">13</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="py-3 text-gray-400 font-bold">性別</td>
-                            <td class="py-3 text-right">男</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="py-3 text-gray-400 font-bold">年齢</td>
-                            <td class="py-3 text-right">不明</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="py-3 text-gray-400 font-bold">職業</td>
-                            <td class="py-3 text-right text-xs">ゾルタン・リーダー / テロリスト</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 text-gray-400 font-bold">キャッチコピー</td>
-                            <td class="py-3 text-right text-red-400 font-bold">狂気の独裁者</td>
-                        </tr>
-                    </table>
+
+                <div id="x-era" class="tab-content active">
+                    <p><strong>『F-ZERO X』での活躍：</strong></p>
+                    <p>本作よりプレイアブルキャラクターとして初参戦を果たした。説明書等のバイオグラフィーにおいて、キャプテン ファルコンやスーパー アローとの過去の因縁が初めて明文化され、シリーズにおける本格的な悪役としての地位を確立することとなった。</p>
+                </div>
+
+                <div id="gx-era" class="tab-content">
+                    <p><strong>『F-ZERO GX』での活躍：</strong></p>
+                    <p>ストーリーモードに深く関与する。謎の組織の幹部として暗躍し、ファルコンの前に立ちはだかる。作中のムービーでは、高笑いを上げながら狂気的なダンスを披露するなど、彼の常軌を逸したキャラクター性がより鮮明に描写されている。</p>
+                </div>
+
+                <div id="anime-era" class="tab-content">
+                    <p><strong>『F-ZERO ファルコン伝説』での活躍：</strong></p>
+                    <p>悪の組織「ダークミリオン」の総帥であるブラック シャドーの忠実な右腕（後に離反）として登場する。主人公であるリュウ スザクとも激しい戦いを繰り広げ、物語全体の緊張感を高める重要な悪役として描かれ続けた。</p>
                 </div>
             </div>
 
-            <!-- Right: Content -->
-            <div class="md:col-span-2 space-y-8">
-                <!-- Title & Overview -->
-                <section>
-                    <h1 class="text-5xl font-black mb-4 tracking-tighter">ゾーダ <span class="font-fzero text-2xl text-gray-500 ml-4 italic">Zoda</span></h1>
-                    <div class="p-6 zoda-gradient rounded-r-lg shadow-xl">
-                        <p class="leading-relaxed text-lg">
-                            全宇宙の支配を目論む秘密結社「ゾルタン」のリーダー。地球連邦政府の転覆を狙うテロリストであり、数多くの凶悪犯罪に関与している。緑色の肌と、頭部の独特なモヒカンが特徴的なエイリアンである。
-                        </p>
-                        <p class="mt-4 leading-relaxed">
-                            性格は極めて凶暴かつ、狂気に満ちている。レースに参加する理由は、賞金を得て活動資金にするためだけでなく、レースそのものを通じた破壊活動や混乱を楽しむためでもある。
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Machine Section -->
-                <section class="glass-card p-8">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-2xl font-bold flex items-center">
-                            <span class="w-2 h-8 bg-red-600 mr-4"></span>
-                            搭乗マシン: デスアンカー
-                        </h2>
-                        <span class="font-fzero text-3xl font-bold text-gray-600 italic">No.13</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                                極限までスピードを追求した設計となっており、最高速度とブースト性能はトップクラスである。しかし、ボディ強度は壊滅的に低く、一瞬のミスが即リタイアに繋がる。
-                            </p>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Body</span><span class="text-red-500">E</span></div>
-                                    <div class="stat-bar"><div class="stat-fill" style="width: 20%; background: #ef4444;"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Boost</span><span class="text-zoda-green">A</span></div>
-                                    <div class="stat-bar"><div class="stat-fill" style="width: 95%;"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs font-bold mb-1"><span class="uppercase">Grip</span><span class="text-yellow-400">C</span></div>
-                                    <div class="stat-bar"><div class="stat-fill" style="width: 50%; background: #fbbf24;"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-black/40 rounded-lg p-4 flex flex-col justify-center items-center border border-white/5">
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">Max Speed</div>
-                            <div class="text-4xl font-fzero font-bold text-white">1082 <span class="text-sm">km/h</span></div>
-                            <div class="mt-4 px-4 py-1 border border-zoda-green text-zoda-green text-[10px] uppercase font-bold tracking-widest">Advanced Pilot Only</div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- History Section -->
-                <section class="space-y-6">
-                    <h2 class="text-2xl font-bold flex items-center">劇中での活躍</h2>
-                    
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="p-5 border-l-2 border-purple-500 bg-white/5 rounded-r-lg">
-                            <h3 class="font-bold text-purple-400 mb-2">F-ZERO X / GX</h3>
-                            <p class="text-sm leading-relaxed text-gray-300">
-                                ストーリーモード等では悪役としてのポジションを確立。『GX』のムービーシーンでは、彼の狂気的な一面や、独裁者としての振る舞いが強調して描かれた。
-                            </p>
-                        </div>
-                        <div class="p-5 border-l-2 border-blue-500 bg-white/5 rounded-r-lg">
-                            <h3 class="font-bold text-blue-400 mb-2">F-ZERO ファルコン伝説 (アニメ)</h3>
-                            <p class="text-sm leading-relaxed text-gray-300">
-                                ダークミリオンの幹部として登場。元々は「ジャック レビン」とコンビを組んでいた警察官であったが、ある事件をきっかけに悪の道へと墜ちたという背景を持つ。
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Quotes Section -->
-                <section>
-                    <h2 class="text-2xl font-bold mb-6">主な台詞</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="quote-card glass-card p-6 relative italic">
-                            「ヒャッハッハッハ！ 全宇宙は、このゾーダ様のものだ！」
-                        </div>
-                        <div class="quote-card glass-card p-6 relative italic">
-                            「このスピード……これこそが破壊の快感よ！」
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Related Characters -->
-                <section class="glass-card p-6">
-                    <h2 class="text-xl font-bold mb-4">関連キャラクター</h2>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-red-900/30 border border-red-500/30 rounded-full text-xs font-bold hover:bg-red-500/50 transition-colors cursor-pointer">スーパー アロー</span>
-                        <span class="px-4 py-2 bg-pink-900/30 border border-pink-500/30 rounded-full text-xs font-bold hover:bg-pink-500/50 transition-colors cursor-pointer">ミセス アロー</span>
-                        <span class="px-4 py-2 bg-gray-900/30 border border-gray-500/30 rounded-full text-xs font-bold hover:bg-gray-500/50 transition-colors cursor-pointer text-gray-300">ブラック シャドー</span>
-                        <span class="px-4 py-2 bg-blue-900/30 border border-blue-500/30 rounded-full text-xs font-bold hover:bg-blue-500/50 transition-colors cursor-pointer">キャプテン ファルコン</span>
-                    </div>
-                </section>
-            </div>
+            <h2>主な交友・因縁関係</h2>
+            <ul>
+                <li><strong>キャプテン ファルコン：</strong> 最大の宿敵である。過去に自身の地球征服計画を阻止されて以来、激しい憎悪を燃やし続けている。</li>
+                <li><strong>スーパー アロー：</strong> ファルコンと共に自分を逮捕した正義のヒーローであり、激しく嫌悪している対象である。</li>
+                <li><strong>ブラック シャドー：</strong> アニメ版などで上司にあたる存在であるが、ゾーダ自身は隙あらば彼を蹴落として組織のトップに君臨しようと企てている。</li>
+            </ul>
         </div>
-    </main>
 
-    <footer class="mt-20 text-center text-gray-600 text-xs border-t border-white/5 pt-10">
-        <p class="mb-2">© F-ZERO Wiki - Characters Database</p>
-        <p>This is a fan-made informational page based on the F-ZERO series by Nintendo.</p>
-    </footer>
+        <div class="infobox">
+            <div class="infobox-title">ゾーダ</div>
+            <div class="infobox-image">ZODA IMAGE</div>
+            
+            <table class="infobox-table">
+                <tr>
+                    <th>デビュー作</th>
+                    <td>F-ZERO X (1998)</td>
+                </tr>
+                <tr>
+                    <th>マシンナンバー</th>
+                    <td>No. 13</td>
+                </tr>
+                <tr>
+                    <th>搭乗マシン</th>
+                    <td><a href="Death-Anchor">デスアンカー</a></td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>男（宇宙人）</td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>不明</td>
+                </tr>
+                <tr>
+                    <th>所属</th>
+                    <td>ゾーダ一味 / ダークミリオン</td>
+                </tr>
+                <tr>
+                    <th>主な懸賞金</th>
+                    <td>銀河宇宙最高額級</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
 
     <script>
-        // Simple hover effect for machine stats
-        document.querySelectorAll('.stat-bar').forEach(bar => {
-            bar.addEventListener('mouseenter', () => {
-                bar.querySelector('.stat-fill').style.filter = 'brightness(1.5)';
-            });
-            bar.addEventListener('mouseleave', () => {
-                bar.querySelector('.stat-fill').style.filter = 'none';
-            });
-        });
+        function changeVersion(evt, versionName) {
+            // Hide all tab content
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Show current target and apply active class
+            document.getElementById(versionName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>

@@ -3,222 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビリー - F-ZERO Wiki</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ビリー | F-ZERO Wiki | Fandom</title>
     <style>
+        /* F-ZERO Fandom Common Aesthetic Styles */
+        :root {
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --infobox-bg: #151b24;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
-            background-color: #0a0a0c;
-            color: #e2e8f0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
-        .fzero-gradient {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+
+        /* Wiki Header Navigation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .accent-border {
-            border-left: 4px solid #3b82f6;
+
+        .wiki-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .machine-card {
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .wiki-logo span {
+            color: var(--fzero-red);
         }
-        .stat-bar-bg {
-            background-color: #334155;
-            height: 8px;
+
+        /* Main Container Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .infobox {
+                float: none;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Article Content Area */
+        .article-content {
+            background-color: var(--container-bg);
+            border: 1px solid #2c3e50;
             border-radius: 4px;
-            overflow: hidden;
+            padding: 30px;
         }
-        .stat-bar-fill {
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            height: 100%;
+
+        .article-title {
+            color: var(--text-light);
+            font-size: 32px;
+            border-bottom: 3px solid var(--accent-blue);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            border-bottom: 1px solid #4f5d73;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h2::before {
+            content: "■ ";
+            color: var(--fzero-yellow);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 5px;
+        }
+
+        li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 11px;
+            top: 2px;
+        }
+
+        /* Fandom Infobox Sidebar (Right side inside content) */
+        .infobox {
+            float: right;
+            width: 320px;
+            background-color: var(--infobox-bg);
+            border: 2px solid var(--accent-blue);
+            border-radius: 4px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .infobox-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            background-color: var(--accent-blue);
+            padding: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .infobox-image {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .infobox-section-header {
+            background-color: rgba(255, 0, 85, 0.2);
+            color: var(--text-light);
+            font-weight: bold;
+            padding: 3px 8px;
+            margin-top: 10px;
+            border-left: 3px solid var(--fzero-red);
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .infobox-table th, .infobox-table td {
+            padding: 6px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .infobox-table th {
+            width: 40%;
+            color: var(--fzero-yellow);
+            font-weight: normal;
+        }
+
+        /* Interactive Tabs for Machine Specs */
+        .tab-container {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #334455;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #334455;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background-color: #0b0c10;
+            color: var(--text-color);
+            border: 1px solid var(--fzero-red);
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background-color: var(--fzero-red);
+            color: var(--text-light);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Right Sidebar Links (Simulating Wiki ecosystem) */
+        .wiki-sidebar .panel {
+            background-color: var(--container-bg);
+            border: 1px solid #2c3e50;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            color: var(--text-light);
+            border-bottom: 2px solid var(--fzero-red);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-4">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-black tracking-tighter text-blue-500 uppercase italic">F-ZERO WIKI</h1>
-            <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest text-slate-400">
-                <a href="#" class="hover:text-blue-400 transition">Pilots</a>
-                <a href="#" class="hover:text-blue-400 transition">Machines</a>
-                <a href="#" class="hover:text-blue-400 transition">Courses</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <div class="wiki-logo"><a href="#" style="color: inherit;">F-ZERO <span>WIKI</span></a></div>
+        <div style="font-size: 12px; color: #aaa;">ja-JP | データベース</div>
+    </header>
 
-    <main class="max-w-5xl mx-auto p-6 md:p-12">
+    <div class="main-container">
         
-        <!-- Hero Section -->
-        <div class="grid md:grid-cols-12 gap-8 items-start mb-16">
-            <div class="md:col-span-5 lg:col-span-4">
-                <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800 bg-slate-900">
-                    <img src="https://static.wikia.nocookie.net/fzero/images/e/e1/Billy.jpg" 
-                         alt="Billy" 
-                         class="w-full h-auto object-cover"
-                         onerror="this.src='https://via.placeholder.com/400x500?text=Billy+Pilot';">
+        <div class="article-content">
+            <h1 class="article-title">ビリー (Billy)</h1>
+
+            <div class="infobox">
+                <div class="infobox-title">ビリー / Billy</div>
+                <div class="infobox-image">MAD WOLF [No.11]</div>
+                
+                <div class="infobox-section-header">プロフィール</div>
+                <table class="infobox-table">
+                    <tr><th>出身地</th><td>第一惑星 ウーペル（サル星）</td></tr>
+                    <tr><th>性別</th><td>オス</td></tr>
+                    <tr><th>年齢</th><td>7歳（GX時）</td></tr>
+                    <tr><th>職業</th><td>F-ZEROパイロット</td></tr>
+                </table>
+
+                <div class="infobox-section-header">F-ZEROデータ</div>
+                <table class="infobox-table">
+                    <tr><th>搭乗マシン</th><td>マッドウルフ</td></tr>
+                    <tr><th>マシンナンバー</th><td>11</td></tr>
+                    <tr><th>初登場作品</th><td>F-ZERO X</td></tr>
+                </table>
+            </div>
+            <p><strong>ビリー</strong>（Billy）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、F-ZEROグランプリに参戦するパイロットのひとりである。人間以外の種族から参戦している数少ないパイロットの1頭として知られている。</p>
+
+            <h2>概要</h2>
+            <p>ウーペル星と呼ばれる、地球のサルに酷似した高度な知的生命体が暮らす惑星の出身である。ウーペル星の住人は非常に高い身体能力と知性を併せ持っており、ビリーはその中でも一際優れた操縦センスを有している。一見すると愛らしいサルの姿をしているが、ひとたびコックピットに乗り込めば、トップレーサーたちと互角以上に渡り合う実力派パイロットへと変貌を遂げる。</p>
+            <p>性格は極めて無邪気かつ好奇心旺盛であり、レースそのものを純粋な「遊び」として楽しんでいる傾向が強い。しかし、勝利に対する執着心や負けず嫌いな一面も持ち合わせており、決して侮れない存在である。</p>
+
+            <h2>経歴</h2>
+            <p>かつてウーペル星のロケットパイロット養成機関において、史上最高の成績を収めた伝説のパイロットの血を引いているとされる。F-ZEROグランプリへの参戦理由は、単なる富や名声のためではなく、宇宙で最も速い乗り物を操るスリルと、強者たちとの競い合いを純粋に追求した結果である。</p>
+            <p>『F-ZERO X』でのデビュー以降、全主要大会に継続してエントリーしており、そのトリッキーなライン取りと鋭い反射神経によって、多くの観客および実況陣から高い評価を得ている。</p>
+
+            <h2>搭乗マシン：マッドウルフ</h2>
+            <p>ビリーが操る専用マシン「<strong>マッドウルフ</strong>（MAD WOLF）」は、彼の高い身体能力とシンクロするように設計された軽量級の高性能マシンである。旋回性能と加速性能に優れており、テクニカルコースにおいてその真価を発揮する。</p>
+
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchSpec(event, 'x-spec')">F-ZERO X 仕様</button>
+                    <button class="tab-btn" onclick="switchSpec(event, 'gx-spec')">F-ZERO GX 仕様</button>
+                </div>
+
+                <div id="x-spec" class="tab-content active">
+                    <table class="infobox-table" style="width: 100%;">
+                        <tr><th>マシン重量</th><td>1490 kg</td></tr>
+                        <tr><th>ボディ強度</th><td>B</td></tr>
+                        <tr><th>ブースト性能</th><td>B</td></tr>
+                        <tr><th>グリップ性能</th><td>C</td></tr>
+                    </table>
+                    <p style="font-size: 13px; margin-top: 10px; color: #aaa;">※『F-ZERO X』においては、平均以上のボディとブーストを併せ持ち、バランスの取れた扱いやすい機体として調整されている。</p>
+                </div>
+
+                <div id="gx-spec" class="tab-content">
+                    <table class="infobox-table" style="width: 100%;">
+                        <tr><th>マシン重量</th><td>1490 kg</td></tr>
+                        <tr><th>ボディ強度</th><td>B</td></tr>
+                        <tr><th>ブースト性能</th><td>B</td></tr>
+                        <tr><th>グリップ性能</th><td>C</td></tr>
+                        <tr><th>最高速度</th><td>1022 km/h</td></tr>
+                    </table>
+                    <p style="font-size: 13px; margin-top: 10px; color: #aaa;">※『F-ZERO GX』においてもスペック表記は同様であるが、挙動の安定性と旋回時の滑らかさが強化され、よりテクニカルな運用が可能である。</p>
                 </div>
             </div>
-            
-            <div class="md:col-span-7 lg:col-span-8">
-                <div class="mb-6">
-                    <span class="inline-block px-3 py-1 bg-blue-600 text-xs font-bold rounded-full mb-2 uppercase tracking-tighter">NO. 11</span>
-                    <h2 class="text-5xl md:text-7xl font-black italic mb-2 tracking-tighter uppercase">ビリー</h2>
-                    <p class="text-xl text-blue-400 font-bold uppercase tracking-widest">Billy</p>
-                </div>
-                
-                <p class="text-lg leading-relaxed mb-6 accent-border pl-4 text-slate-300">
-                    任天堂のレースゲーム『F-ZERO』シリーズに登場するキャラクターである。F-ZEROマシン「<span class="text-white font-bold">マッドウルフ（MAD WOLF）</span>」のパイロット。
-                </p>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-slate-800/50 p-4 rounded-xl">
-                        <span class="block text-xs text-slate-500 font-bold uppercase mb-1">年齢</span>
-                        <span class="text-xl font-bold">7歳</span>
-                    </div>
-                    <div class="bg-slate-800/50 p-4 rounded-xl">
-                        <span class="block text-xs text-slate-500 font-bold uppercase mb-1">性別</span>
-                        <span class="text-xl font-bold">オス</span>
-                    </div>
-                </div>
+            <h2>登場作品</h2>
+            <ul>
+                <li>F-ZERO X（NINTENDO 64）</li>
+                <li>F-ZERO GX（ニンテンドー ゲームキューブ）</li>
+                <li>F-ZERO AX（アーケード）</li>
+                <li>F-ZERO ファルコン伝説（ゲームボーイアドバンス / アニメ）</li>
+                <li>F-ZERO CLIMAX（ゲームボーイアドバンス）</li>
+            </ul>
+
+        </div>
+
+        <div class="wiki-sidebar">
+            <div class="panel">
+                <div class="panel-title">関連ナビゲーション</div>
+                <ul style="font-size: 14px;">
+                    <li><a href="#">登場パイロット一覧</a></li>
+                    <li><a href="#">マシンNo.11〜20</a></li>
+                    <li><a href="#">ウーペル星について</a></li>
+                    <li><a href="#">軽量級マシンカテゴリ</a></li>
+                </ul>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">コミュニティツール</div>
+                <p style="font-size: 12px; margin-bottom: 8px;">この記事を編集するにはログインが必要である。</p>
+                <a href="#" style="font-size: 13px; color: var(--fzero-yellow);">▶ 編集履歴を表示</a>
             </div>
         </div>
 
-        <!-- Content Grid -->
-        <div class="grid lg:grid-cols-3 gap-12">
-            
-            <!-- Left Side: Main Content -->
-            <div class="lg:col-span-2 space-y-12">
-                
-                <!-- Overview -->
-                <section id="overview">
-                    <h3 class="text-2xl font-black mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <span class="w-8 h-8 bg-blue-600 rounded mr-3 inline-flex items-center justify-center text-sm">01</span>
-                        概要
-                    </h3>
-                    <div class="prose prose-invert max-w-none text-slate-300 space-y-4">
-                        <p>F-ZERO史上、初めてパイロットとして登録されたサルである。見た目は愛らしい小猿だが、そのドライビングテクニックは人間の一流パイロットに引けを取らない。</p>
-                        <p>非常に身軽で機敏な動きを特徴とし、マシンの挙動を体の一部のように操る。言葉を話すことはできないが、知能は非常に高く、身振り手振りや感情表現で意思疎通を図る。</p>
-                    </div>
-                </section>
-
-                <!-- History -->
-                <section id="history">
-                    <h3 class="text-2xl font-black mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <span class="w-8 h-8 bg-blue-600 rounded mr-3 inline-flex items-center justify-center text-sm">02</span>
-                        来歴
-                    </h3>
-                    <div class="prose prose-invert max-w-none text-slate-300 space-y-4">
-                        <p>かつてF-ZEROパイロットであった人物の末裔に育てられた。その飼い主から英才教育を受け、レースの基礎から応用までを叩き込まれている。彼がレースに参加する目的は、育ての親の名誉を守ること、そして自分を育ててくれた一族への恩返しである。</p>
-                        <p>性格は非常に明るく、好奇心旺盛。レース中も楽しむことを忘れないが、一度ハンドルを握れば野生の直感と凄まじい集中力を発揮する。</p>
-                    </div>
-                </section>
-
-                <!-- Appearances -->
-                <section id="appearances">
-                    <h3 class="text-2xl font-black mb-6 border-b border-slate-800 pb-2 flex items-center">
-                        <span class="w-8 h-8 bg-blue-600 rounded mr-3 inline-flex items-center justify-center text-sm">03</span>
-                        登場作品における活躍
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="bg-slate-800/30 p-6 rounded-2xl border border-slate-800">
-                            <h4 class="font-bold text-blue-400 mb-2">F-ZERO X / GX</h4>
-                            <p class="text-slate-400 text-sm">『X』で初登場して以来、レギュラーキャラクターとして定着している。『GX』のプロットにおいては、勝利インタビューなどでサルの鳴き声とともに陽気なパフォーマンスを見せ、ファンを沸かせるシーンが描かれている。</p>
-                        </div>
-                        <div class="bg-slate-800/30 p-6 rounded-2xl border border-slate-800">
-                            <h4 class="font-bold text-blue-400 mb-2">F-ZERO ファルコン伝説</h4>
-                            <p class="text-slate-400 text-sm">アニメ版では、バート レミングが経営する「バートのカフェ」の常連のような立ち位置で登場することが多い。ゲーム版『ファルコン伝説』や『CLIMAX』でも、軽量級のトリッキーなキャラとして参戦している。</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Right Side: Machine & Stats -->
-            <div class="space-y-8">
-                
-                <!-- Machine Card -->
-                <div class="machine-card rounded-3xl p-8 sticky top-24">
-                    <h3 class="text-xs font-black text-blue-500 uppercase tracking-widest mb-4">Current Machine</h3>
-                    <h4 class="text-3xl font-black italic mb-6">MAD WOLF</h4>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-bold">
-                                <span>BODY</span>
-                                <span class="text-blue-400">B</span>
-                            </div>
-                            <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 75%;"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-bold">
-                                <span>BOOST</span>
-                                <span class="text-blue-400">B</span>
-                            </div>
-                            <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 70%;"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-bold">
-                                <span>GRIP</span>
-                                <span class="text-blue-400">C</span>
-                            </div>
-                            <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 50%;"></div></div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 pt-6 border-t border-slate-700">
-                        <div class="text-xs text-slate-500 font-bold uppercase mb-2">Manufacturer</div>
-                        <div class="text-sm font-bold">全宇宙動物愛護団体</div>
-                    </div>
-
-                    <div class="mt-6 text-xs text-slate-400 leading-relaxed italic">
-                        マッドウルフは、ビリーの身軽さを活かした設計がなされている。加速性能とグリップ性能のバランスが良く、テクニカルなコースでその真価を発揮する。
-                    </div>
-                </div>
-
-                <!-- Trivia -->
-                <div class="bg-blue-900/20 rounded-3xl p-8 border border-blue-500/20">
-                    <h3 class="text-sm font-black text-blue-400 uppercase tracking-widest mb-4">Trivia</h3>
-                    <ul class="text-sm text-slate-300 space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">•</span>
-                            名前の「ビリー」は、かつての飼い主の犬の名前に由来するという説がある。
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">•</span>
-                            勝利した際の好物はバナナ。
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <footer class="mt-20 border-t border-slate-800 p-12 text-center text-slate-600 text-xs">
-        <p class="mb-2 uppercase font-black tracking-widest text-slate-500">F-ZERO PILOT PROFILE // NO. 11 BILLY</p>
-        <p>© Nintendo / F-ZERO Wiki Fan-project</p>
-    </footer>
+    </div>
 
     <script>
-        window.onload = () => {
-            console.log("Pilot Profile: Billy - Loaded.");
-            
-            // ページ内スクロールアニメーションなどの簡単な演出
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100');
-                        entry.target.classList.remove('opacity-0', 'translate-y-4');
-                    }
-                });
-            }, { threshold: 0.1 });
+        function switchSpec(evt, specId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
 
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('transition', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-4');
-                observer.observe(section);
-            });
-        };
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(specId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>

@@ -1,198 +1,368 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja-JP">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ピコ | F-ZERO Wiki | Fandom</title>
     <style>
-body {
-    background-color: #e0e0e0;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-}
+        /* Fandom Dark Theme + F-ZERO Aesthetic */
+        :root {
+            --bg-main: #0b0c10;
+            --bg-container: #1f2833;
+            --bg-infobox: #151b24;
+            --accent-cyan: #45f3ff;
+            --accent-green: #39ff14; /* Alien/Wild Goose Theme Green */
+            --text-main: #c5c6c7;
+            --text-light: #ffffff;
+            --border-color: #2c3e50;
+            --fzero-red: #ff0055;
+        }
 
-/* macOS Window Mockup */
-.macos-window {
-    width: 1000px;
-    height: 700px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.safari-toolbar {
-    background: #f1f1f1;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    border-bottom: 1px solid #d1d1d1;
-}
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
 
-.window-controls span {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
-}
+        /* Fandom Navigation Bar Mockup */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--accent-green);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.close { background: #ff5f57; }
-.minimize { background: #ffbd2e; }
-.expand { background: #28c840; }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.address-bar {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-left: 50px;
-    flex-grow: 0.6;
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    padding: 2px 0;
-}
+        .logo span {
+            color: var(--accent-green);
+        }
 
-/* Wiki Specifics */
-.wiki-container {
-    display: flex;
-    flex: 1;
-    overflow-y: auto;
-}
+        .breadcrumb {
+            font-size: 12px;
+            color: #888;
+            margin: 15px 0 5px 0;
+        }
 
-.fandom-sidebar {
-    width: 60px;
-    background: #000435; /* Fandom Blue */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-}
+        .breadcrumb a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
 
-.wiki-main {
-    flex: 1;
-    padding: 30px;
-    background: #ffffff;
-}
+        /* Main Layout */
+        .content-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
+        }
 
-.page-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #3a3a3a;
-}
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
 
-/* Infobox Styling */
-.infobox {
-    float: right;
-    width: 280px;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-left: 20px;
-}
+        /* Wiki Article Header */
+        .article-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
 
-.infobox-title {
-    background: #00d6d6;
-    color: #fff;
-    text-align: center;
-    padding: 5px;
-    margin: -10px -10px 10px -10px;
-}
+        .article-title {
+            font-size: 32px;
+            color: var(--text-light);
+            font-weight: 700;
+        }
 
-.infobox-image {
-    width: 100%;
-    border-radius: 4px;
-}
+        /* Infobox Style */
+        .infobox {
+            background-color: var(--bg-infobox);
+            border: 2px solid var(--accent-green);
+            border-radius: 4px;
+            padding: 15px;
+            font-size: 14px;
+            align-self: start;
+        }
 
-.infobox-data {
-    width: 100%;
-    font-size: 0.9em;
-    border-collapse: collapse;
-}
+        .infobox-title {
+            font-size: 18px;
+            color: var(--text-light);
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.2), transparent);
+        }
 
-.infobox-data th {
-    text-align: left;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
-}
+        .infobox-image {
+            width: 100%;
+            height: 180px;
+            background-color: #000;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox-table th, .infobox-table td {
+            padding: 6px 4px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .infobox-table th {
+            color: var(--text-light);
+            width: 40%;
+            font-weight: 600;
+        }
+
+        .infobox-table tr:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Article Sections */
+        h2 {
+            font-size: 22px;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "■";
+            color: var(--accent-green);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Interactive Machine Spec Switcher */
+        .spec-card {
+            background-color: var(--bg-container);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        .spec-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .spec-btn {
+            background: #000;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .spec-btn.active {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            background-color: rgba(57, 255, 20, 0.1);
+        }
+
+        .spec-display th {
+            color: var(--text-light);
+            text-align: left;
+            width: 30%;
+            padding: 4px 0;
+        }
     </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VisualCharacter",
-      "name": "ピコ",
-      "alternateName": "Pico",
-      "description": "『F-ZERO』シリーズに登場するパイロット。元ポーラス軍の軍人。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/6/6d/Pico.jpg",
-      "mainEntityOfPage": "https://fzero.fandom.com/ja/wiki/ピコ"
-    }
-    </script>
 </head>
 <body>
 
-<div class="macos-window">
-    <div class="safari-toolbar">
-        <div class="window-controls">
-            <span class="close"></span>
-            <span class="minimize"></span>
-            <span class="expand"></span>
-        </div>
-        <div class="address-bar">fzero.fandom.com/ja/wiki/ピコ</div>
-    </div>
+    <header>
+        <div class="logo">F-ZERO <span>Wiki</span></div>
+        <div style="font-size: 12px; color: #888;">FANDOMコミュニティ</div>
+    </header>
 
-    <div class="wiki-container">
-        <nav class="fandom-sidebar">
-            <div class="logo">F-ZERO Wiki</div>
-        </nav>
-
-        <main class="wiki-main">
-            <header class="page-header">
-                <h1>ピコ</h1>
-                <hr>
-            </header>
-
-            <div class="wiki-body">
-                <div class="infobox">
-                    <h2 class="infobox-title">ピコ<br>Pico</h2>
-                    <img src="https://static.wikia.nocookie.net/fzero/images/6/6d/Pico.jpg" alt="Pico" class="infobox-image">
-                    <table class="infobox-data">
-                        <tr><th>性別</th><td>男性</td></tr>
-                        <tr><th>年齢</th><td>124歳 (推定)</td></tr>
-                        <tr><th>搭乗マシン</th><td>ワイルドグース</td></tr>
-                    </table>
-                </div>
-
-                <p><strong>ピコ</strong>（<span lang="en">Pico</span>）は、任天堂のレースゲーム『F-ZERO』シリーズの登場人物。元ポーラス軍の軍人であり、非常に攻撃的な性格のパイロットとして知られている。</p>
-                
-                <h2>概要</h2>
-                <p>数々の戦場を生き抜いてきた冷酷な殺し屋。彼の操る「ワイルドグース（WILD GOOSE）」は、他車を弾き飛ばすことに特化した堅牢な設計となっている。</p>
+    <div class="content-wrapper">
+        
+        <main>
+            <div class="breadcrumb">
+                <a href="#">トップページ</a> &gt; <a href="#">パイロット一覧</a> &gt; ピコ
             </div>
-        </main>
-    </div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const addressBar = document.querySelector('.address-bar');
-    
-    // Simulate macOS highlight on click
-    addressBar.addEventListener('click', () => {
-        console.log("Address selected");
-        addressBar.style.backgroundColor = "#e8f0fe";
-    });
 
-    // Handle closing simulation
-    document.querySelector('.close').addEventListener('click', () => {
-        if(confirm("Safariのウィンドウを閉じますか？")) {
-            document.querySelector('.macos-window').style.display = 'none';
+            <div class="article-header">
+                <h1 class="article-title">ピコ</h1>
+            </div>
+
+            <p>
+                <strong>ピコ</strong>（Pico）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、F-ZEROグランプリに参戦するパイロットの一人である。初代『F-ZERO』から登場しているオリジナルメンバー4人のうちの1人として広く知られている。
+            </p>
+
+            <h2>人物背景</h2>
+            <p>
+                元々はポーポー星系（Porpoise系）の軍隊に所属していた異星人（宇宙人）の兵士である。除隊後の現在は、地球領のデス トピア（Death Topia）に住み、軍人時代の戦闘経験を活かして凶悪犯を狩る賞金稼ぎ（バウンティーハンター）として生計を立てている。
+            </p>
+            <p>
+                性格は極めて攻撃的かつ残虐であり、他者の命を奪うことに対して全く躊躇がない。F-ZEROグランプリにおいては、合法的に公道で超高速の殺戮劇を楽しめるという歪んだ理由から参戦を続けている。そのため、レース中も他車をクラッシュさせることに並々ならぬ執念を燃やす危険なレーサーである。
+            </p>
+
+            <h2>外見・特徴</h2>
+            <p>
+                緑色の皮膚と、爬虫類あるいは両生類を思わせる巨大な目が特徴的な容姿を持つ。頭部には耳のような突起が存在する。常に戦闘用のバイザースーツを着用しており、狂気的な笑みを浮かべていることが多い。
+            </p>
+
+            <h2>搭乗マシン</h2>
+            <p>
+                ピコの乗る愛機は、ナンバー06の<strong>「ワイルドグース（WILD GOOSE）」</strong>である。
+            </p>
+            <p>
+                軍用テクノロジーをベースに開発されたこのマシンは、非常に頑丈な装甲（ボディ）を誇る。ピコのラフなドライビングスタイルや、他車への体当たり攻撃にも耐えうる強固な設計が施されている。一方で、最高速度や加速性能は平均的、またはやや劣る部類に入る。
+            </p>
+
+            <div class="spec-card">
+                <h3 style="color: var(--text-light); font-size: 15px; margin-bottom: 10px;">マシンスペック変遷</h3>
+                <div class="spec-toggle">
+                    <button class="spec-btn active" onclick="changeSpec('sfc')">初代 (SFC)</button>
+                    <button class="spec-btn" onclick="changeSpec('x')">F-ZERO X</button>
+                    <button class="spec-btn" onclick="changeSpec('gx')">F-ZERO GX</button>
+                </div>
+                <table class="spec-display" id="specTable" style="width: 100%; font-size: 14px;">
+                    <tr><th>ボディ強度:</th><td>A</td></tr>
+                    <tr><th>最高速度:</th><td>B</td></tr>
+                    <tr><th>加速性能:</th><td>C</td></tr>
+                    <tr><th>旋回性能:</th><td>B</td></tr>
+                </table>
+            </div>
+
+            <h2>主な出演作品</h2>
+            <ul>
+                <li><strong>F-ZERO (SFC):</strong> 初代4人のプレイアブルキャラクターの1人として初登場。</li>
+                <li><strong>F-ZERO X (N64):</strong> 3D化。ボディ性能の高さから、初心者向けの生存率の高いマシンとして重宝される。</li>
+                <li><strong>F-ZERO GX (GC):</strong> ストーリーモード等でその残虐性がより強調され、他レーサーからも警戒される描写が存在する。</li>
+                <li><strong>F-ZERO 99 (Switch):</strong> 2023年配信開始。99台による乱戦において、高耐久のワイルドグースが独自の強みを発揮する。</li>
+            </ul>
+        </main>
+
+        <aside>
+            <div class="infobox">
+                <div class="infobox-title">ピコ</div>
+                <div class="infobox-image">WILD GOOSE<br>No.06</div>
+                <table class="infobox-table">
+                    <tr>
+                        <th>本名</th>
+                        <td>ピコ (Pico)</td>
+                    </tr>
+                    <tr>
+                        <th>出身地</th>
+                        <td>ポーポー星系</td>
+                    </tr>
+                    <tr>
+                        <th>職業</th>
+                        <td>元軍人 / 賞金稼ぎ</td>
+                    </tr>
+                    <tr>
+                        <th>搭乗マシン</th>
+                        <td><a href="#">ワイルドグース</a></td>
+                    </tr>
+                    <tr>
+                        <th>マシンNo.</th>
+                        <td>06</td>
+                    </tr>
+                    <tr>
+                        <th>年齢</th>
+                        <td>不詳（地球人換算で30代相当ともされる）</td>
+                    </tr>
+                    <tr>
+                        <th>初登場作品</th>
+                        <td>『F-ZERO』(1990)</td>
+                    </tr>
+                </table>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        const specs = {
+            sfc: `
+                <tr><th>ボディ強度:</th><td>A</td></tr>
+                <tr><th>最高速度:</th><td>B</td></tr>
+                <tr><th>加速性能:</th><td>C</td></tr>
+                <tr><th>旋回性能:</th><td>B</td></tr>
+            `,
+            x: `
+                <tr><th>ボディ（BODY）:</th><td>A</td></tr>
+                <tr><th>ブースト（BOOST）:</th><td>B</td></tr>
+                <tr><th>グリップ（GRIP）:</th><td>C</td></tr>
+                <tr><th>重量（WEIGHT）:</th><td>1620 kg</td></tr>
+            `,
+            gx: `
+                <tr><th>BODY:</th><td>A</td></tr>
+                <tr><th>BOOST:</th><td>B</td></tr>
+                <tr><th>GRIP:</th><td>C</td></tr>
+                <tr><th>総重量:</th><td>1620 kg</td></tr>
+                <tr><th>エンジン:</th><td>DS-14×3</td></tr>
+            `
+        };
+
+        function changeSpec(game) {
+            // Update active state of buttons
+            const buttons = document.getElementsByClassName('spec-btn');
+            for(let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            event.currentTarget.classList.add('active');
+
+            // Replace table content
+            document.getElementById('specTable').innerHTML = specs[game];
         }
-    });
-});
-</script>
+    </script>
 </body>
 </html>

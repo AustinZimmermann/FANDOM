@@ -1,265 +1,363 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja-JP">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サムライ ゴロー | F-ZERO Wiki | Fandom</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "サムライ ゴロー (Samurai Goroh)",
-      "image": "https://static.wikia.nocookie.net/fzero/images/0/06/059.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "F-ZERO Wiki"
-      },
-      "description": "『F-ZERO』シリーズの登場人物で、キャプテン ファルコンの自称ライバル。"
-    }
-    </script>
-
     <style>
+        /* F-ZERO Fandom Common Aesthetic */
         :root {
-            --safari-bg: #ececec;
-            --safari-border: #d1d1d1;
-            --fandom-blue: #00d6d6;
-            --wiki-bg: #ffffff;
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --infobox-bg: #151b24;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 20px;
             font-family: sans-serif;
-            background: linear-gradient(135deg, #a2c2e6 0%, #d4e3f3 100%);
-            display: flex;
-            justify-content: center;
-            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
 
-        /* macOS Window Styling */
-        .safari-window {
-            width: 90%;
-            max-width: 1000px;
-            height: 85vh;
-            background: var(--wiki-bg);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        /* Wiki Header */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 15px 20px;
             display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.2);
-        }
-
-        /* Safari Toolbar */
-        .toolbar {
-            background: var(--safari-bg);
-            height: 80px;
-            border-bottom: 1px solid var(--safari-border);
-            display: flex;
-            flex-direction: column;
-            padding: 0 12px;
-        }
-
-        .traffic-lights {
-            display: flex;
-            gap: 8px;
-            padding-top: 10px;
-        }
-
-        .light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
-        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
-        .green { background: #27c93f; border: 0.5px solid #1aab29; }
-
-        .address-bar-container {
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 8px 0;
         }
 
-        .address-bar {
-            width: 60%;
-            background: #ffffff;
-            border: 1px solid #c3c3c3;
-            border-radius: 6px;
-            padding: 4px 10px;
+        .wiki-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wiki-logo span {
+            color: var(--fzero-red);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
             font-size: 13px;
-            color: #333;
-            text-align: center;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            color: #888;
         }
 
-        /* Fandom Content Area */
-        .content {
-            flex-grow: 1;
-            overflow-y: auto;
-            display: flex;
+        .breadcrumb a {
+            color: var(--accent-blue);
+            text-decoration: none;
         }
 
-        .sidebar {
-            width: 180px;
-            background: #f6f6f6;
-            border-right: 1px solid #eee;
-            padding: 20px;
-            display: none; /* Hidden for mobile-ish feel */
+        /* Main Grid Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
         }
 
-        @media (min-width: 768px) {
-            .sidebar { display: block; }
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .main-article {
-            flex-grow: 1;
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1 {
+        /* Article Content */
+        .article-body h1 {
+            color: var(--text-light);
             font-size: 32px;
-            border-bottom: 1px solid #ccc;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #333;
             padding-bottom: 10px;
-            margin-top: 0;
         }
 
-        .infobox {
-            float: right;
-            width: 280px;
-            background: #f9f9f9;
-            border: 1px solid #aaa;
-            padding: 10px;
+        .article-body h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid var(--fzero-red);
+            padding-bottom: 5px;
+        }
+
+        .article-body h3 {
+            color: var(--fzero-yellow);
+            font-size: 18px;
+            margin: 20px 0 10px;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .article-body ul {
             margin-left: 20px;
-            border-radius: 4px;
+            margin-bottom: 15px;
+            list-style-type: square;
         }
 
-        .infobox img {
-            width: 100%;
-            border-radius: 2px;
+        .article-body li {
+            margin-bottom: 5px;
+        }
+
+        /* Infobox (Sidebar) Styles */
+        .infobox {
+            background-color: var(--infobox-bg);
+            border: 2px solid var(--fzero-red);
+            border-radius: 4px;
+            padding: 15px;
+            align-self: start;
         }
 
         .infobox-title {
-            text-align: center;
+            font-size: 20px;
             font-weight: bold;
-            background: var(--fandom-blue);
-            color: white;
+            text-align: center;
+            color: var(--text-light);
+            background: linear-gradient(90deg, var(--fzero-red), transparent);
             padding: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .data-row {
+        .infobox-img {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            border: 1px solid #333;
             display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            border-bottom: 1px solid #eee;
-            padding: 5px 0;
+            align-items: center;
+            justify-content: center;
+            color: var(--fzero-yellow);
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        .label { font-weight: bold; color: #555; }
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
 
-        p { line-height: 1.6; color: #333; }
+        .infobox-table th, .infobox-table td {
+            padding: 6px;
+            border-bottom: 1px solid #2c3e50;
+            text-align: left;
+        }
 
-        .fandom-nav {
-            background: #280033;
+        .infobox-table th {
+            color: var(--accent-blue);
+            width: 40%;
+        }
+
+        /* Game Profile Tabs */
+        .tab-box {
+            background-color: #1a222d;
+            border: 1px solid #334e68;
+            border-radius: 4px;
+            margin-top: 20px;
+            padding: 15px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #334e68;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            background-color: #0b0c10;
+            color: var(--text-color);
+            border: 1px solid #334e68;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background-color: var(--fzero-red);
             color: white;
-            padding: 10px;
-            font-size: 12px;
-            display: flex;
-            gap: 15px;
+            border-color: var(--fzero-red);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-<div class="safari-window">
-    <div class="toolbar">
-        <div class="traffic-lights">
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-        </div>
-        <div class="address-bar-container">
-            <div class="address-bar">
-                <span style="color: #888;">🔒</span> fzero.fandom.com/ja/wiki/サムライ_ゴロー
-            </div>
-        </div>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>WIKI</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ (ja-JP)</div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="#">メインページ</a> &gt; <a href="#">パイロット一覧</a> &gt; サムライ ゴロー
     </div>
 
-    <div class="fandom-nav">
-        <span style="font-weight: bold; color: var(--fandom-blue);">FANDOM</span>
-        <span>Games</span>
-        <span>Anime</span>
-        <span>Movies</span>
-        <span style="margin-left: auto;">Sign In</span>
-    </div>
-
-    <div class="content">
-        <div class="sidebar">
-            <p style="font-size: 12px; color: #999;">Explore properties</p>
-            <div style="font-weight: bold; color: #280033;">F-ZERO Wiki</div>
-        </div>
+    <div class="main-container">
         
-        <div class="main-article">
+        <div class="article-body">
             <h1>サムライ ゴロー</h1>
-            
-            <div class="infobox">
-                <div class="infobox-title">サムライ ゴロー<br>Samurai Goroh</div>
-                <img src="https://static.wikia.nocookie.net/fzero/images/0/06/059.jpg" alt="Samurai Goroh">
-                <div class="data-row">
-                    <span class="label">性別</span>
-                    <span>男性</span>
+            <p><strong>サムライ ゴロー</strong>（Samurai Goroh）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空の人物であり、同シリーズの主要なレーサーのひとりである。初代『F-ZERO』からすべての主要作品に登場しており、キャプテン・ファルコンの宿命のライバルとして位置づけられている。</p>
+
+            <h2>概要</h2>
+            <p>宇宙盗賊団「ゴロー賊」の首領であり、悪名高き宇宙海賊である。しかし、凶悪な犯罪者というよりは義賊的な側面が強く、一般市民から過度に恐れられる存在ではない。日本の侍（サムライ）の文化に深い傾倒を示しており、普段から着物のような衣装を纏い、腰には日本刀を携えている。豪快かつ粗暴な性格であるが、レースに懸ける情熱と操縦技術は極めて高い。</p>
+            <p>宿敵であるキャプテン ファルコンに対しては強烈な対抗心を燃やしており、彼を打ち倒して宇宙一の賞金稼ぎ、そして最高のレーサーであることを証明することを悲願としている。</p>
+
+            <h2>人物像・設定</h2>
+            <h3>キャプテン・ファルコンとの因縁</h3>
+            <p>表向きは賞金稼ぎと宇宙海賊という「追う者と追われる者」の関係であるが、ゴロー自身はファルコンを単なる仇敵ではなく、超えるべき最大の壁として認識している。グランプリの場においては、手段を選ばない妨害工作を行うこともあるが、基本的には純粋なスピード勝負での勝利を求めている節がある。</p>
+
+            <h3>家族構成</h3>
+            <p>既婚者であり、妻の<strong>リサ ブリリアント</strong>もまた優れたレーサーである。また、息子の<strong>ダイゴロー</strong>がおり、父親譲りの荒々しい性格と高いポテンシャルを秘めている。家庭内でのゴローは、恐妻家としての側面が強調されることが多い。</p>
+
+            <h2>搭乗マシン：ファイアスティングレイ</h2>
+            <p>ゴローが駆る愛機<strong>ファイアスティングレイ（FIRE STINGRAY）</strong>は、マシンナンバー05の重量級マシンである。</p>
+            <ul>
+                <li><strong>最高速度：</strong> 非常に高く、一度トップスピードに乗れば他を圧倒する。</li>
+                <li><strong>ボディ強度：</strong> 重量級の名に恥じぬ堅牢さを誇り、敵マシンとの接触戦に強い。</li>
+                <li><strong>加速性能：</strong> 車体が重いため最低クラスであり、最高速に達するまで時間を要する。壁への激突などによる減速は致命傷となる。</li>
+            </ul>
+
+            <h2>作品ごとの性能・変遷</h2>
+            <p>各作品におけるステータスおよび機体性能の詳細である。</p>
+
+            <div class="tab-box">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(event, 'fzero_sfc')">F-ZERO (SFC)</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'fzero_x')">F-ZERO X</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'fzero_gx')">F-ZERO GX</button>
                 </div>
-                <div class="data-row">
-                    <span class="label">職業</span>
-                    <span>賞金稼ぎ / 宇宙盗賊</span>
+
+                <div id="fzero_sfc" class="tab-content active">
+                    <h3>初代『F-ZERO』での性能</h3>
+                    <p>4台の選択可能マシンのうちの1台として登場。最高速度が4マシンのうちで最も高く設定されているが、加速が最も鈍い。旋回性能（グリップ）は極めて高く、ヘアピンカーブでも滑りにくいため、上級者がノーミスで走り抜ける際に最強のポテンシャルを発揮する機体である。</p>
                 </div>
-                <div class="data-row">
-                    <span class="label">マシン</span>
-                    <span>ファイアスティングレイ</span>
+
+                <div id="fzero_x" class="tab-content">
+                    <h3>『F-ZERO X』での性能</h3>
+                    <p>参戦マシンが30台に増加した本作でも、その特徴的な性能は維持された。ステータス評価は <strong>BODY: A / BOOST: D / GRIP: B</strong> となっており、ブースト性能を犠牲にする代わりに圧倒的な耐久力とトップスピードを手に入れている。</p>
                 </div>
-                <div class="data-row">
-                    <span class="label">初登場</span>
-                    <span>F-ZERO (SFC)</span>
+
+                <div id="fzero_gx" class="tab-content">
+                    <h3>『F-ZERO GX』での性能</h3>
+                    <p>ストーリーモードではファルコンを妨害するライバルとして中核を担う。マシンのステータスは <strong>BODY: A / BOOST: D / GRIP: B</strong>。本作の重量級仕様の挙動により、一度減速した際のリカバリーがさらに難しくなったが、最高速の伸びは依然としてトップクラスである。</p>
                 </div>
             </div>
 
-            <p>
-                <b>サムライ ゴロー</b>（<span lang="en">Samurai Goroh</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空の人物。
-            </p>
-            
-            <p>
-                宇宙盗賊団の首領であり、キャプテン ファルコンを一方的にライバル視している賞金稼ぎ。がっしりとした体格に和服のような衣装、そして刀を携えた侍スタイルが特徴。
-            </p>
-
-            <h3>経歴</h3>
-            <p>
-                表向きは賞金稼ぎだが、その実態はレッドキャニオンを拠点とする盗賊団のボス。性格は非常に豪快かつ身勝手。ファルコンを倒して銀河一の賞金稼ぎになることを夢見ているが、空回りすることも多い。
-            </p>
-
-            <h3>搭乗マシン</h3>
-            <p>
-                彼の愛機<b>ファイアスティングレイ</b>は、最高時速とボディの頑丈さに特化した重量級マシン。加速は鈍いが、一度トップスピードに乗れば他を圧倒する性能を持つ。
-            </p>
+            <h2>主な名台詞</h2>
+            <p>『F-ZERO GX』のインタビュー等で見られる、彼らしい傲岸不遜な台詞である。</p>
+            <blockquote>
+                「ファルコンの奴が何だ！俺様のファイアスティングレイが宇宙一だということを、今度のレースで証明してやる！」
+            </blockquote>
+            <blockquote>
+                「賞金などどうでもいい！俺様が欲しいのはファルコンの首（レースでの勝利）だけだ！」
+            </blockquote>
         </div>
+
+        <div class="infobox">
+            <div class="infobox-title">サムライ・ゴロー</div>
+            <div class="infobox-img">
+                SAMURAI GOROH<br>IMAGE PLACEHOLDER
+            </div>
+            <table class="infobox-table">
+                <tr>
+                    <th>本名</th>
+                    <td>不明</td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>男性</td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>45歳（GX時点）</td>
+                </tr>
+                <tr>
+                    <th>職業</th>
+                    <td>宇宙盗賊団首領 / レーサー</td>
+                </tr>
+                <tr>
+                    <th>所属</th>
+                    <td>ゴロー賊</td>
+                </tr>
+                <tr>
+                    <th>搭乗マシン</th>
+                    <td><a href="#">ファイアスティングレイ</a></td>
+                </tr>
+                <tr>
+                    <th>マシンNo.</th>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <th>宿敵</th>
+                    <td><a href="#">キャプテン・ファルコン</a></td>
+                </tr>
+                <tr>
+                    <th>家族</th>
+                    <td>リサ（妻）<br>ダイゴロー（息子）</td>
+                </tr>
+            </table>
+        </div>
+
     </div>
-</div>
 
-<script>
-    // Simple interaction: Close window effect
-    document.querySelector('.red').addEventListener('click', () => {
-        if(confirm("Safariを終了しますか？")) {
-            document.querySelector('.safari-window').style.display = 'none';
+    <script>
+        function switchTab(evt, tabId) {
+            // Hide all tab contents
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Show selected tab content and activate button
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
-    });
-
-    // Console Log for "Developer Tools" simulation
-    console.log("Safari Emulator Loaded: F-ZERO Wiki - Samurai Goroh");
-</script>
-
+    </script>
 </body>
 </html>

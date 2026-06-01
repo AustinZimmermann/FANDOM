@@ -4,338 +4,330 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ジェームズ マクラウド | F-ZERO Wiki | Fandom</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- JSON-LD for Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "ジェームズ マクラウド",
-      "alternateName": "James McCloud",
-      "description": "F-ZEROシリーズの登場人物。遊撃隊『ギャラクシードッグ』のリーダー。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/6/69/023.jpg",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "Galaxy Dog"
-      }
-    }
-    </script>
-
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #e0e0e0;
+        /* F-ZERO Fandom Wiki Theme Styles */
+        :root {
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --sidebar-bg: #151a21;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --border-color: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
+            padding: 0;
         }
 
-        /* macOS Safari Window Styling */
-        .safari-window {
-            width: 100%;
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
+
+        /* Wiki Header Navigation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wiki-logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wiki-logo span {
+            color: var(--fzero-red);
+        }
+
+        .breadcrumbs {
             max-width: 1200px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #d1d1d1;
-        }
-
-        .safari-toolbar {
-            background: #f1f1f1;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid #d1d1d1;
-            user-select: none;
-        }
-
-        .traffic-lights {
-            display: flex;
-            gap: 8px;
-        }
-
-        .light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .red { background: #ff5f56; border: 0.5px solid #e0443e; }
-        .yellow { background: #ffbd2e; border: 0.5px solid #dea123; }
-        .green { background: #27c93f; border: 0.5px solid #1aab29; }
-
-        .nav-buttons {
-            display: flex;
-            gap: 12px;
-            color: #757575;
-        }
-
-        .address-bar {
-            flex-grow: 1;
-            background: #e3e3e3;
-            border-radius: 6px;
-            padding: 4px 10px;
+            margin: 20px auto 0 auto;
+            padding: 0 20px;
             font-size: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .address-bar i {
-            margin-right: 6px;
-            font-size: 11px;
             color: #888;
         }
 
-        /* Fandom Wiki Specific Styles */
-        .wiki-container {
-            display: flex;
-            height: calc(100vh - 120px);
-            overflow-y: auto;
-            background: #f8f9fa;
+        .breadcrumbs a {
+            color: var(--accent-blue);
+            text-decoration: none;
         }
 
-        .wiki-sidebar {
-            width: 66px;
-            background: #002a32;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            flex-shrink: 0;
+        /* Main Layout Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
         }
 
-        .wiki-content {
-            flex-grow: 1;
-            padding: 20px 40px;
-            color: #3a3a3a;
-            max-width: 900px;
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .wiki-header {
-            border-bottom: 1px solid #ccd0d3;
-            margin-bottom: 20px;
+        /* Main Content Area */
+        .article-content {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 30px;
+        }
+
+        h1.page-title {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 5px;
+            border-bottom: 3px solid var(--fzero-red);
             padding-bottom: 10px;
         }
 
-        .wiki-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #000;
-            margin: 0;
-        }
-
-        .infobox {
-            float: right;
-            width: 300px;
-            background: #fff;
-            border: 1px solid #ccd0d3;
-            margin-left: 20px;
-            margin-bottom: 20px;
+        .pronunciation {
             font-size: 14px;
+            color: #8aa0a6;
+            margin-bottom: 20px;
         }
 
-        .infobox-header {
-            background: #2e3d4c;
-            color: #fff;
-            text-align: center;
-            padding: 8px;
-            font-weight: bold;
+        h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid var(--accent-blue);
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "■ ";
+            color: var(--fzero-yellow);
+            margin-right: 8px;
             font-size: 16px;
         }
 
-        .infobox-image {
-            padding: 10px;
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Wiki Infobox (Right Sidebar in Article) */
+        .infobox {
+            background-color: var(--sidebar-bg);
+            border: 2px solid var(--fzero-red);
+            border-radius: 4px;
+            width: 100%;
+            font-size: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .infobox-title {
+            background-color: var(--fzero-red);
+            color: var(--text-light);
             text-align: center;
-            background: #f0f0f0;
-        }
-
-        .infobox-image img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-        }
-
-        .infobox-section {
-            background: #eaeced;
-            padding: 4px 8px;
+            padding: 10px;
             font-weight: bold;
-            border-top: 1px solid #ccd0d3;
-            border-bottom: 1px solid #ccd0d3;
+            font-size: 18px;
+            letter-spacing: 1px;
         }
 
-        .infobox table {
+        .infobox-image-container {
+            background: #000;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--fzero-yellow);
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .infobox-image-sub {
+            font-size: 11px;
+            color: #888;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        .infobox-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .infobox th {
+        .infobox-table th, .infobox-table td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             text-align: left;
-            padding: 6px 8px;
-            width: 40%;
-            vertical-align: top;
-            font-weight: 600;
         }
 
-        .infobox td {
-            padding: 6px 8px;
-            vertical-align: top;
+        .infobox-table th {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--accent-blue);
+            width: 35%;
+            font-weight: bold;
         }
 
-        .article-body p {
-            line-height: 1.6;
+        /* Interactive Trivia Box / Tabs */
+        .interactive-panel {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--accent-blue);
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 4px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
             margin-bottom: 15px;
         }
 
-        .section-title {
-            font-size: 22px;
-            font-weight: 700;
-            border-bottom: 1px solid #ccd0d3;
-            margin: 30px 0 15px 0;
-            padding-bottom: 5px;
+        .tab-btn {
+            background: #000;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 13px;
         }
 
-        /* Mock Tab bar */
-        .tab-bar {
-            background: #e3e3e3;
-            height: 32px;
-            display: flex;
-            align-items: flex-end;
-            padding-left: 80px;
+        .tab-btn.active {
+            background: var(--accent-blue);
+            color: #000;
+            border-color: var(--accent-blue);
+            font-weight: bold;
         }
 
-        .tab {
-            background: #fff;
-            height: 28px;
-            padding: 0 20px;
-            border-radius: 6px 6px 0 0;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid #d1d1d1;
-            border-bottom: none;
-            margin-bottom: -1px;
-            position: relative;
-            z-index: 10;
+        .tab-content {
+            display: none;
+            font-size: 14px;
         }
 
-        .tab-inactive {
-            background: transparent;
-            border: none;
-            color: #666;
-        }
-
-        /* Scrollbar styling */
-        .wiki-container::-webkit-scrollbar {
-            width: 8px;
-        }
-        .wiki-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        .wiki-container::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 4px;
-        }
-        .wiki-container::-webkit-scrollbar-thumb:hover {
-            background: #bbb;
+        .tab-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-<div class="safari-window">
-    <!-- Safari Toolbar -->
-    <div class="safari-toolbar">
-        <div class="traffic-lights">
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-        </div>
-        <div class="nav-buttons">
-            <i class="fas fa-chevron-left"></i>
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="address-bar">
-            <i class="fas fa-lock"></i>
-            <span>fzero.fandom.com/ja/wiki/ジェームズ_マクラウド</span>
-        </div>
-        <div class="flex gap-4 text-gray-500 ml-auto">
-            <i class="fas fa-share-square"></i>
-            <i class="fas fa-plus"></i>
-            <i class="fas fa-clone"></i>
-        </div>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>Wiki</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ (ja-JP)</div>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="#">メインページ</a> &gt; <a href="#">登場パイロット一覧</a> &gt; ジェームズ マクラウド
     </div>
 
-    <!-- Safari Tabs -->
-    <div class="tab-bar">
-        <div class="tab">
-            <i class="fab fa-wikipedia-w text-blue-500"></i>
-            <span>ジェームズ マクラウド | F-ZERO...</span>
-            <i class="fas fa-times text-[10px] ml-2 opacity-50"></i>
-        </div>
-        <div class="tab tab-inactive">
-            <span>F-ZERO Wiki</span>
-        </div>
-    </div>
+    <div class="main-container">
+        
+        <div class="article-content">
+            <h1 class="page-title">ジェームズ マクラウド</h1>
+            <div class="pronunciation">James McCloud | 登場作品: F-ZERO X, GX, AX, CLIMAX, 99</div>
 
-    <!-- Wiki Content Area -->
-    <div class="wiki-container">
-        <!-- Wiki Sidebar (Fandom style) -->
-        <div class="wiki-sidebar">
-            <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center mb-6 overflow-hidden">
-                <img src="https://www.fandom.com/fandom-static/images/logo/fandom-logo.svg" alt="Fandom" class="w-8">
-            </div>
-            <div class="flex flex-col gap-6 text-white opacity-70 text-lg">
-                <i class="fas fa-home"></i>
-                <i class="fas fa-compass"></i>
-                <i class="fas fa-random"></i>
-                <i class="fas fa-user-friends"></i>
-            </div>
-        </div>
+            <p>
+                <b>ジェームズ マクラウド</b>（James McCloud）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のパイロットであり、F-ZEROグランプリに参戦するレーサーの一人である。
+            </p>
+            <p>
+                元銀河宇宙連邦軍の遊撃隊「ギャラクシードッグ」のリーダーという異色の経歴を持つ。軍を退役した後は、自らが立ち上げた同名の民間遊撃隊「ギャラクシードッグ」を率いる実力者である。
+            </p>
 
-        <!-- Main Article Area -->
-        <div class="wiki-content">
-            <nav class="text-xs text-gray-500 mb-4">
-                F-ZERO Wiki > キャラクター > <span class="hover:underline cursor-pointer">ジェームズ マクラウド</span>
-            </nav>
+            <h2>人物背景</h2>
+            <p>
+                彼が率いる遊撃隊「ギャラクシードッグ」は、平和な時代への移行に伴い、軍からの仕事が激減するという窮地に立たされていた。そのため、マクラウドは巨額の賞金が得られるF-ZEROグランプリへの参戦を決意したのである。
+            </p>
+            <p>
+                レースで獲得した賞金は、部隊の維持費や、彼の最愛の妻と息子の生活費に充てられている。家族思いで義理堅い父親としての側面を持つ一方、ひとたびマシンに乗り込めば、軍人時代に培った冷徹かつ正確無比な操縦技術でライバルを圧倒する戦闘のプロフェッショナルに変貌する。
+            </p>
 
-            <header class="wiki-header">
-                <h1 class="wiki-title">ジェームズ マクラウド</h1>
-            </header>
+            <h2>搭乗マシン：リトルワイバーン</h2>
+            <p>
+                マクラウドが操縦するマシン「<b>リトルワイバーン（LITTLE WYVERN）</b>」は、彼が軍を退役する際に、これまでの功績を称えて宇宙連邦軍から特別に払い下げられた戦闘機をベースにしている。
+            </p>
+            <p>
+                元が戦闘機であるため、機体の耐久性と最高速度のバランスに優れている。最大の特徴は、機体中央上部に大胆に配置された単発の巨大なジェットエンジンである。この設計により直進性能は非常に高いが、コーナリング時のグリップ性能にやや難があり、乗り手を選ぶ玄人向けのマシンとされている。
+            </p>
 
-            <!-- Infobox -->
-            <aside class="infobox">
-                <div class="infobox-header">ジェームズ マクラウド<br>James McCloud</div>
-                <div class="infobox-image">
-                    <img src="https://static.wikia.nocookie.net/fzero/images/6/69/023.jpg" alt="ジェームズ マクラウド">
-                    <div class="text-[10px] mt-1 text-gray-500">『F-ZERO GX』での公式アートワーク</div>
+            <h2>『スターフォックス』シリーズとの関連</h2>
+            <p>
+                彼の容姿（サングラスをかけたキツネを思わせる風貌）、名前、そして「ギャラクシードッグ」という部隊名は、任天堂の別作品「シューティングゲーム『スターフォックス』シリーズ」に登場する主人公フォックス・マクラウドの同名の父親「<b>ジェームズ・マクラウド</b>」を強く連想させる。
+            </p>
+            <p>
+                しかし、F-ZEROの世界における彼はあくまで「人間（ヒューマン）」であり、スターフォックスの世界線とは直接的な繋がりのない、スターフォックス側のキャラクターをセルフパロディ化した「パラレルワールドの存在」として定義されている。
+            </p>
+
+            <div class="interactive-panel">
+                <div style="font-weight: bold; margin-bottom: 10px; color: var(--fzero-yellow);">データアーカイブ（選択式情報）</div>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(event, 'data-x')">F-ZERO X での解説</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'data-gx')">F-ZERO GX での解説</button>
                 </div>
-                <div class="infobox-section">基本情報</div>
-                <table>
+                
+                <div id="data-x" class="tab-content active">
+                    『F-ZERO X』にて初登場を果たす。当時はマシンのグラフィック技術の進化に伴い、戦闘機をモチーフにしたリトルワイバーンの特異な形状がプレイヤーの間で大きな話題となった。最高速度の伸びが鋭い性質を持つ。
+                </div>
+                <div id="data-gx" class="tab-content">
+                    『F-ZERO GX』のムービーシーンでは、インタビューに対して「賞金はすべて妻と息子のために使う」と語るなど、家庭的な一面がより強調される描写がなされている。
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="infobox">
+                <div class="infobox-title">ジェームズ マクラウド</div>
+                <div class="infobox-image-container">
+                    【 NO IMAGE 】
+                    <div class="infobox-image-sub">リトルワイバーン・パイロット</div>
+                </div>
+                <table class="infobox-table">
                     <tr>
-                        <th>登場作品</th>
-                        <td>F-ZERO X<br>F-ZERO GX</td>
-                    </tr>
-                    <tr>
-                        <th>パイロットNo.</th>
+                        <th>ナンバー</th>
                         <td>10</td>
                     </tr>
                     <tr>
                         <th>搭乗マシン</th>
-                        <td>リトルワイバーン</td>
+                        <td><a href="Little-Wyvern.html">リトルワイバーン</a></td>
                     </tr>
                     <tr>
                         <th>性別</th>
@@ -343,83 +335,37 @@
                     </tr>
                     <tr>
                         <th>年齢</th>
-                        <td>32歳 (GX)</td>
+                        <td>32歳 (GX時点)</td>
                     </tr>
                     <tr>
                         <th>職業</th>
-                        <td>遊撃隊「ギャラクシードッグ」リーダー</td>
+                        <td>遊撃隊リーダー</td>
+                    </tr>
+                    <tr>
+                        <th>所属</th>
+                        <td>ギャラクシードッグ</td>
                     </tr>
                 </table>
-            </aside>
-
-            <!-- Article Body -->
-            <div class="article-body">
-                <p>
-                    <strong>ジェームズ マクラウド</strong>（<span lang="en">James McCloud</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空の人物。
-                </p>
-                <p>
-                    銀河の平和を守る遊撃隊「ギャラクシードッグ」のリーダーであり、かつては銀河連邦軍の軍人であった経歴を持つ。その外見や名前、そしてリーダーを務めるチームの名など、同社の『スターフォックス』シリーズに登場するフォックス・マクラウドの父「ジェームズ・マクラウド」と酷似している。
-                </p>
-
-                <h2 class="section-title">人物像</h2>
-                <p>
-                    非常に正義感が強く、規律を重んじる。家族を養うためにF-ZEROグランプリへの参戦を決意したという背景があり、軍人時代に培った操縦技術はF-ZEROマシンにおいても遺憾なく発揮されている。
-                </p>
-                <p>
-                    彼の所属する「ギャラクシードッグ」は、金のために動く傭兵ではなく、あくまでも正義と平和のために行動する組織として描かれている。
-                </p>
-
-                <h2 class="section-title">搭乗マシン</h2>
-                <p>
-                    彼の愛機は<strong>リトルワイバーン（LITTLE WYVERN）</strong>。かつて彼が連邦軍で操縦していた戦闘機をレース用に改造したものとされており、軽量ながらもバランスの取れた性能を持つ。
-                </p>
-                <div class="bg-gray-100 p-4 border-l-4 border-blue-500 my-4 text-sm italic">
-                    「このマシンなら、どんなコースでも自由自在だ。俺のテクニックについてこれるか？」
-                </div>
-
-                <h2 class="section-title">スターフォックスとの関連</h2>
-                <p>
-                    公式には「スターフォックスの世界のジェームズ本人ではない」とされているが、デザインや背景設定に多くのオマージュが含まれている。特に『F-ZERO GX』のエンディングでは、フォックス・マクラウドを彷彿とさせる息子について言及する場面があるなど、ファンサービス的な要素が強い。
-                </p>
             </div>
-
-            <footer class="mt-20 pt-10 border-t border-gray-200 text-xs text-gray-400 pb-10">
-                最終更新: 2024年1月1日<br>
-                コンテンツは特に記載のない限りCC BY-SA 3.0で利用可能です。
-            </footer>
         </div>
+
     </div>
-</div>
 
-<script>
-    // Simple interactions for the Safari mock
-    document.addEventListener('DOMContentLoaded', () => {
-        const addressBar = document.querySelector('.address-bar');
-        
-        // Visual feedback when clicking the address bar
-        addressBar.addEventListener('click', () => {
-            addressBar.classList.add('bg-white', 'ring-2', 'ring-blue-400');
-            addressBar.style.justifyContent = 'flex-start';
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!addressBar.contains(e.target)) {
-                addressBar.classList.remove('bg-white', 'ring-2', 'ring-blue-400');
-                addressBar.style.justifyContent = 'center';
+    <script>
+        function switchTab(evt, tabId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
             }
-        });
 
-        // Close button mock functionality
-        document.querySelector('.red').addEventListener('click', () => {
-            if(confirm('ブラウザのウィンドウを閉じますか？')) {
-                document.querySelector('.safari-window').style.display = 'none';
-                setTimeout(() => {
-                    document.querySelector('.safari-window').style.display = 'flex';
-                }, 2000);
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
             }
-        });
-    });
-</script>
 
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>

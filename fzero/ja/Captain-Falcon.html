@@ -1,106 +1,390 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja-JP">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>キャプテン ファルコン | F-ZERO Wiki | Fandom</title>
-    <link rel="stylesheet" href="https://pages-themes.github.io/cayman/assets/css/style.css">
     <style>
-        .main-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
+        /* Fandom Wiki & F-ZERO Identity Theme */
+        :root {
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --infobox-bg: #151c24;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --border-color: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding-bottom: 50px;
+        }
+
+        /* Top Simulation Navbar */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wiki-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .wiki-logo span {
+            color: var(--fzero-red);
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Layout Structure */
+        .main-container {
+            max-width: 1100px;
             margin: 20px auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
         }
-        .infobox {
-            background-color: #f9f9f9;
-            border: 1px solid #aaa;
-            padding: 15px;
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Article Main Content */
+        .article-content h1 {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #888;
             margin-bottom: 20px;
-            border-radius: 5px;
         }
-        .infobox h3 { margin-top: 0; color: #155799; }
-        .caption { text-align: center; font-size: 0.9em; color: #666; }
+
+        h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--fzero-red);
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "■ ";
+            color: var(--fzero-yellow);
+            font-size: 16px;
+            margin-right: 8px;
+        }
+
+        h3 {
+            color: var(--fzero-yellow);
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Fandom Portable Infobox Style */
+        .portable-infobox {
+            background-color: var(--infobox-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            align-self: start;
+        }
+
+        .infobox-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-light);
+            background-color: var(--fzero-red);
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .infobox-image-box {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(180deg, #2c3e50, #000);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infobox-image-box .helmet-icon {
+            font-size: 60px;
+        }
+
+        .infobox-image-box .caption {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 10px;
+            background: rgba(0,0,0,0.6);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .infobox-data-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            padding: 6px 0;
+            border-bottom: 1px solid #253141;
+            font-size: 13px;
+        }
+
+        .infobox-data-label {
+            font-weight: bold;
+            color: #95a5a6;
+        }
+
+        .infobox-data-value {
+            color: var(--text-light);
+        }
+
+        /* Quick Interactive Tabs for Game Appearances */
+        .game-tabs {
+            display: flex;
+            background: #111;
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .game-tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            padding: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .game-tab-btn.active {
+            background-color: var(--container-bg);
+            color: var(--accent-blue);
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(69, 243, 255, 0.3);
+        }
+
+        .game-tab-content {
+            display: none;
+            background-color: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .game-tab-content.active {
+            display: block;
+        }
     </style>
 </head>
-<body style="font-family: sans-serif;">
+<body>
 
-    <section class="page-header">
-        <h1 class="project-name">F-ZERO Wiki</h1>
-        <h2 class="project-tagline">キャプテン ファルコン (Captain Falcon)</h2>
-    </section>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>WIKI</span></div>
+        <div style="font-size: 12px; color: #aaa;">Fandmコミュニティ</div>
+    </header>
 
-    <section class="main-content">
-        <h2>概要</h2>
-        <p>
-            <strong>キャプテン ファルコン</strong>（Captain Falcon）は、『F-ZERO』シリーズの主人公であり、銀河系でその名を知らぬ者はいない超一流のF-ZEROパイロットである。同時に、裏の世界では凄腕の賞金稼ぎとしても恐れられている。
-        </p>
+    <div class="main-container">
+        
+        <div class="article-content">
+            
+            <div class="breadcrumb">
+                <a href="#">トップページ</a> &gt; <a href="#">登場パイロット</a> &gt; キャプテン ファルコン
+            </div>
 
-        <div class="infobox">
-            <h3>キャラクターデータ</h3>
+            <h1>キャプテン ファルコン</h1>
+            <div class="article-meta">編集者: Wikiマスター・レーサー | 最終更新: 2026年</div>
+
+            <p>
+                <strong>キャプテン ファルコン</strong>（Captain Falcon）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空の人物であり、同シリーズの主人公である。超高速レース「F-ZEROグランプリ」を代表する伝説的なレーサーであり、同時に宇宙を股にかける凄腕のバウンティハンター（賞金稼ぎ）でもある。
+            </p>
+
+            <h2>概要</h2>
+            <p>
+                ポートタウン出身。年齢は30代前半とされるが、詳細なプロフィールには謎が多い。常に特徴的な頭部ヘルメットと青いレーシングスーツを着用しており、その素顔を一般に明かすことはない。
+            </p>
+            <p>
+                卓越した格闘センスと高い身体能力を誇り、凶悪犯罪者を次々と捕らえることで、裏社会からも恐れられる存在である。彼が獲得した巨額の賞金は、愛機「ブルーファルコン」の改造費や、群島に構えた隠れ家の維持費へと充てられている。
+            </p>
+
+            <h2>人物像と謎</h2>
+            <p>
+                平時は一匹狼として行動し、寡黙で冷徹なプロフェッショナルとしての顔を崩さない。しかし、レースや任務においては熱い闘志を剥き出しにする一面もある。
+            </p>
+            <p>
+                『F-ZERO GX』のストーリーモードでは、彼の正体や宿命についてより深く描写された。悪の組織「ダークミリオン」の首領であるブラック シャドーや、その背後に潜む絶対的な悪との闘いに身を投じることとなる。また、彼のDNAから作られたクローンである「ブラッド ファルコン」の存在も確認されており、彼の血筋や過去を巡る因縁は深い。
+            </p>
+
+            <h2>搭乗マシン：ブルーファルコン</h2>
+            <p>
+                ファルコンが駆るマシンは、<b>ブルーファルコン（BLUE FALCON）</b>。ボディナンバーは「07」である。
+            </p>
+            <p>
+                最高時速、加速性能、ボディ強度、コーナーでのグリップ力など、すべての性能において高い次元でバランスが取れた超高性能マシンである。F-ZERO界における「基準機」として位置づけられており、ファルコンの超人的な操縦技術があって初めてその限界性能を引き出すことが可能となる。
+            </p>
+
+            <h2>各作品における活躍</h2>
+            
+            <div class="game-tabs">
+                <button class="game-tab-btn active" onclick="changeGame('sfc')">初代 F-ZERO</button>
+                <button class="game-tab-btn" onclick="changeGame('fzx')">F-ZERO X</button>
+                <button class="game-tab-btn" onclick="changeGame('fzgx')">F-ZERO GX</button>
+            </div>
+
+            <div id="sfc" class="game-tab-content active">
+                <p><strong>『F-ZERO』（SFC / 1990年）</strong></p>
+                <p>取扱説明書に掲載されたコミックにて初登場。サムライ ゴロー、ドクター スチュワート、ピコらと共に4大パイロットの一人として紹介された。この時点で既にバウンティーハンターとしての地位を確立している。</p>
+            </div>
+
+            <div id="fzx" class="game-tab-content">
+                <p><strong>『F-ZERO X』（N64 / 1998年）</strong></p>
+                <p>グラフィックの3D化に伴い、現在の洗練されたビジュアルデザインへとリファインされた。本作から搭載された「デスレース」モードにおいても、その高い生存能力を発揮する。</p>
+            </div>
+
+            <div id="fzgx" class="game-tab-content">
+                <p><strong>『F-ZERO GX』（GC / 2003年）</strong></p>
+                <p>フルボイスのストーリーモードが展開され、事実上の主役として物語を牽引した。世界の命運を賭けたレースに勝利し、創世の神々に挑む姿が描かれた傑作である。</p>
+            </div>
+
+            <h2 style="margin-top: 30px;">主な技・能力</h2>
             <ul>
-                <li><strong>本名:</strong> ダグラス ジェイ ファルコン (諸説あり)</li>
-                <li><strong>搭乗マシン:</strong> ブルーファルコン</li>
-                <li><strong>年齢:</strong> 37歳 (F-ZERO GX時点)</li>
-                <li><strong>出身地:</strong> ポートタウン</li>
+                <li><strong>ファルコン・パンチ (Falcon Punch)</strong>：炎を纏った拳を突き出す一撃必殺の格闘技。元々はクロスオーバー作品『大乱闘スマッシュブラザーズ』シリーズで設定されたオリジナル技であったが、後にアニメ『F-ZERO ファルコン伝説』のクライマックスにおいて公式の逆輸入という形で披露され、伝説的な名シーンとなった。</li>
+                <li><strong>ファルコン・キック (Falcon Kick)</strong>：足元に炎を纏いながら高速で滑り込む、あるいは急降下する蹴り技である。</li>
             </ul>
+
         </div>
 
-        <img src="https://static.wikia.nocookie.net/fzero/images/6/66/005.jpg" alt="Captain Falcon">
-        <p class="caption">愛機ブルーファルコンと共に戦うキャプテン ファルコン</p>
+        <div class="portable-infobox">
+            <div class="infobox-title">キャプテン ファルコン</div>
+            
+            <div class="infobox-image-box">
+                <div class="helmet-icon">🪖</div>
+                <div style="font-weight: bold; font-size: 14px; margin-top: 5px; color: var(--accent-blue);">Captain Falcon</div>
+                <div class="caption">F-ZEROグランプリ不屈の王者</div>
+            </div>
 
-        <hr>
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">本名</div>
+                <div class="infobox-data-value">不明（ダグラス ジェイなど諸説あり）</div>
+            </div>
 
-        <h2>経歴</h2>
-        <p>
-            彼の過去については謎に包まれている部分が多い。ポートタウンの出身であり、かつては軍や警察に所属していたという噂もある。現在はポートタウンの群島にある隠れ家を拠点に活動している。
-        </p>
-        <p>
-            彼はこれまで数多くの凶悪犯を捕らえてきたが、その正体を知る者は極めて少ない。常にヘルメットを着用し、素顔を晒すことは滅多にない。
-        </p>
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">出身地</div>
+                <div class="infobox-data-value">ポートタウン</div>
+            </div>
 
-        <h2>搭乗マシン：ブルーファルコン（BLUE FALCON）</h2>
-        <p>
-            ファルコンが操るマシン「ブルーファルコン」は、全マシンの中でも屈指のバランスを誇る名機である。
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>性能項目</th>
-                    <th>評価</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>最高速度</td>
-                    <td>B</td>
-                </tr>
-                <tr>
-                    <td>加速性能</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>ボディ強度</td>
-                    <td>B</td>
-                </tr>
-                <tr>
-                    <td>旋回性能</td>
-                    <td>B</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">職業</div>
+                <div class="infobox-data-value">バウンティーハンター<br>F-ZEROレーサー</div>
+            </div>
 
-        <h2>その他の活躍</h2>
-        <p>
-            『大乱闘スマッシュブラザーズ』シリーズにおいても、初期作品から全作品に参戦している。原作のF-ZEROでは見られない強力な拳法「ファルコン・パンチ」などの技を駆使し、超高速のファイターとして人気を博している。
-        </p>
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">搭乗マシン</div>
+                <div class="infobox-data-value"><a href="#">ブルーファルコン</a></div>
+            </div>
 
-        <footer class="site-footer">
-            <span class="site-footer-owner">F-ZERO Wiki is a Fandom Gaming Community.</span>
-        </footer>
-    </section>
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">マシンNo.</div>
+                <div class="infobox-data-value" style="color: var(--fzero-yellow); font-weight: bold;">07</div>
+            </div>
 
+            <div class="infobox-data-row">
+                <div class="infobox-data-label">初登場作</div>
+                <div class="infobox-data-value">F-ZERO (1990)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeGame(gameId) {
+            // Hide all tab content
+            const contents = document.getElementsByClassName("game-tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            // Remove active style from all tab buttons
+            const buttons = document.getElementsByClassName("game-tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Show current target content and button highlight
+            document.getElementById(gameId).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>

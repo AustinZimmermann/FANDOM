@@ -1,220 +1,366 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja-JP">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>オクトマン | F-ZERO Wiki | Fandom</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "GameCharacter",
-      "name": "Octoman",
-      "alternateName": "オクトマン",
-      "description": "『F-ZERO』シリーズに登場するパイロット。タコ型宇宙人の惑星タコラ出身。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/c/c2/063.jpg",
-      "origin": "Planet Takora"
-    }
-    </script>
-
     <style>
+        /* F-ZERO Neon & Racing Aesthetic Styles */
         :root {
-            --safari-top-bar: #e1e1e1;
-            --fandom-blue: #002a32;
-            --fandom-accent: #fa005a;
-            --wiki-bg: #ffffff;
-            --text-main: #3a3a3a;
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --sidebar-bg: #151c24;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --border-color: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
             font-family: sans-serif;
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding-top: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding-bottom: 50px;
         }
 
-        /* Safari Window Chrome */
-        .safari-window {
-            width: 90%;
-            max-width: 1100px;
-            background: var(--wiki-bg);
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
+        /* Header / Navbar Simulation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wiki-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wiki-logo span {
+            color: var(--fzero-red);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Main Container Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-infobox {
+                order: -1; /* Puts infobox on top for mobile */
+            }
+        }
+
+        /* Article Content Styles */
+        .article-content h1 {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .article-content h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--fzero-yellow);
+            padding-bottom: 5px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .article-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            list-style-type: square;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Infobox Sidebar Styles */
+        .sidebar-infobox {
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            align-self: start;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .infobox-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            background: linear-gradient(90deg, var(--fzero-red), #aa0033);
+            padding: 8px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .infobox-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #0b0c10;
+            border: 2px dashed var(--accent-blue);
             display: flex;
             flex-direction: column;
-        }
-
-        .safari-toolbar {
-            background: var(--safari-top-bar);
-            height: 40px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid #bcbcbc;
-        }
-
-        .dots { display: flex; gap: 8px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .address-bar {
-            background: white;
-            height: 24px;
-            flex-grow: 1;
-            margin: 0 40px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* Fandom Layout */
-        .fandom-nav {
-            background: var(--fandom-blue);
-            color: white;
-            padding: 10px 20px;
-            font-weight: bold;
-            display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            padding: 30px;
-            gap: 20px;
-        }
-
-        h1 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-size: 2.2em;
-        }
-
-        /* Infobox Style */
-        .infobox {
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-            padding: 15px;
-            width: 300px;
-        }
-
-        .infobox-header {
-            background: var(--fandom-blue);
-            color: white;
-            text-align: center;
-            padding: 8px;
+            color: var(--accent-blue);
             font-weight: bold;
-            margin: -15px -15px 15px -15px;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 10px;
         }
 
-        .infobox img {
+        .infobox-table {
             width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        .infobox-data {
-            width: 100%;
-            font-size: 0.9em;
-            margin-top: 10px;
             border-collapse: collapse;
+            font-size: 14px;
         }
 
-        .infobox-data th {
+        .infobox-table th, .infobox-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #253342;
             text-align: left;
-            padding: 5px;
-            background: #eee;
+        }
+
+        .infobox-table th {
+            color: var(--fzero-yellow);
             width: 40%;
+            font-weight: bold;
         }
 
-        .infobox-data td {
-            padding: 5px;
+        .infobox-table td {
+            color: var(--text-light);
         }
 
-        .wiki-text {
-            line-height: 1.6;
-            color: var(--text-main);
+        /* Interactive Element: Machine Stats Toggle */
+        .machine-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 15px;
         }
 
-        @media (max-width: 800px) {
-            .main-content { grid-template-columns: 1fr; }
-            .infobox { width: 100%; box-sizing: border-box; }
+        .machine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .toggle-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent-neon);
+            color: var(--accent-neon);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: var(--accent-neon);
+            color: #000;
+        }
+
+        .machine-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-family: monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-left: 3px solid var(--fzero-yellow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-<div class="safari-window">
-    <div class="safari-toolbar">
-        <div class="dots">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-        </div>
-        <div class="address-bar">fzero.fandom.com/ja/wiki/オクトマン</div>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>WIKI</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ</div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="#">メインページ</a> &gt; <a href="#">パイロット一覧</a> &gt; オクトマン
     </div>
 
-    <div class="fandom-nav">
-        <span style="color:var(--fandom-accent)">FANDOM</span> F-ZERO Wiki
-    </div>
-
-    <div class="main-content">
-        <article class="wiki-text">
+    <div class="main-container">
+        
+        <div class="article-content">
             <h1>オクトマン</h1>
-            <p><strong>オクトマン</strong>（英：<span lang="en">Octoman</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場するキャラクター。惑星タコラ出身の宇宙人パイロットである。</p>
             
+            <p style="font-size: 16px; margin-top: 15px; font-style: italic; color: #95a5a6;">
+                「タコ星人だからとて、侮る仕組みはどこにもないのだ」
+            </p>
+
+            <p>
+                <strong>オクトマン</strong>（Octoman）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、F-ZEROグランプリに参戦する異星人パイロットの一人である。初登場はNINTENDO64用ソフト『F-ZERO X』。
+            </p>
+
             <h2>概要</h2>
             <p>
-                タコラ星の代表としてF-ZEROグランプリに参戦している。彼の目的は、レースの賞金を使って、教育環境が整っていないタコラ星の子供たちのために学校を建てること、そして絶滅の危機に瀕しているタコラ族の繁栄を取り戻すことである。
+                惑星「タコチン」出身のタコ型宇宙人である。地球のタコに酷似した容姿を持つが、高度な知性と高い身体能力を兼ね備えた知的生命体である。
             </p>
-
-            <h2>マシンの特徴</h2>
             <p>
-                彼の愛機「ディープクロー（DEEP CLAW）」は、トップスピードの伸びが良い反面、加速性能とグリップ力に課題を抱えている上級者向けのセッティングとなっている。
+                彼の母星である惑星タコチンは、現在深刻な経済危機に直面している。オクトマンが過酷なF-ZEROグランプリに身を投じる最大の理由は、優勝賞金を獲得して母星の危機を救い、子供たちを救済することである。さらに、全宇宙に散らばる「タコ焼き」に代表されるようなタコ料理文化（彼らにとっては同胞の尊厳を脅かす猟奇的文化とされる）への強い警戒心と抗議の意も、彼の走りの原動力となっている。
             </p>
-        </article>
+            <p>
+                一見するとコミカルな外見のキャラクターであるが、その決意は極めて真剣である。しかし、私生活では子だくさん（未確認情報ではあるが、多数の子供がいるとされる）であり、教育費の捻出にも追われるなど、極めて世俗的かつ苦労人としての側面も併せ持つ。
+            </p>
 
-        <aside>
-            <div class="infobox">
-                <div class="infobox-header">オクトマン<br>Octoman</div>
-                <img src="https://static.wikia.nocookie.net/fzero/images/c/c2/063.jpg" alt="Octoman">
-                
-                <table class="infobox-data">
-                    <tr><th>性別</th><td>男性</td></tr>
-                    <tr><th>年齢</th><td>不明（地球人換算で30代？）</td></tr>
-                    <tr><th>出身地</th><td>惑星タコラ</td></tr>
-                    <tr><th>搭乗マシン</th><td>ディープクロー</td></tr>
-                    <tr><th>初登場</th><td>F-ZERO X</td></tr>
-                </table>
+            <h2>人物関係</h2>
+            <ul>
+                <li><strong>ジョディ サマー</strong>：オクトマンが一方的に敵視、あるいはライバル視している連邦政府の女性パイロットである。彼女に対して強い対抗心を燃やす描写が随所に見られる。</li>
+                <li><strong>スーパー アロー</strong>：正義のヒーローであるが、オクトマンとはサーキット内外で小競り合いを展開する関係にある。</li>
+            </ul>
+
+            <h2>搭乗マシン：ディープクロー</h2>
+            <p>
+                オクトマンが操縦するF-ZEROマシンは<strong>ディープクロー</strong>（DEEP CLAW）である。
+            </p>
+            <p>
+                母星タコチンの限られた予算と科学技術を結集して開発された機体である。ボディの強度は平均的であるが、ブースト性能と旋回性能（グリップ）に優れており、テクニカルなサーキットにおいてその真価を発揮する。外観は主人の容姿を反映したかのような、丸みを帯びた有機的かつ独特なフォルムが特徴である。
+            </p>
+
+            <div class="machine-card">
+                <div class="machine-header">
+                    <h3>ディープクロー（機体スペック）</h3>
+                    <button class="toggle-btn" id="toggleSpecsBtn" onclick="toggleSpecs()">スペックを表示</button>
+                </div>
+                <div id="specsData" class="machine-specs hidden">
+                    <div>【マシン番号】 No.08</div>
+                    <div>【製造者】 タコチン科学技術局</div>
+                    <div>【ボディ】 B</div>
+                    <div>【ブースト】 B</div>
+                    <div>【グリップ】 C (GXでは修正)</div>
+                    <div>【総重量】 990 kg</div>
+                </div>
             </div>
-        </aside>
+
+            <h2>登場作品</h2>
+            <ul>
+                <li>『F-ZERO X』（NINTENDO64）</li>
+                <li>『F-ZERO GX / AX』（ニンテンドー ゲームキューブ / アーケード）</li>
+                <li>『F-ZERO ファルコン伝説』（ゲームボーイアドバンス・アニメ） - アニメ版では悪の組織「ダークミリオン」の一員として登場し、コミカルな悪役としての地位を確立した。</li>
+                <li>『F-ZERO CLIMAX』（ゲームボーイアドバンス）</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-infobox">
+            <div class="infobox-title">オクトマン</div>
+            
+            <div class="infobox-image-placeholder">
+                <div>[ OCTOMAN IMAGE ]</div>
+                <div style="font-size: 11px; margin-top: 5px; font-weight: normal; color: #888;">（母星の危機を救うタコ型戦士）</div>
+            </div>
+
+            <table class="infobox-table">
+                <tbody>
+                    <tr>
+                        <th>名前</th>
+                        <td>オクトマン (Octoman)</td>
+                    </tr>
+                    <tr>
+                        <th>出身地</th>
+                        <td>惑星タコチン</td>
+                    </tr>
+                    <tr>
+                        <th>登場作品</th>
+                        <td>F-ZERO X 以降</td>
+                    </tr>
+                    <tr>
+                        <th>搭乗マシン</th>
+                        <td>ディープクロー (No.08)</td>
+                    </tr>
+                    <tr>
+                        <th>目的</th>
+                        <td>母星の救済・教育費捻出</td>
+                    </tr>
+                    <tr>
+                        <th>天敵</th>
+                        <td>タコ焼き、ジョディ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
-</div>
 
-<script>
-    // Simple Interaction: Log character name on load
-    document.addEventListener('DOMContentLoaded', () => {
-        const charName = document.querySelector('h1').innerText;
-        console.log(`Safari Simulator: Loaded page for ${charName}`);
-        
-        // Mock click effect for Safari dots
-        document.querySelector('.red').onclick = () => {
-            alert('ウィンドウを閉じますか？ (Simulation)');
-        };
-    });
-</script>
-
+    <script>
+        function toggleSpecs() {
+            const specs = document.getElementById("specsData");
+            const btn = document.getElementById("toggleSpecsBtn");
+            
+            if (specs.classList.contains("hidden")) {
+                specs.classList.remove("hidden");
+                btn.textContent = "スペックを隠す";
+            } else {
+                specs.classList.add("hidden");
+                btn.textContent = "スペックを表示";
+            }
+        }
+    </script>
 </body>
 </html>

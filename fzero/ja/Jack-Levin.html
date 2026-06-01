@@ -4,205 +4,378 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ジャック レビン | F-ZERO Wiki | Fandom</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- JSON-LD Structured Data -->
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "VisualCharacter",
+      "@type": "VideoGameCharacter",
       "name": "ジャック レビン",
       "alternativeName": "Jack Levin",
-      "description": "『F-ZERO』シリーズに登場するパイロット。元ポップアイドルの経歴を持つ美形レーサー。",
-      "image": "https://static.wikia.nocookie.net/fzero/images/d/d4/022.jpg",
+      "description": "任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のパイロット。元人気アイドルグループのメンバーであり、高い人気と確かな操縦技術を兼ね備える。",
+      "gender": "Male",
+      "age": "19歳",
       "vehicle": {
         "@type": "Thing",
         "name": "アストロロビン (ASTRO ROBIN)"
-      }
+      },
+      "game": [
+        "F-ZERO X",
+        "F-ZERO GX",
+        "F-ZERO ファルコン伝説",
+        "F-ZERO CLIMAX"
+      ]
     }
     </script>
+
     <style>
+        /* Fandom / F-ZERO Neon Aesthetic CSS */
+        :root {
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --accent-blue: #66fcf1;
+            --accent-neon: #45f3ff;
+            --text-color: #c5c6c7;
+            --text-light: #ffffff;
+            --fzero-red: #ff0055;
+            --fzero-yellow: #f8b400;
+            --border-color: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: sans-serif;
-            background-color: #f0f0f2;
-            color: #3a3a3a;
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
-        .wiki-header {
-            background-color: #280033;
-            color: white;
+
+        /* Wiki Header Navigation */
+        header {
+            background-color: #000;
+            border-bottom: 3px solid var(--fzero-red);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .wiki-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wiki-logo span {
+            color: var(--fzero-red);
+        }
+
+        /* Layout Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Article Content Section */
+        .article-content h1 {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .article-content h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin: 25px 0 10px 0;
+            border-bottom: 2px solid var(--fzero-red);
+            padding-bottom: 5px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            list-style-type: square;
+        }
+
+        .article-content li {
+            margin-bottom: 5px;
+        }
+
+        /* Infobox (Character Profile Card) */
         .infobox {
-            background-color: #ffffff;
-            border: 1px solid #c8c8d2;
-            width: 100%;
-            max-width: 320px;
+            background-color: var(--container-bg);
+            border: 2px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 15px;
+            align-self: start;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .infobox-header {
-            background-color: #e6e6ff;
-            font-weight: bold;
+
+        .infobox-title {
             text-align: center;
-            padding: 8px;
-        }
-        .section-title {
-            border-bottom: 1px solid #c8c8d2;
-            padding-bottom: 4px;
-            margin-top: 24px;
-            margin-bottom: 12px;
+            font-size: 20px;
             font-weight: bold;
-            font-size: 1.5rem;
+            color: var(--text-light);
+            background: linear-gradient(90deg, var(--fzero-red), #000);
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .infobox-image {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--fzero-yellow);
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .infobox-table th, .infobox-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .infobox-table th {
+            color: var(--accent-blue);
+            width: 35%;
+            font-weight: bold;
+        }
+
+        /* Tab Switcher for Game Specs */
+        .tab-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background-color: #111;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            background-color: var(--container-bg);
+            color: var(--accent-neon);
+            border-top: 2px solid var(--accent-blue);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .machine-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #000;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-box span {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--fzero-yellow);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="wiki-header p-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <span class="text-xl font-bold tracking-wider">F-ZERO Wiki</span>
-            </div>
-            <div class="hidden md:flex gap-6 text-sm">
-                <a href="#" class="hover:text-purple-300">ゲーム</a>
-                <a href="#" class="hover:text-purple-300">キャラクター</a>
-                <a href="#" class="hover:text-purple-300">マシン</a>
-                <a href="#" class="hover:text-purple-300">コミュニティ</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <div class="wiki-logo">F-ZERO <span>Wiki</span></div>
+        <div style="font-size: 12px; color: #aaa;">FANDOMコミュニティ（ja-JP）</div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+    <div class="main-container">
         
-        <article class="flex-1 bg-white p-6 md:p-10 shadow-sm rounded-sm">
-            <h1 class="text-4xl font-bold mb-4">ジャック レビン</h1>
+        <div class="article-content">
+            <h1>ジャック レビン</h1>
+            <p><strong>ジャック レビン</strong>（Jack Levin）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のパイロットである。登場マシンは<strong>アストロロビン（ASTRO ROBIN）</strong>。初登場は『F-ZERO X』である。</p>
+
+            <h2>概要</h2>
+            <p>元々は超人気アイドルグループのメンバーであったが、大のF-ZEROファンであったため、芸能界を電撃引退してF-ZEROパイロットへの転身を果たした経歴を持つ。そのハンサムな容姿から、F-ZERO界随一のアイドルレーサーとして女性ファンから熱狂的な支持を集めている。</p>
+            <p>各会場で販売される彼の顔写真入りグッズは瞬く間に売り切れとなるため、入手は極めて困難とされる。メディアや世間ではそのアイドル的人気ばかりが注目されがちであるが、パイロットとしての操縦技術は本物であり、時として優勝候補の一角に挙げられるほどの実力派である。</p>
+
+            <h2>劇中での活躍</h2>
+            <h3>ゲームシリーズ</h3>
+            <p>『F-ZERO X』および『F-ZERO GX』では、30人のレーサーの一人として参戦している。『GX』の優勝インタビューでは、「僕のハンサムパワーを発揮できる場所はF-ZEROだけさ」と豪語するなど、自信家な一面を覗かせる。一方で、あまりの女性人気と過剰なカメラアピールゆえに、他の硬派なパイロットたちからはやや煙たがられる傾向にある。</p>
+
+            <h3>アニメ『F-ZERO ファルコン伝説』</h3>
+            <p>テレビアニメ版およびそれを基にしたGBA作品（『ファルコン伝説』『CLIMAX』）では設定が一部再構築され、高機動小隊（高機動警察）の一員として登場する。主人公のリュウ スザクとは良きライバル関係にある。</p>
+            <p>かつてはストリートミュージシャン、あるいは「死神」の異名を持つ不良グループのリーダーという荒んだ過去を持っていたが、ジョディ サマーにドライビングテクニック（アニメ版では歌の才能ではなく、暴走中の運転技術）を見出されたことで更生し、小隊への入隊を決意した。女好きな性格は相変わらずであるが、内面ではジョディに対して特別な感情を抱いている描写が存在する。</p>
+
+            <h2>搭乗マシン：アストロロビン</h2>
+            <p>老舗のF-ZEROレーシングチームである「チーム ライトニングボルト」が、ジャック レビンのために製作した高性能マシンである。稲妻のような走りを追求するジャックのスタイルに合わせ、徹底した軽量化が施されている。</p>
+            <p>最大の特徴は、出場マシンの中で最多の「内部カメラ」がセットされている点である。レース中であっても、様々な角度から彼の端麗な容姿をファンへ向けて中継できる仕様となっている。性能面ではグリップ力が極めて高く、タイトなコーナーも滑らかに曲がりきる操縦安定性を誇るが、ブースト性能は平均以下に留まる。</p>
+
+            <h2>ゲーム作品別性能データ</h2>
+            <p>作品ごとにマシンのスペック評価が異なる。以下のタブを選択することで各作品のデータを表示できる。</p>
             
-            <p class="mb-6 leading-relaxed">
-                <strong>ジャック レビン</strong>（<span lang="en">Jack Levin</span>）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のパイロット。元人気アイドルグループのメンバーという異色の経歴を持ち、その端麗な容姿から女性ファンから絶大な支持を得ている。
-            </p>
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="openGameTab(event, 'fzerox')">F-ZERO X</button>
+                    <button class="tab-btn" onclick="openGameTab(event, 'fzerogx')">F-ZERO GX</button>
+                </div>
 
-            <section>
-                <h2 class="section-title">プロフィール</h2>
-                <p class="mb-4">
-                    かつてポップミュージック界でトップアイドルとして君臨していたが、幼い頃からの夢であったF-ZEROパイロットに転身した。彼の参戦により、F-ZEROの観客層に若い女性が急増したと言われている。
-                </p>
-                <p class="mb-4 text-sm bg-gray-50 p-4 border-l-4 border-purple-500 italic">
-                    「ボクの走りに、みんなが夢中になるはずさ。」
-                </p>
-            </section>
+                <div id="fzerox" class="tab-content active">
+                    <h4>アストロロビン (F-ZERO X 仕様)</h4>
+                    <div class="machine-stat-grid">
+                        <div class="stat-box">ボディ<span>B</span></div>
+                        <div class="stat-box">ブースト<span>D</span></div>
+                        <div class="stat-box">グリップ<span>A</span></div>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">最高速度および加速性能は標準的であるが、卓越したグリップ性能により、初心者でも扱いやすい挙動を示す。</p>
+                </div>
 
-            <section>
-                <h2 class="section-title">アストロロビン</h2>
-                <p class="mb-4">
-                    ジャックが操るマシンは<strong>アストロロビン（ASTRO ROBIN）</strong>。彼のアイドル時代のイメージカラーである青と白を基調とした、非常にスタイリッシュなデザインが特徴。
-                </p>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-gray-200">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th class="p-2 border">性能項目</th>
-                                <th class="p-2 border">評価</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="p-2 border font-medium">ボディ</td>
-                                <td class="p-2 border">B</td>
-                            </tr>
-                            <tr>
-                                <td class="p-2 border font-medium">ブースト</td>
-                                <td class="p-2 border">D</td>
-                            </tr>
-                            <tr>
-                                <td class="p-2 border font-medium">グリップ</td>
-                                <td class="p-2 border">A</td>
-                            </tr>
-                        </tbody>
+                <div id="fzerogx" class="tab-content">
+                    <h4>アストロロビン (F-ZERO GX 仕様)</h4>
+                    <table class="infobox-table" style="margin-bottom: 10px;">
+                        <tr><th>総重量</th><td>1050 kg</td></tr>
+                        <tr><th>エンジン</th><td>SS-C503L-LV×2</td></tr>
+                        <tr><th>製作</th><td>チーム ライトニングボルト</td></tr>
                     </table>
+                    <div class="machine-stat-grid">
+                        <div class="stat-box">ボディ<span>B</span></div>
+                        <div class="stat-box">ブースト<span>D</span></div>
+                        <div class="stat-box">グリップ<span>A</span></div>
+                    </div>
                 </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">登場作品</h2>
-                <ul class="list-disc ml-6 space-y-2">
-                    <li>F-ZERO X</li>
-                    <li>F-ZERO GX</li>
-                    <li>F-ZERO ファルコン伝説 (アニメ・ゲーム)</li>
-                    <li>F-ZERO 99</li>
-                </ul>
-            </section>
-        </article>
-
-        <!-- Sidebar / Infobox -->
-        <aside class="w-full lg:w-80 flex-shrink-0">
-            <div class="infobox mx-auto">
-                <div class="infobox-header text-lg">ジャック レビン<br>Jack Levin</div>
-                <div class="p-2">
-                    <img src="https://static.wikia.nocookie.net/fzero/images/d/d4/022.jpg" 
-                         alt="ジャック レビンのポートレート" 
-                         class="w-full h-auto rounded-sm mb-2 shadow-inner bg-gray-200"
-                         onerror="this.src='https://via.placeholder.com/300x400?text=Jack+Levin'">
-                    <p class="text-center text-xs text-gray-500 mb-4">『F-ZERO GX』におけるジャック</p>
-                </div>
-                
-                <table class="w-full text-sm">
-                    <tr class="border-t">
-                        <th class="bg-gray-50 p-2 text-left w-24">性別</th>
-                        <td class="p-2">男性</td>
-                    </tr>
-                    <tr class="border-t">
-                        <th class="bg-gray-50 p-2 text-left">年齢</th>
-                        <td class="p-2">19歳 (X) / 20歳 (GX)</td>
-                    </tr>
-                    <tr class="border-t">
-                        <th class="bg-gray-50 p-2 text-left">ナンバー</th>
-                        <td class="p-2 font-bold">14</td>
-                    </tr>
-                    <tr class="border-t">
-                        <th class="bg-gray-50 p-2 text-left">マシン</th>
-                        <td class="p-2 text-blue-600 font-medium">アストロロビン</td>
-                    </tr>
-                    <tr class="border-t">
-                        <th class="bg-gray-50 p-2 text-left">職業</th>
-                        <td class="p-2">F-ZEROパイロット<br>(元アイドル)</td>
-                    </tr>
-                </table>
-                <div class="infobox-header text-sm mt-0 border-t">初登場</div>
-                <div class="p-2 text-center text-sm italic">F-ZERO X</div>
             </div>
-            
-            <div class="mt-6 bg-purple-50 p-4 rounded-sm border border-purple-100 hidden lg:block">
-                <h3 class="font-bold text-purple-800 text-sm mb-2">豆知識</h3>
-                <p class="text-xs text-purple-700 leading-relaxed">
-                    アニメ『ファルコン伝説』では、高機動小隊のメンバーとして描かれ、リュウ スザクの同僚として活躍します。
-                </p>
-            </div>
-        </aside>
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-10 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">Fandomは、エンターテイメント情報の提供を目的としたファンコミュニティです。</p>
-            <div class="flex justify-center gap-4 mt-4 text-xs">
-                <a href="#" class="hover:underline">プライバシーポリシー</a>
-                <a href="#" class="hover:underline">利用規約</a>
-                <a href="#" class="hover:underline">ライセンス</a>
-            </div>
+            <h2>登場タイトル</h2>
+            <ul>
+                <li>F-ZERO X (N64)</li>
+                <li>F-ZERO GX (NGC)</li>
+                <li>F-ZERO ファルコン伝説 (GBA)</li>
+                <li>F-ZERO CLIMAX (GBA)</li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="infobox">
+            <div class="infobox-title">ジャック レビン</div>
+            <div class="infobox-image">
+                [ No.14 ]<br>JACK LEVIN<br>元アイドルレーサー
+            </div>
+            <table class="infobox-table">
+                <tr>
+                    <th>性別</th>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>19歳</td>
+                </tr>
+                <tr>
+                    <th>マシン番外</th>
+                    <td>No.14</td>
+                </tr>
+                <tr>
+                    <th>搭乗マシン</th>
+                    <td><a href="Astro-Robin">アストロロビン</a></td>
+                </tr>
+                <tr>
+                    <th>前職</th>
+                    <td>ポップアイドル、歌手</td>
+                </tr>
+                <tr>
+                    <th>所属</th>
+                    <td>高機動小隊<br><small>(アニメ・GBA版設定)</small></td>
+                </tr>
+                <tr>
+                    <th>声優</th>
+                    <td>矢尾一樹<br><small>(アニメ版)</small></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
 
     <script>
-        // 画像読み込み失敗時のメッセージボックス表示用（alertの代わり）
-        window.addEventListener('load', () => {
-            const img = document.querySelector('img');
-            img.addEventListener('error', () => {
-                const notice = document.createElement('div');
-                notice.className = 'fixed bottom-4 right-4 bg-red-500 text-white p-4 rounded shadow-lg z-[100] text-sm';
-                notice.innerText = '画像の読み込みに失敗しました。外部サイトのURL制限が原因の可能性があります。';
-                document.body.appendChild(notice);
-                setTimeout(() => notice.remove(), 5000);
-            });
-        });
+        function openGameTab(evt, gameId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(gameId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>

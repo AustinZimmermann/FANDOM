@@ -5,268 +5,243 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイティー ガゼル - F-ZERO Wiki</title>
     <style>
-        :root {
-            --bg-color: #f6f6f6;
-            --wiki-border: #a2a9b1;
-            --wiki-header: #eaecf0;
-            --link-color: #0645ad;
-            --text-color: #202122;
-        }
-
+        /* 全体スタイリング */
         body {
-            font-family: sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #f6f6f6;
+            color: #202122;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        .wiki-container {
+        /* ヘッダー */
+        header {
+            background-color: #002b5c;
+            color: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* メインコンテナ */
+        .container {
             max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-family: 'Georgia', serif;
-            border-bottom: 1px solid var(--wiki-border);
-            padding-bottom: 5px;
-            margin-top: 0;
-        }
-
-        .main-content {
+            margin: 20px auto;
+            padding: 0 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .article {
+        /* メインコンテンツ（左側） */
+        main {
             flex: 1;
             min-width: 300px;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #a2a9b1;
+            border-radius: 2px;
         }
 
-        /* Infobox Style */
+        h2 {
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        /* インフォボックス（右側） */
         .infobox {
             width: 300px;
-            background-color: var(--bg-color);
-            border: 1px solid var(--wiki-border);
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 2px;
+            align-self: flex-start;
+        }
+        .infobox h3 {
+            margin-top: 0;
+            text-align: center;
+            background: #002b5c;
+            color: #fff;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .infobox img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+        }
+        .infobox table {
+            width: 100%;
             border-collapse: collapse;
-            float: right;
-            margin: 0 0 20px 20px;
-            font-size: 0.9em;
+            margin-top: 10px;
         }
-
         .infobox th, .infobox td {
-            border: 1px solid var(--wiki-border);
             padding: 6px;
-        }
-
-        .infobox th {
-            background-color: var(--wiki-header);
             text-align: left;
+            border-bottom: 1px solid #eaecf0;
         }
-
-        .infobox .header-title {
-            background-color: #002244;
-            color: white;
-            text-align: center;
-            font-size: 1.1em;
+        .infobox th {
+            background: #f1f3f5;
+            width: 35%;
             font-weight: bold;
         }
 
-        .infobox .image-container {
-            text-align: center;
-            background: #fff;
-            padding: 10px;
-        }
-
-        .dummy-img {
-            width: 150px;
-            height: 150px;
-            background: #ccc;
-            display: inline-block;
-            line-height: 150px;
-            color: #666;
-            font-weight: bold;
-        }
-
-        /* Section Headings */
-        h2 {
-            border-bottom: 1px solid var(--wiki-border);
-            padding-bottom: 3px;
-            margin-top: 30px;
-        }
-
-        h3 {
-            margin-top: 20px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        /* Interactive JS Elements */
-        .tab-container {
-            margin-top: 15px;
-            border: 1px solid var(--wiki-border);
-        }
-
+        /* タブ・インタラクション用 */
         .tabs {
             display: flex;
-            background: var(--wiki-header);
-            border-bottom: 1px solid var(--wiki-border);
+            border-bottom: 1px solid #a2a9b1;
+            margin-bottom: 15px;
         }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 10px 20px;
+        .tab-button {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            border-bottom: none;
+            padding: 8px 16px;
             cursor: pointer;
+            margin-right: 5px;
             font-weight: bold;
-            color: var(--link-color);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
-
-        .tab-btn.active {
-            background: #fff;
-            border-bottom: 2px solid #002244;
-            color: #000;
+        .tab-button.active {
+            background: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            margin-bottom: -1px;
+            color: #002b5c;
         }
-
         .tab-content {
-            padding: 15px;
             display: none;
         }
-
         .tab-content.active {
             display: block;
         }
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #72774d;
+            border-top: 1px solid #eaecf0;
+            margin-top: 40px;
+            background: #ffffff;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
             .infobox {
-                float: none;
                 width: 100%;
-                margin: 0 0 20px 0;
+                box-sizing: border-box;
+                order: -1; /* モバイルではインフォボックスを上に表示 */
             }
         }
     </style>
 </head>
 <body>
 
-<div class="wiki-container">
-    <h1>マイティー ガゼル</h1>
-    
-    <div class="main-content">
-        <div class="article">
-            
-            <table class="infobox">
+    <header>
+        <h1>F-ZERO Wiki (日本語版)</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>マイティー ガゼル</h2>
+            <p><strong>マイティー ガゼル</strong>（Mighty Gazelle）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、F-ZEROレーサーの一人である。サイボーグとしての身体を持ち、凄まじい執念でレースに挑み続ける男だ。</p>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab('profile')">プロフィール</button>
+                <button class="tab-button" onclick="switchTab('machine')">愛機</button>
+                <button class="tab-button" onclick="switchTab('history')">経歴・背景</button>
+            </div>
+
+            <div id="profile" class="tab-content active">
+                <h3>人物像</h3>
+                <p>かつては人間であったが、過去に開催されたF-ZEROグランプリにおいて大事故に巻き込まれ、瀕死の重傷を負う。しかし、サイバーシステム社の高度なテクノロジーにより、脳以外の大部分を機械化したサイボーグとして蘇った。</p>
+                <p>生身の身体を失ったものの、レースに対する情熱が衰えることはなかった。それどころか、サイボーグ化したことで恐怖心が完全に排除され、人間には不可能な超人的なレフリックス（反射神経）を駆使した危険なドライビングテクニックを身につけるに至る。</p>
+                <p>純粋に勝利のみを追求するその姿は、他のレーサーたちから恐れられつつも、一部で熱狂的な支持を集めている。私生活では、サイボーグの身体を維持・調整するためのメンテナンスを欠かさない。</p>
+            </div>
+
+            <div id="machine" class="tab-content">
+                <h3>レッドガゼル (RED GAZELLE)</h3>
+                <p>マイティー ガゼルが操るF-ZEROマシン。マシンナンバーは「01」。</p>
+                <p>サイバーシステム社がガゼルの専用機として開発した機体である。ガゼルのサイボーグ特性を最大限に活かすため、コックピットには彼と直接神経接続を行うシステムが搭載されている。これにより、思考と同調した極めて精密かつ鋭敏な挙動を可能にしている。</p>
+                <p>ボディの強度や最高速度のバランスに優れる一方で、その過激なレスポンスゆえに、並の人間では制御することすら困難なモンスターマシンと化している。</p>
+            </div>
+
+            <div id="history" class="tab-content">
+                <h3>事故と復活</h3>
+                <p>数年前のグランプリにおいて、未曾有の大クラッシュ事故が発生した。ガゼルはこの事故の最大の被害者であり、肉体は修復不可能なレベルまで破壊された。一時は死亡説も流れたが、彼自身の凄まじい生存本能と最新のサイボーグ技術により、奇跡的な復活を遂げる。</p>
+                <h3>ゲームにおける活躍</h3>
+                <p>『F-ZERO X』にて初登場を果たし、以降のシリーズ作品にも続けて参戦している。ストーリーモードやキャラクター紹介では、自身の失われた「人間としての記憶」や「感情」と向き合いながらも、ただコースの先にある栄光だけを見つめて走り続ける冷徹かつ熱い生き様が描かれている。</p>
+            </div>
+        </main>
+
+        <aside class="infobox">
+            <h3>マイティー ガゼル</h3>
+            <img src="https://static.wikia.nocookie.net/fzero/images/8/81/021.jpg" alt="Mighty Gazelle">
+            <table>
                 <tr>
-                    <th colspan="2" class="header-title">マイティー ガゼル<br><small>Mighty Gazelle</small></th>
+                    <th>名前</th>
+                    <td>マイティー ガゼル</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="image-container">
-                        <div class="dummy-img">No. 01</div>
-                        <br><small>搭乗マシン：レッドガゼル</small>
-                    </td>
-                </tr>
-                <tr>
-                    <th>パイロットナンバー</th>
-                    <td>01</td>
+                    <th>本名</th>
+                    <td>ロイ ヒューズ</td>
                 </tr>
                 <tr>
                     <th>性別</th>
-                    <td>男性（サイボーグ）</td>
+                    <td>男（サイボーグ）</td>
                 </tr>
                 <tr>
                     <th>年齢</th>
-                    <td>37歳（『F-ZERO X』時）</td>
+                    <td>37歳（サイボーグ化当時）</td>
                 </tr>
                 <tr>
-                    <th>出身地</th>
-                    <td>惑星スリーポンド</td>
+                    <th>マシン</th>
+                    <td>レッドガゼル (No.01)</td>
                 </tr>
                 <tr>
-                    <th>職業</th>
-                    <td>F-ZEROレーサー</td>
+                    <th>初登場作品</th>
+                    <td>F-ZERO X</td>
                 </tr>
             </table>
-
-            <p><strong>マイティー ガゼル</strong>（Mighty Gazelle）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のキャラクターであり、F-ZEROグランプリに参戦するレーサーの一人である。パイロットナンバーは「01」。</p>
-
-            <h2>概要</h2>
-            <p>かつては非常に優秀な人間のF-ZEROレーサーであったが、数年前の大クラッシュにより瀕死の重傷を負った。一命を取り留めるため、身体の大部分をサイボーグ化する手術を受け、奇跡の生還を果たす。現在では生身のパーツは脳の一部しか残っていないとされるが、本人はサイボーグ化によって恐怖心が消え去り、より精密なドライビングが可能になったとして、この身体を非常に気に入っている。</p>
-            <p>私生活では、サイボーグの利点を生かして自身の身体をアップデートすることに余念がなく、常に最新のパーツを求めている。また、サイボーグとなってからは食費がかからなくなった反面、メンテナンス費用やオイル代に莫大な資金を費やしている。</p>
-
-            <h2>搭乗マシン</h2>
-            <h3>レッドガゼル (RED GAZELLE)</h3>
-            <p>マイティ・ガゼルが駆る専用マシン。元々は人間時代から愛用していたマシンを、サイボーグ化した彼の肉体に最適化する形で大幅に改造・軽量化したものである。ボディの耐久性は非常に低いが、抜群の加速性能と最高速度を誇る。</p>
-            
-            <div class="tab-container">
-                <div class="tabs">
-                    <button class="tab-btn active" onclick="switchTab(event, 'stats-x')">F-ZERO X</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'stats-gx')">F-ZERO GX</button>
-                </div>
-                <div id="stats-x" class="tab-content active">
-                    <ul>
-                        <li><strong>ボディ：</strong> E</li>
-                        <li><strong>ブースト：</strong> A</li>
-                        <li><strong>グリップ：</strong> C</li>
-                        <li><strong>重量：</strong> 1330 kg</li>
-                    </ul>
-                </div>
-                <div id="stats-gx" class="tab-content">
-                    <ul>
-                        <li><strong>ボディ：</strong> E</li>
-                        <li><strong>ブースト：</strong> A</li>
-                        <li><strong>グリップ：</strong> C</li>
-                        <li><strong>重量：</strong> 1330 kg</li>
-                        <li><strong>エンジン：</strong> RP2002×2</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2>作中での活躍</h2>
-            <h3>F-ZERO X</h3>
-            <p>大事故からの復帰戦として参戦。サイボーグの身体による恐怖心の克服が実を結び、以前を上回るアグレッシブな走りを見せる。エンディングでは、優勝賞金でさらに高性能なパーツを購入し、身体を強化する様子が描かれている。</p>
-
-            <h3>F-ZERO GX</h3>
-            <p>ストーリーモードやインタビューモードに登場。インタビューでは「ネジが緩んでいるのではないか」という質問に対し、「私のネジは完璧に締まっている」とユーモアを交えて返すなど、サイボーグでありながらも人間味のあるキャラクター性が描写された。</p>
-
-            <h2>関連キャラクター</h2>
-            <ul>
-                <li><strong>ドクター スチュワート：</strong> 事故の際、ガゼルにサイボーグ化手術を施し、彼の命を救った恩人である。</li>
-                <li><strong>キャプテン ファルコン：</strong> ライバルの一人。ガゼルは大事故以前から彼と激しいデッドヒートを繰り広げていた。</li>
-            </ul>
-
-        </div>
+        </aside>
     </div>
-</div>
 
-<script>
-    function switchTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-        document.getElementById(tabName).style.display = "block";
-        document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.classList.add("active");
-    }
-</script>
+    <footer>
+        <p>&copy; F-ZERO Wiki (Japanese) - Fan Project. Images and characters belong to Nintendo.</p>
+    </footer>
 
+    <script>
+        function switchTab(tabId) {
+            // すべてのタブコンテンツを非表示にする
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // すべてのタブボタンのactiveクラスを解除する
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // 選択されたタブコンテンツとボタンをアクティブにする
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>

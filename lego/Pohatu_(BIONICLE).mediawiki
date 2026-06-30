@@ -1,0 +1,112 @@
+{|class="infobox" style="width:300px; font-size:90%;"
+|-
+! colspan="2" style="background:#C49A6C; color:white; font-size:125%; text-align:center;" | Pohatu
+|-
+| colspan="2" style="text-align:center;" | [[File:Pohatu_Mata.png|250px|Pohatu Mata]]<br><small>Pohatu in his original Toa Mata form.</small>
+|-
+! colspan="2" style="background:#D2B48C; color:black; text-align:center;" | Main Information
+|-
+| '''Title(s)'''
+| Toa of Stone<br>Toa Nuva<br>Master of Stone<br>Uniter of Stone
+|-
+| '''Element'''
+| [[Stone]]
+|-
+| '''Mask'''
+| [[Kanohi Kakama]] (Mask of Speed)
+|-
+| '''Status'''
+| Alive
+|-
+| '''Affiliation'''
+| [[Toa Mata]] / [[Toa Nuva]]<br>[[Order of Mata Nui]] (formerly)
+|-
+| '''Location'''
+| [[Spherus Magna]] (formerly [[Mata Nui (island)|Mata Nui]], [[Metru Nui]], [[Artakha]])
+|-
+! colspan="2" style="background:#D2B48C; color:black; text-align:center;" | Set Information
+|-
+| '''Set Number(s)'''
+| * 8531 (Pohatu)
+* 8568 (Pohatu Nuva)
+* 8687 (Toa Pohatu)
+* 70785 (Pohatu – Master of Stone)
+* 70797 (Pohatu – Uniter of Stone)
+|-
+| '''Year(s)'''
+| 2001, 2002, 2008, 2015, 2016
+|-
+| '''Pieces'''
+| * 8531: 33
+* 8568: 42
+* 8687: 68
+* 70785: 66
+* 70797: 90
+|-
+! colspan="2" style="background:#D2B48C; color:black; text-align:center;" | Media Appearances
+|-
+| '''First Appearance'''
+| ''[[BIONICLE Chronicle 1: Tale of the Toa]]'' (2001)
+|-
+| '''Movie Appearance(s)'''
+| ''[[BIONICLE: Mask of Light]]'' (2003)
+|-
+| '''Voice Actor'''
+| [[Christopher Gaze]] (''Mask of Light'')
+|}
+'''Pohatu''' is the [[Toa Mata]] (later [[Toa Nuva]]) of [[Stone]] and one of the primary protagonists in the original [[BIONICLE]] storyline. Known for his immense speed, physical strength, and easygoing personality, Pohatu is the most friendly and approachable member of his team.
+
+== Biography ==
+=== Mata Nui ===
+Pohatu washed ashore on the island of [[Mata Nui (island)|Mata Nui]] in a Toa Canister, having lost most of his memories. He quickly befriended the [[Po-Matoran]] and their leader, Turaga [[Onewa]], in the desert region of [[Po-Wahi]]. 
+
+Alongside the other five Toa, Pohatu collected the Kanohi masks of power scattered across the island. He played a crucial role in defeating [[Makuta Teridax]]'s infected Rahi beasts by using his Kanohi Kakama (the Mask of Speed) and his powerful kicking attacks.
+
+=== Toa Nuva ===
+After defeating the [[Bohrok]] queens, the Toa fell into tubes of [[Energized Protodermis]] and were transformed into the '''Toa Nuva'''. Pohatu became the Toa Nuva of Stone, gaining greater elemental control, heavier armor, and the adaptive [[Climbing Claws]], which could combine into a Kodan Ball for kicking.
+
+=== Karda Nui and Spherus Magna ===
+In 2008, Pohatu and his teammates were adapted with new armor and weapons to enter [[Karda Nui]], the core of the universe. There, they awakened the Great Spirit [[Mata Nui]]. Following the final battle and the destruction of the Matoran Universe, Pohatu migrated to the restored planet of [[Spherus Magna]].
+
+== Personality and Traits ==
+Unlike his more brooding teammates like [[Tahu]] or [[Kopaka]], Pohatu is cheerful, empathetic, and slow to anger. He shares a deep, brotherly bond with [[Onua]], the Toa of Earth. 
+
+As a Toa of Stone, Pohatu possesses incredible physical durability and strength. His signature trait is his powerful legs, which allow him to run at extreme speeds and kick massive boulders with pinpoint accuracy.
+
+== Set Information ==
+Pohatu has been released as a physical LEGO set multiple times throughout the history of the BIONICLE theme:
+
+{| class="wikitable"
+! Set ID !! Name !! Year !! Pieces !! Notes
+|-
+| 8531 || Pohatu || [[2001]] || 33 || Original Toa Mata release; featured a gear-operated kicking function.
+|-
+| 8568 || Pohatu Nuva || [[2002]] || 41 || Toa Nuva upgrade with Climbing Claws.
+|-
+| 8687 || Toa Pohatu || [[2008]] || 68 || Phantoka variant featuring a Midak Skyblaster and propeller jetpacks.
+|-
+| 70785 || Pohatu Master of Stone || [[2015]] || 66 || G2 Reboot figure with Stormerangs.
+|-
+| 70797 || Pohatu Uniter of Stone || [[2016]] || 90 || G2 Reboot figure capable of combining with 71301 Ketar.
+|}
+
+== Appearances ==
+* ''[[BIONICLE Chronicles]]''
+* ''[[BIONICLE Comic]]''
+* ''[[BIONICLE: Mask of Light]]''
+* ''[[BIONICLE Legends]]''
+
+== See Also ==
+* [[Tahu]]
+* [[Gali]]
+* [[Lewa]]
+* [[Kopaka]]
+* [[Onua]]
+
+== External Links ==
+* [https://biosector01.com/wiki/Pohatu Pohatu on BioSector01]
+
+[[Category:BIONICLE Characters]]
+[[Category:Toa]]
+[[Category:Heroes]]
+[[Category:Characters introduced in 2001]]

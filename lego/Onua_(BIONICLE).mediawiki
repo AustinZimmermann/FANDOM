@@ -1,0 +1,99 @@
+{| class="infobox" style="width:300px; font-size:11px;"
+|+ style="font-size:125%; font-weight:bold;" | Onua
+|-
+| colspan="2" style="text-align:center;" | [[File:Onua_Mata.png|250px|Onua Mata]]<br /><small>Onua in his original 2001 Toa Mata form</small>
+|-
+! scope="row" style="text-align:left;" | '''Element'''
+| [[Earth]]
+|-
+! scope="row" style="text-align:left;" | '''Kanohi'''
+| [[Pakari]] (Mask of Strength)<br />[[Kakama Nuva]] (Mask of Speed, Nuva form)<br />[[Miru Nuva]] (Adaptive form)
+|-
+! scope="row" style="text-align:left;" | '''Weapon(s)'''
+| Claw Tools (Mata)<br />Quake Breakers (Nuva)<br />Multi-Resistant Shield & Nynrah Ghost Blaster (Mistika)
+|-
+! scope="row" style="text-align:left;" | '''Team'''
+| [[Toa Mata]] / [[Toa Nuva]]
+|-
+! scope="row" style="text-align:left;" | '''Location'''
+| [[Onu-Koro]] (formerly)<br />[[Metru Nui]] (formerly)<br />[[Spherus Magna]]
+|-
+! scope="row" style="text-align:left;" | '''Status'''
+| Active
+|-
+! style="background:#000; color:#FFF; text-align:center;" colspan="2" | Lego Set Information
+|-
+! scope="row" style="text-align:left;" | '''Set Number(s)'''
+| 8532 (Toa Mata) <br/> 8566 (Toa Nuva) <br/> 8690 (Toa Mistika) <br/> 70781 (Protector of Earth) <br/> 70789 (Onua – Master of Earth) <br/> 70745 (Onua – Uniter of Earth)
+|-
+! scope="row" style="text-align:left;" | '''Year Released'''
+| [[2001]], [[2002]], [[2008]], [[2015]], [[2016]]
+|-
+! scope="row" style="text-align:left;" | '''Pieces'''
+| * 30 (2001)
+* 41 (2002)
+* 142 (2008)
+* 108 (2015)
+* 143 (2016)
+|-
+! scope="row" style="text-align:left;" | '''Ages'''
+| 7+
+|}
+'''Onua''' is the [[Toa]] Mata of Earth and one of the six primary heroes in the [[BIONICLE]] franchise. Bound to the element of Earth, Onua is known for his immense physical strength, his stoic and wise demeanor, and his affinity for the underground regions of Mata Nui and Metru Nui. Over the course of the series, he has transformed into '''Toa Nuva''', '''Toa Phantoka''', and was later reimagined in the 2015 generation as the '''Master/Uniter of Earth'''.
+
+== Biography ==
+=== Generation 1 ===
+==== Toa Mata ====
+Onua arrived on the island of Mata Nui in a Toa Canister, suffering from amnesia. After recovering his Golden Mask, he joined forces with the other five Toa Mata ([[Tahu]], [[Gali]], [[Kopaka]], [[Lewa]], and [[Pohatu]]) to protect the local [[Matoran]] from the dark influence of [[Makuta Teridax]]. Onua's domain was the subterranean region of [[Onu-Koro]], where he aided the miners and learned to navigate in total darkness.
+
+==== Toa Nuva ====
+After defeating the [[Bahrag]] (the queens of the [[Bohrok]]), Onua and his teammates fell into energized protodermis, transforming them into the more powerful '''Toa Nuva'''. As Toa Nuva, Onua gained heavier armor, the [[Kanohi Nuva]] version of the Pakari, and Quake Breakers that could double as all-terrain roller tracks. 
+
+==== Phantoka ====
+In 2008, Onua traveled to the core of the universe, [[Karda Nui]], to awaken the Great Spirit [[Mata Nui]]. Given new, high-tech adaptive armor to survive the swamp environment, he fought alongside Kopaka and Pohatu as a '''Phantoka''' (meaning "Spirits of the Air" in the Matoran tongue). Equipped with an Nynrah Ghost Blaster and a Multi-Resistant Shield, he helped stall the Makuta until Mata Nui's awakening.
+
+=== Generation 2 (2015–2016 reboot) ===
+In the 2015 reboot of the franchise, Onua was reintroduced as the '''Master of Earth'''. Summoned to the island of Okoto using the Mask of Time, he fought against the Skull Spiders alongside his fellow Masters. In 2016, he upgraded into the '''Uniter of Earth''', bonding with Terak, the Creature of Earth, to defend Okoto from the villainous Umarak.
+
+== Personality and Traits ==
+Onua is typically depicted as the quietest, wisest, and most grounded of the Toa. He rarely speaks unless he has something vital to say, often acting as a mediator when the hot-tempered Tahu and icy Kopaka clash. He speaks in a low, resonant voice and has an innate respect for the natural world. Because he spends most of his time underground, he is sensitive to bright light but has perfect night vision.
+
+== Abilities and Weaponry ==
+* '''Earth Manipulation:''' Onua can create earthquakes, move soil, and shatter solid rock with his mind.
+* '''Kanohi Pakari:''' The Great Mask of Strength grants Onua physical power far beyond that of a normal Toa, allowing him to lift massive boulders or dig through mountainsides effortlessly.
+* '''Tools:'''
+** '''2001:''' Heavy claws used for digging and melee combat.
+** '''2002:''' Quake Breakers (can be attached to his feet as tracks).
+** '''2008:''' Multi-Resistant Shield and a Nynrah Ghost Blaster.
+** '''2015:''' Earthquake Hammer (which splits into Turbo Shovels).
+** '''2016:''' Blaster Drill and Crystal Drill Claws.
+
+== Set Information ==
+Onua has been released as a physical figure in several variations:
+* '''8532 Onua''' (2001): Contained 30 pieces. Features a gear-operated arm-swinging function.
+* '''8566 Onua Nuva''' (2002): Contained 41 pieces. Features dual-arm gear functionality and repositionable Quake Breakers.
+* '''8690 Toa Onua''' (2008): Contained 62 pieces as part of the Phantoka line, featuring a midak skyblaster.
+* '''70781 Protector of Earth''' (2015): (Ancients/Allies line; though not Onua himself, heavily tied to his wave).
+* '''70789 Onua – Master of Earth''' (2015): Contained 109 pieces, featuring an openable chest plate and a gear box for arm movement.
+* '''71309 Onua – Uniter of Earth''' (2016): Contained 143 pieces, capable of combining with ''71304 Terak Creature of Earth''.
+
+== Appearances ==
+* ''[[BIONICLE Chronicles]]''
+* ''[[BIONICLE Adventures]]''
+* ''[[BIONICLE Legends]]''
+* ''[[BIONICLE: Mask of Light]]'' (2003 movie)
+* ''[[BIONICLE: The Journey to One]]'' (2016 Netflix series)
+
+== See Also ==
+* [[Tahu]]
+* [[Gali]]
+* [[Kopaka]]
+* [[Lewa]]
+* [[Pohatu]]
+
+== External Links ==
+* [https://biosector01.com/wiki/Onua Onua on BioSector01]
+
+[[Category:BIONICLE Characters]]
+[[Category:Toa]]
+[[Category:Earth Characters]]

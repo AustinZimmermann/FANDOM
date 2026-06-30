@@ -1,0 +1,86 @@
+{| class="infobox" style="width: 315px; border-spacing: 2px; text-align: left; font-size: 11px;"
+|+ style="font-size: 125%; font-weight: bold; padding: 0.2em;" | Tahu
+|-
+| colspan="2" style="text-align: center; background: #cc0000;" | [[File:Tahu_2001.png|250px|Tahu Mata]]
+|-
+! scope="row" style="text-align: left;" | '''Element'''
+| [[Fire]]
+|-
+! scope="row" style="text-align: left;" | '''Title'''
+| Toa Mata / Toa Nuva of Fire<br>Leader of the Toa Mata / Nuva
+|-
+! scope="row" style="text-align: left;" | '''Location'''
+| [[Ta-Koro]], [[Mata Nui (island)|Mata Nui]] (formerly)<br>[[Metru Nui]] (formerly)<br>[[Spherus Magna]]
+|-
+! scope="row" style="text-align: left;" | '''Mask'''
+| [[Kanohi Hau]] (Mask of Shielding)<br>[[Kanohi Hau Nuva]]
+|-
+! scope="row" style="text-align: left;" | '''Weapons'''
+| Fire Sword<br>Magma Swords<br>Fire Blades
+|-
+! scope="row" style="text-align: left;" | '''Status'''
+| Alive
+|-
+! scope="row" style="text-align: left;" | '''Species'''
+| [[Toa]]
+|-
+! scope="row" style="text-align: left;" | '''Gender'''
+| Male
+|-
+! scope="row" style="text-align: left;" | '''Universe'''
+| [[Matoran Universe]]
+|-
+! scope="row" style="text-align: left;" | '''Variations'''
+| Toa Mata<br>Toa Nuva<br>Toa Nuva (Adaptive Armor)<br>Toa Stars<br>G2 Toa / Uniter
+|-
+! scope="row" style="text-align: left;" | '''First Appearance'''
+| [[2001]]
+|-
+! scope="row" style="text-align: left;" | '''Set Appearances'''
+| * '''[[8534 Tahu]]''' (2001)
+* '''[[8572 Tahu Nuva]]''' (2002)
+* '''[[8689 Toa Tahu]]''' (2008)
+* '''[[7116 Tahu]]''' (2010)
+* '''[[70787 Tahu – Master of Fire]]''' (2015)
+* '''[[71308 Tahu – Uniter of Fire]]''' (2016)
+* '''[[11021 90 Years of Play]]''' (2022 - cameo)
+* '''[[40581 BIONICLE Tahu and Takua]]''' (2023)
+|}
+'''Tahu''' is one of the primary protagonists of the [[BIONICLE]] theme. He is the '''Toa of Fire''', leader of the core Toa team (the Toa Mata/Toa Nuva), and one of the most recognizable figures in LEGO history. Known for his fierce temper, fierce loyalty, and mastery over fire, Tahu is destined to protect the Great Spirit [[Mata Nui]].
+
+== History ==
+=== Quest for the Masks (2001) ===
+Tahu arrived on the island of [[Mata Nui (island)|Mata Nui]] in a Toa Canister, suffering from amnesia. After being greeted by the Turaga [[Vakama]], he learned of his destiny to defeat the dark entity [[Makuta (character)|Makuta]]. Tahu gathered his six Golden Masks of Power, joined forces with the other five Toa, and successfully confronted Makuta's shadows deep underground.
+
+=== Toa Nuva and the Bohrok (2002–2003) ===
+Upon defeating Makuta's initial threat, the Toa were plunged into energized protodermis, transforming them into the more powerful '''Toa Nuva'''. Tahu Nuva received upgraded armor, twin Magma Swords (which could double as a lava surfboard), and the Kanohi Hau Nuva. He led the team through the [[Bohrok]] and [[Bohrok-Kal]] crises, briefly losing his elemental powers to the latter before reclaiming them.
+
+=== The Final Battle (2008–2010) ===
+During the climax of the franchise in the swamp of [[Karda Nui]], Tahu received an adaptive armor upgrade. Following Makuta Teridax's takeover of the Matoran Universe, Tahu was devolved back into his original Toa Mata form by the [[Ignika]] (Mask of Life) so he could wield the powerful '''Golden Armor'''. Using it, he destroyed the remaining [[Rahkshi]] legions on Bara Magna, allowing Mata Nui to finally defeat Teridax.
+
+== Set Information ==
+Tahu has been released as a physical LEGO set in several iterations:
+* '''8534 Tahu''' (2001): The original 32-piece figure featuring a gear-operated slashing right arm. 
+* '''8572 Tahu Nuva''' (2002): Upgraded version with dual-function Magma Swords and back-mounted gear mechanism.
+* '''8689 Toa Tahu''' (2008): The Mistika version featuring adaptive armor, a Nynrah Ghost Blaster, and jetpack thrusters.
+* '''7116 Tahu''' (2010): Released as part of the BIONICLE Stars line, utilizing the minimal Agori build style and including a piece of the Golden Armor.
+* '''70787 Tahu – Master of Fire''' (2015): The Generation 2 reboot version, featuring a massive redesign with dual golden swords and an openable gear function.
+
+== Gallery ==
+<gallery>
+File:Set_8534.jpg|Original Tahu Mata set (2001)
+File:Set_8572.jpg|Tahu Nuva set (2002)
+File:Set_8689.jpg|Tahu Mistika set (2008)
+File:Set_7116.jpg|BIONICLE Stars Tahu (2010)
+</gallery>
+
+== See Also ==
+* [[Toa Mata]]
+* [[Hau]]
+* [[Lewa]]
+* [[Kopaka]]
+
+[[Category:BIONICLE characters]]
+[[Category:Toa]]
+[[Category:Heroes]]
+[[Category:Fire elementals]]

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイティハリケーン - F-ZERO Wiki</title>
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --text-color: #e2e8f0;
+            --accent-color: #e53e3e;
+            --wiki-dark: #0f0f1a;
+            --border-color: #4a5568;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--wiki-dark);
+            border-bottom: 3px solid var(--accent-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        main {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* インフォボックス（Wiki特有の右側情報テーブル） */
+        .infobox {
+            width: 100%;
+            max-width: 350px;
+            background-color: var(--wiki-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .infobox {
+                max-width: 100%;
+                order: -1; /* モバイルでは上部に表示 */
+            }
+        }
+
+        .infobox h2 {
+            text-align: center;
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+
+        /* 簡易3Dマシンビューア */
+        .machine-preview {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #111, #333);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .machine-model {
+            width: 120px;
+            height: 40px;
+            background: #e53e3e; /* マシンのメインカラー：赤 */
+            border-radius: 20px 50px 50px 20px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(229, 62, 62, 0.8);
+            transform: rotate(-10deg);
+            transition: transform 0.1s linear;
+        }
+
+        .machine-model::after {
+            content: '02';
+            position: absolute;
+            top: 5px;
+            left: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .machine-model-wing {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 30px;
+            height: 60px;
+            background: #fff;
+            border-radius: 5px;
+            z-index: -1;
+        }
+
+        .view-instruction {
+            position: absolute;
+            bottom: 5px;
+            font-size: 0.75rem;
+            color: #a0aec0;
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .infobox-table th, .infobox-table td {
+            padding: 8px;
+            border-bottom: 1px solid #2d3748;
+            text-align: left;
+        }
+
+        .infobox-table th {
+            color: #a0aec0;
+            width: 40%;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .rank-A { background-color: #e53e3e; }
+        .rank-B { background-color: #dd6b20; }
+        .rank-C { background-color: #d69e2e; }
+        .rank-D { background-color: #38a169; }
+
+        /* 本文スタイル */
+        h2.section-title {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background-color: var(--wiki-dark);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .stat-card h4 {
+            margin: 0 0 5px 0;
+            color: #a0aec0;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>マイティハリケーン</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <p><strong>マイティハリケーン</strong>（MIGHTY HURRICANE）は、『F-ZERO』シリーズに登場するレーシングマシンである。ドライバーは<strong>ロジャー バスター</strong>。マシンナンバーは<strong>28</strong>。</p>
+
+            <h2 class="section-title">概要</h2>
+            <p>銀河宇宙の運送業者であるロジャー バスターが駆るマシン。本来、このマシンはロジャー自身のものではなく、とある顧客から「F-ZEROグランプリの会場へ届けてほしい」と依頼された委託品（荷物）であった。しかし、引き渡し期限になっても肝心の依頼主が現れなかったため、ロジャーは所有者不明のまま本マシンに乗り込み、自らレースへ参戦することとなった経緯を持つ。</p>
+            <p>運送屋としてのプライドから、ロジャーは「荷物を最高速で届ける」という目的をレースでも体現しており、マシンの性能もその意志を反映したものとなっている。</p>
+
+            <h2 class="section-title">性能特徴</h2>
+            <p>非常に高い最高速度と、強力なブースト性能を誇る直線重視の重量級マシンである。一方で、旋回性能（グリップ）には難があり、コーナーが連続するテクニカルコースでは苦戦を強いられる傾向が強い。</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>最高速度</h4>
+                    <p>トップクラス</p>
+                </div>
+                <div class="stat-card">
+                    <h4>コーナー減速</h4>
+                    <p>大きい</p>
+                </div>
+                <div class="stat-card">
+                    <h4>加速性能</h4>
+                    <p>やや鈍い</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">作中での活躍</h2>
+            <h3>F-ZERO X</h3>
+            <p>初登場作品。最高速重視のセッティングにおいて真価を発揮する。ボディ強度がBと高水準であるため、ライバルとの接触や激しい乱戦にも耐えうるタフさを持つ。ブーストの伸びが非常に優秀である反面、一度減速すると最高速に戻るまで時間がかかるため、いかに壁への激突を避けてトップスピードを維持するかが運用の鍵となる。</p>
+
+            <h3>F-ZERO GX</h3>
+            <p>前作の特徴をさらに極端にした性能へと調整された。ブーストの持続時間と爆発力は全マシン中屈指であり、直線主体のコースでは圧倒的な強さを誇る。しかし、グリップ力がE判定まで低下したため、スライドターンやドリフトといったテクニックを正確に駆使しなければ、まともに曲がることすら困難な上級者向けのマシンへと変貌を遂げた。</p>
+        </main>
+
+        <aside class="infobox">
+            <h2>マイティハリケーン</h2>
+            
+            <div class="machine-preview" id="preview-area">
+                <img src="https://static.wikia.nocookie.net/fzero/images/7/73/Mighty_Hurricane.jpg">
+            </div>
+
+            <table class="infobox-table">
+                <tr>
+                    <th>マシンナンバー</th>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <th>ドライバー</th>
+                    <td>ロジャー バスター</td>
+                </tr>
+                <tr>
+                    <th>製造者</th>
+                    <td>不明（委託品）</td>
+                </tr>
+                <tr>
+                    <th>マシン重量</th>
+                    <td>1780 kg</td>
+                </tr>
+                <tr>
+                    <th>エンジン</th>
+                    <td>BF-2002×2</td>
+                </tr>
+                <tr>
+                    <th>初登場作品</th>
+                    <td>F-ZERO X</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #2d3748; color: #fff; padding: 4px 0;">GX版カタログスペック</th>
+                </tr>
+                <tr>
+                    <th>ボディ</th>
+                    <td><span class="rank-badge rank-B">B</span></td>
+                </tr>
+                <tr>
+                    <th>ブースト</th>
+                    <td><span class="rank-badge rank-B">B</span></td>
+                </tr>
+                <tr>
+                    <th>グリップ</th>
+                    <td><span class="rank-badge rank-A" style="background-color:#a55;">E</span></td>
+                </tr>
+            </table>
+        </aside>
+    </div>
+
+    <script>
+        // マウスの動きに合わせて簡易的にマシンの角度を変えるインタラクション
+        const previewArea = document.getElementById('preview-area');
+        const machineMesh = document.getElementById('machine-mesh');
+
+        previewArea.addEventListener('mousemove', (e) => {
+            const rect = previewArea.getBoundingClientRect();
+            const x = e.clientX - rect.left - (rect.width / 2);
+            const y = e.clientY - rect.top - (rect.height / 2);
+            
+            // 傾きを計算
+            const rotateX = -y * 0.2;
+            const rotateY = x * 0.2;
+            
+            machineMesh.style.transform = `rotate(${rotateX}deg) scale(${1 + Math.abs(rotateY)/500})`;
+        });
+
+        previewArea.addEventListener('mouseleave', () => {
+            // 元の角度に戻す
+            machineMesh.style.transform = 'rotate(-10deg)';
+        });
+    </script>
+</body>
+</html>

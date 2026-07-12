@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワンダーワスプ | F-ZERO Wiki | Fandom</title>
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --wiki-border: #a2a9b1;
+            --wiki-header: #333333;
+            --wiki-link: #0645ad;
+            --infobox-bg: #f8f9fa;
+            --accent-color: #ffcc00;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: #202122;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wiki-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid var(--wiki-border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            border-bottom: 1px solid var(--wiki-border);
+            padding-bottom: 5px;
+            margin-top: 0;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid var(--wiki-border);
+            padding-bottom: 3px;
+            margin-top: 30px;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0 0 1em 0;
+            text-align: justify;
+        }
+
+        /* インフォボックス（情報表） */
+        .infobox {
+            float: right;
+            width: 300px;
+            background-color: var(--infobox-bg);
+            border: 1px solid var(--wiki-border);
+            border-collapse: collapse;
+            margin: 0 0 20px 20px;
+            font-size: 0.9em;
+        }
+
+        .infobox th, .infobox td {
+            border: 1px solid var(--wiki-border);
+            padding: 6px 10px;
+        }
+
+        .infobox .header {
+            background-color: var(--wiki-header);
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .infobox .subheader {
+            background-color: #eaecf0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .infobox .image-container {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .machine-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(45deg, #ffd700, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* 性能パラメーター */
+        .stats-table {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .stats-table th, .stats-table td {
+            border: 1px solid var(--wiki-border);
+            padding: 8px;
+            text-align: left;
+        }
+
+        .stats-table th {
+            background-color: #eaecf0;
+            width: 40%;
+        }
+
+        /* タブ切り替え（ゲーム別情報） */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--wiki-border);
+            margin-top: 20px;
+        }
+
+        .tab-btn {
+            padding: 8px 16px;
+            background: #eaecf0;
+            border: 1px solid var(--wiki-border);
+            border-bottom: none;
+            cursor: pointer;
+            margin-right: 2px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .tab-btn.active {
+            background: #fff;
+            font-weight: bold;
+            position: relative;
+            top: 1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid var(--wiki-border);
+            border-top: none;
+            background: #fff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 脚注・リンク */
+        .wiki-link {
+            color: var(--wiki-link);
+            text-decoration: none;
+        }
+
+        .wiki-link:hover {
+            text-decoration: underline;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        @media (max-width: 768px) {
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wiki-container">
+    <h1>ワンダーワスプ</h1>
+    
+    <table class="infobox">
+        <tr>
+            <th colspan="2" class="header"><small>ワンダーワスプ</small><br>WONDER WASP</th>
+        </tr>
+        <tr>
+            <td colspan="2" class="image-container">
+                <img src="https://static.wikia.nocookie.net/fzero/images/9/96/Wonder_wasp.jpg">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2" class="subheader">マシンデータ</th>
+        </tr>
+        <tr>
+            <th>マシン番号</th>
+            <td>26</td>
+        </tr>
+        <tr>
+            <th>パイロット</th>
+            <td><span class="wiki-link">ジョン タナカ</span></td>
+        </tr>
+        <tr>
+            <th>製作</th>
+            <td>銀河宇宙連邦警察</td>
+        </tr>
+        <tr>
+            <th>エンジン</th>
+            <td>FZ-2003 × 2</td>
+        </tr>
+        <tr>
+            <th>重量</th>
+            <td>1400 kg</td>
+        </tr>
+        <tr>
+            <th>ボディ</th>
+            <td>D</td>
+        </tr>
+        <tr>
+            <th>ブースト</th>
+            <td>A</td>
+        </tr>
+        <tr>
+            <th>グリップ</th>
+            <td>D</td>
+        </tr>
+    </table>
+
+    <p><b>ワンダーワスプ</b>（WONDER WASP）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のレーシングマシンである。パイロットは銀河宇宙連邦警察の刑事である<span class="wiki-link">ジョン タナカ</span>。マシン名の「ワスプ（Wasp）」は英語で「スズメバチ」を意味する。</p>
+
+    <h2>概要</h2>
+    <p>銀河宇宙連邦警察のメカニックが、ジョン タナカの専用機として総力を挙げて開発したマシンである。タナカが想いを寄せる恋人の<span class="wiki-link">ジョディ サマー</span>が乗る「ホワイトキャット」をサポートすることを最優先目的に設計されており、その結果、非常に極端な性能特性を持つに至った。</p>
+    <p>外観は、その名の通りスズメバチを彷彿とさせる黄色と黒（または濃紺）のカラーリングと、前方に突き出た2本の触角のようなパーツが特徴である。ボディ剛性とグリップ力を犠牲にする代わりに、最高クラスのブースト性能を追求した機体である。</p>
+
+    <h2>マシン性能</h2>
+    <p>ワンダーワスプの最大の特徴は、最高ランク（A）を誇る<b>ブースト性能</b>である。一度ブーストを発動すれば爆発的な加速力を見せ、直線コースにおいては他の追随を許さない。また、最高速度やベースの加速性能も比較的優秀な部類に入る。</p>
+    <p>しかし、その代償として<b>ボディ剛性（D）</b>と<b>グリップ力（D）</b>が極めて低い。車体が軽量（1400kg）であることも災いし、他車からの接触に対して非常に脆弱である。また、コーナリング時には激しい滑り（ドリフト）が発生しやすいため、緻密なスライド操作や高度なマシンコントロールが要求される、極めてピーキーな上級者向けのマシンに仕上がっている。</p>
+
+    <h2>ゲーム作品における特徴</h2>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'fzero_x')">F-ZERO X</button>
+        <button class="tab-btn" onclick="openTab(event, 'fzero_gx')">F-ZERO GX</button>
+    </div>
+
+    <div id="fzero_x" class="tab-content active">
+        <h3>F-ZERO X での性能</h3>
+        <table class="stats-table">
+            <tr><th>ボディ</th><td>D</td></tr>
+            <tr><th>ブースト</th><td>A</td></tr>
+            <tr><th>グリップ</th><td>D</td></tr>
+        </table>
+        <p>初登場作品。設定通り、ブーストの伸びは抜群であるが、非常に滑りやすい。旋回性能自体は悪くないため、ドリフトを制御できるかどうかが勝敗の分かれ目となる。他車に小突かれると大きくラインを乱されるため、混戦をいかに早く抜け出すかが重要である。</p>
+    </div>
+
+    <div id="fzero_gx" class="tab-content">
+        <h3>F-ZERO GX での性能</h3>
+        <table class="stats-table">
+            <tr><th>ボディ</th><td>D</td></tr>
+            <tr><th>ブースト</th><td>A</td></tr>
+            <tr><th>グリップ</th><td>D</td></tr>
+        </table>
+        <p>グラフィックの進化に伴い、よりシャープなハチの形状が際立つデザインとなった。本作でも圧倒的なブースト力を維持している。グリップの低さを利用した「サイドアタック減速キャンセル」などのテクニックとの相性が良く、タイムアタックにおいて特定のコースで非常に高いポテンシャルを発揮する。</p>
+    </div>
+
+    <div class="clear"></div>
+
+    <h2>パイロットとの関係</h2>
+    <p>パイロットのジョン タナカは、ジョディ サマーを守るためにこのマシンを駆ってF-ZEROグランプリに参戦している。彼女を影からサポートし、時には身代わりとなって敵の攻撃を防ぐためのマシンであるはずだが、皮肉にもボディ剛性がDであるため、盾としての機能はほぼ果たせない。しかし、タナカの彼女に対する盲目的な情熱が、この扱いにくい暴れ馬のようなマシンをコントロールする原動力となっているのである。</p>
+
+</div>
+
+<script>
+    function openTab(evt, gameName) {
+        var i, tabcontent, tablinks;
+        
+        // すべてのタブコンテンツを非表示にする
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        
+        // すべてのタブボタンの「active」クラスを削除
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        // 指定されたタブを表示し、ボタンをアクティブにする
+        document.getElementById(gameName).style.display = "block";
+        document.getElementById(gameName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>

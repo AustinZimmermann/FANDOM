@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バイオ レックス - F-ZERO Wiki</title>
+  <meta name="description" content="F-ZEROシリーズに登場するパイロット「バイオ レックス (Bio Rex)」および搭乗マシン「ビッグファング」の解説ページである。">
+
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "mainEntity": {
+      "@type": "FictionalCharacter",
+      "name": "バイオ レックス",
+      "alternateName": "Bio Rex",
+      "description": "遺伝子工学により現代に蘇った肉食恐竜のF-ZEROパイロット。食欲を満たすためにレースへ参戦する。",
+      "identifier": "Pilot No. 29",
+      "genre": "レースゲーム",
+      "isPartOf": {
+        "@type": "VideoGameSeries",
+        "name": "F-ZERO"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "F-ZERO Wiki",
+          "item": "https://fzero.example.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "パイロット一覧",
+          "item": "https://fzero.example.com/pilots"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "バイオ レックス",
+          "item": "https://fzero.example.com/pilots/bio-rex"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #0f111a;
+      --card-bg: #1a1d29;
+      --accent-color: #00e5ff;
+      --danger-color: #ff3366;
+      --text-color: #e6e6e6;
+      --text-muted: #8c93a8;
+      --border-color: #2b3045;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    header.wiki-header {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .infobox {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.9rem;
+      align-self: start;
+    }
+
+    .infobox-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--accent-color);
+    }
+
+    .infobox-img-placeholder {
+      background: #090a10;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px dashed var(--border-color);
+    }
+
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .infobox th, .infobox td {
+      padding: 8px 6px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .infobox th {
+      width: 38%;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 10px;
+      margin: 32px 0 16px;
+    }
+
+    .machine-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .stat-grade {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--danger-color);
+    }
+
+    .interactive-panel {
+      margin-top: 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .interactive-panel button {
+      background: var(--accent-color);
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .interactive-panel button:hover {
+      opacity: 0.85;
+    }
+
+    #quote-display {
+      margin-top: 12px;
+      padding: 12px;
+      background: #090a10;
+      border-left: 3px solid var(--danger-color);
+      font-style: italic;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="wiki-header">
+      <h1>バイオ レックス</h1>
+      <div class="tagline">F-ZERO Wiki &gt; パイロット &gt; No. 15</div>
+    </header>
+
+    <div class="layout">
+      <!-- メインコンテンツ -->
+      <main>
+        <section id="overview">
+          <h2>概要</h2>
+          <p>
+            <b>バイオ レックス</b>（Bio Rex）は、『F-ZERO X』以降の作品に登場するF-ZEROパイロットである。太古のDNAからバイオテクノロジーを用いて復元された肉食恐竜であり、脳内に装着された制御ユニットによって人間並みの知能と会話能力、そしてF-ZEROマシンを操縦する反射神経を獲得した。
+          </p>
+          <p>
+            彼が危険なF-ZEROグランプリへ参戦する唯一の動機は「食欲」である。過酷なレースで勝利を収め、賞金で大量の肉を腹いっぱい食らうことを何よりの目的としている。野性的かつ凶暴な本能を色濃く残しており、レース中も他車への体当たり攻撃を好む。
+          </p>
+        </section>
+
+        <section id="machine">
+          <h2>搭乗マシン：ビッグファング (BIG FANG)</h2>
+          <p>
+            恐竜の鋭い牙と強固な顎を想起させるデザインが特徴的なヘビー級マシンである。恐竜の頑丈な体格に合わせた専用コックピットが設計されている。
+          </p>
+          <div class="machine-stats">
+            <div class="stat-card">
+              <div class="stat-label">BODY (ボディ)</div>
+              <div class="stat-grade">B</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">BOOST (ブースト)</div>
+              <div class="stat-grade">D</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">GRIP (グリップ)</div>
+              <div class="stat-grade">A</div>
+            </div>
+          </div>
+          <p style="margin-top: 14px;">
+            重量級ならではの強固なボディと高いコーナリンググリップ性能を誇る。ブースト性能は劣るものの、最高速度の維持能力と優れたハンドリング特性を武器に、コース上のライバルを押し潰すようにねじ伏せる走法を得意とするマシンである。
+          </p>
+        </section>
+
+        <section id="appearances">
+          <h2>登場作品</h2>
+          <ul>
+            <li><strong>F-ZERO X</strong>: 初登場。プレイアブルレーサーとして参戦。</li>
+            <li><strong>F-ZERO GX</strong>: 3Dモデルの質感が向上し、口周りの制御装置や獰猛な挙動が克明に描かれる。</li>
+            <li><strong>F-ZERO ファルコン伝説 (アニメ/ゲーム)</strong>: ゾーダ率いる悪の組織「ブラッディ チェーン」の構成員、あるいは傭兵的ポジションとして登場。</li>
+          </ul>
+        </section>
+
+        <section class="interactive-panel">
+          <h2>無線ボイス再生</h2>
+          <p>ゲーム内での特徴的なセリフ・咆哮を再生する。</p>
+          <button type="button" data-quote="ギャオーッ！ 肉だ！ 肉を食わせろーッ！">出撃時</button>
+          <button type="button" data-quote="グオオオッ！ 邪魔をするなァ！ 噛み砕いてやる！">体当たり</button>
+          <button type="button" data-quote="オレ様の勝ちだ！ 山盛りのリブアイステーキを持ってこい！">優勝時</button>
+          <div id="quote-display">ボタンを選択するとセリフが表示される。</div>
+        </section>
+      </main>
+
+      <!-- サイドバー (インフォボックス) -->
+      <aside class="infobox" aria-label="パイロット基本情報">
+        <div class="infobox-title">バイオ レックス<br>Bio Rex</div>
+        <div class="infobox-img-placeholder">BIO REX PORTRAIT</div>
+        <table>
+          <tbody>
+            <tr>
+              <th>ナンバー</th>
+              <td>No. 15</td>
+            </tr>
+            <tr>
+              <th>性別</th>
+              <td>オス (遺伝子操作体)</td>
+            </tr>
+            <tr>
+              <th>年齢</th>
+              <td>9歳 (恐竜換算)</td>
+            </tr>
+            <tr>
+              <th>搭乗マシン</th>
+              <td>ビッグファング (BIG FANG)</td>
+            </tr>
+            <tr>
+              <th>重量</th>
+              <td>1,520 kg (マシン重量)</td>
+            </tr>
+            <tr>
+              <th>初登場</th>
+              <td>F-ZERO X (1998)</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const quoteDisplay = document.getElementById('quote-display');
+      const buttons = document.querySelectorAll('.interactive-panel button');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const quote = button.getAttribute('data-quote');
+          if (quote) {
+            quoteDisplay.textContent = `「${quote}」`;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

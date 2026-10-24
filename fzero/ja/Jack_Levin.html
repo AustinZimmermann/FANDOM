@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジャック レビン - F-ZERO Wiki</title>
+  <style>
+    :root {
+      --bg-color: #0f111a;
+      --card-bg: #1a1d2e;
+      --text-color: #e2e8f0;
+      --heading-color: #38bdf8;
+      --accent-color: #f59e0b;
+      --border-color: #2e3650;
+    }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1e1b4b, #312e81);
+      padding: 1.5rem 2rem;
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2rem;
+    }
+
+    @media (max-width: 840px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    article h2 {
+      color: var(--heading-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+
+    article h3 {
+      color: #93c5fd;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin: 0.8rem 0;
+    }
+
+    /* インフォボックス（Wiki特有の右サイド情報表） */
+    .infobox {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.2rem;
+      font-size: 0.95rem;
+      height: fit-content;
+    }
+
+    .infobox h2 {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 0;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    .infobox-image {
+      text-align: center;
+      margin: 1rem 0;
+      background: #090a0f;
+      padding: 1rem;
+      border-radius: 4px;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .infobox th, .infobox td {
+      padding: 0.5rem 0.4rem;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .infobox th {
+      color: #94a3b8;
+      width: 35%;
+      font-weight: normal;
+    }
+
+    /* 目次 */
+    .toc {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1rem 1.5rem;
+      display: inline-block;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+
+    .toc-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .toc a {
+      color: var(--heading-color);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid var(--border-color);
+      margin-top: 3rem;
+    }
+  </style>
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FictionalCharacter",
+    "name": "ジャック レビン",
+    "alternateName": "Jack Levin",
+    "description": "任天堂のレースゲーム『F-ZERO』シリーズに登場するF-ZEROパイロット。元人気ポップアイドルという経歴を持つ。",
+    "gender": "Male",
+    "vehicle": {
+      "@type": "Vehicle",
+      "name": "アストロロビン (ASTRO ROBIN)",
+      "identifier": "14"
+    },
+    "performer": [
+      {
+        "@type": "Role",
+        "roleName": "ボイスアクター（アニメ版）",
+        "actor": {
+          "@type": "Person",
+          "name": "矢尾一樹"
+        }
+      }
+    ],
+    "workFeatured": [
+      { "@type": "VideoGame", "name": "F-ZERO X" },
+      { "@type": "VideoGame", "name": "F-ZERO GX" },
+      { "@type": "VideoGame", "name": "F-ZERO ファルコン伝説" },
+      { "@type": "VideoGame", "name": "F-ZERO CLIMAX" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>F-ZERO Wiki</h1>
+  </header>
+
+  <div class="container">
+    <article>
+      <h1>ジャック レビン</h1>
+      <p>
+        <strong>ジャック レビン</strong>（Jack Levin）は、任天堂のレースゲーム『F-ZERO』シリーズに登場する架空のレーサーである。
+        ゼッケンナンバーは<strong>14</strong>、搭乗マシンは<strong>アストロロビン</strong>である。
+      </p>
+
+      <div class="toc">
+        <div class="toc-title" id="toc-toggle">目次 [非表示]</div>
+        <ul id="toc-list">
+          <li><a href="#profile">1. 概要・人物像</a></li>
+          <li><a href="#machine">2. 搭乗マシン（アストロロビン）</a></li>
+          <li><a href="#history">3. 作中での活躍</a>
+            <ul>
+              <li><a href="#history-games">3.1 ゲーム本編（X / GX）</a></li>
+              <li><a href="#history-anime">3.2 アニメ・コミカライズ（ファルコン伝説）</a></li>
+            </ul>
+          </li>
+          <li><a href="#trivia">4. 余談</a></li>
+        </ul>
+      </div>
+
+      <h2 id="profile">1. 概要・人物像</h2>
+      <p>
+        初登場は『F-ZERO X』。かつて絶大な人気を誇った美少年ポップグループの元メンバーであり、突如レーサーへと転向して芸能界・レース界に大きな衝撃を与えた青年である。
+      </p>
+      <p>
+        端正な容姿と甘いマスクから女性ファンが非常に多く、グランプリ各会場で販売される彼の顔写真入りグッズは即日完売するほどの人気を博している。
+        ルックスばかりが注目されがちであるが、パイロットとしての実力や操縦センスも確かなものを持っている。
+      </p>
+
+      <h2 id="machine">2. 搭乗マシン（アストロロビン）</h2>
+      <p>
+        彼が駆る「アストロロビン（ASTRO ROBIN）」は、軽量級に分類されるバランス型のF-ZEROマシンである。
+      </p>
+      <ul>
+        <li><strong>ゼッケンナンバー：</strong> 14</li>
+        <li><strong>ボディ耐性：</strong> B〜D（作品によって変動）</li>
+        <li><strong>ブースト性能：</strong> B〜C</li>
+        <li><strong>グリップ力：</strong> B〜A</li>
+      </ul>
+      <p>
+        『F-ZERO X』および『GX』においては、高いコーナリング性能と扱いやすい旋回性能を誇り、初心者から中級者まで扱いやすいマイルドな挙動を示す。
+        最高速度の伸び代にはやや欠けるものの、テクニカルサーキットにおいて安定した強さを発揮する。
+      </p>
+
+      <h2 id="history">3. 作中での活躍</h2>
+
+      <h3 id="history-games">3.1 ゲーム本編（X / GX）</h3>
+      <p>
+        『F-ZERO X』の時点では18歳、『GX』では19歳として参戦している。
+        『GX』のムービーインタビューでは、ファン思いであると同時にナルシストな一面も描かれており、軽快なステップとダンスを披露する演出が存在する。
+      </p>
+
+      <h3 id="history-anime">3.2 アニメ・コミカライズ（ファルコン伝説）</h3>
+      <p>
+        テレビアニメ『F-ZERO ファルコン伝説』では銀河警察・高機動小隊の一員としてレギュラー登場する。
+        年齢設定は24歳に引き上げられており、元暴走族「雷鳴の死神」という過去を持つなど、原作ゲームよりもワイルドかつコミカルな三枚目・トラブルメーカーの要素が強く押し出されている。主人公のリュウ・スザクとは悪友のような間柄である。
+      </p>
+
+      <h2 id="trivia">4. 余談</h2>
+      <p>
+        『大乱闘スマッシュブラザーズ SPECIAL』ではスピリットとして収録されており、スピリッツバトルではリュウのライバル格という立ち位置からケンが憑依対象として割り当てられている。
+      </p>
+    </article>
+
+    <!-- 右サイドのインフォボックス -->
+    <aside class="infobox">
+      <h2>ジャック レビン<br>Jack Levin</h2>
+      <div class="infobox-image">
+        [ キャラクター画像 ]
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>初登場作品</th>
+            <td>『F-ZERO X』 (1998)</td>
+          </tr>
+          <tr>
+            <th>性別</th>
+            <td>男性</td>
+          </tr>
+          <tr>
+            <th>年齢</th>
+            <td>18歳（X）<br>19歳（GX）<br>24歳（ファルコン伝説）</td>
+          </tr>
+          <tr>
+            <th>職業</th>
+            <td>F-ZEROパイロット<br>元ポップアイドル</td>
+          </tr>
+          <tr>
+            <th>搭乗マシン</th>
+            <td>アストロロビン (ASTRO ROBIN)</td>
+          </tr>
+          <tr>
+            <th>マシンNo.</th>
+            <td>14</td>
+          </tr>
+          <tr>
+            <th>声優</th>
+            <td>矢尾一樹（アニメ版）<br>エリック・ケルソー（GX）</td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+  </div>
+
+  <footer>
+    <p>このページは架空のゲーム情報を整理したWikiのモックアップである。</p>
+  </footer>
+
+  <!-- 動的処理（目次の折りたたみ機能） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toc-toggle');
+      const tocList = document.getElementById('toc-list');
+
+      toggleBtn.addEventListener('click', () => {
+        const isHidden = tocList.style.display === 'none';
+        tocList.style.display = isHidden ? 'block' : 'none';
+        toggleBtn.textContent = isHidden ? '目次 [非表示]' : '目次 [表示]';
+      });
+    });
+  </script>
+</body>
+</html>

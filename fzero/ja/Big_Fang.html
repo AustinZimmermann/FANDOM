@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビッグファング - F-ZERO Wiki</title>
+  <style>
+    :root {
+      --bg-color: #12131a;
+      --card-bg: #1a1c26;
+      --accent-color: #e60012;
+      --text-color: #e0e0e0;
+      --text-muted: #9aa0a6;
+      --border-color: #2e3245;
+    }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 24px;
+      line-height: 1.6;
+    }
+    .wiki-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .wiki-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    header h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 8px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .infobox {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      height: fit-content;
+    }
+    .infobox h2 {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 0;
+      color: #fff;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+    .infobox-img {
+      width: 100%;
+      height: 180px;
+      background-color: #0d0e14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .infobox th, .infobox td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .infobox th {
+      text-align: left;
+      color: var(--text-muted);
+      width: 40%;
+    }
+    .rating {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .perf-chart-box {
+      margin-top: 16px;
+      background-color: #161822;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+    .stat-bar-bg {
+      background-color: #2a2d3d;
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      background-color: var(--accent-color);
+      width: 0%;
+      transition: width 0.6s ease-out;
+    }
+  </style>
+
+  <!-- JSON-LD: 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Thing",
+    "name": "ビッグファング",
+    "alternateName": "Big Fang",
+    "description": "任天堂のレースゲーム『F-ZERO』シリーズに登場するF-ZEROマシン。バイオ レックスが搭乗する。",
+    "identifier": "Machine No. 15",
+    "isPartOf": {
+      "@type": "VideoGameSeries",
+      "name": "F-ZERO"
+    },
+    "character": {
+      "@type": "Person",
+      "name": "バイオ レックス",
+      "alternateName": "Bio Rex"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="wiki-container">
+    <!-- メイン記事エリア -->
+    <main>
+      <header>
+        <h1>ビッグファング</h1>
+      </header>
+
+      <section>
+        <p><strong>ビッグファング</strong>（BIG FANG）は、『F-ZERO』シリーズに登場するF-ZEROマシンである。『F-ZERO X』にて初登場した。恐竜型DNAクローンであるパイロット、<strong>バイオ レックス</strong>の搭乗機として設計されている。</p>
+      </section>
+
+      <h2 class="section-title">マシンスペック・性能概要</h2>
+      <p>マシンの特徴は極めて強固なボディ構造にある。恐竜の獰猛な骨格を模した頑丈なフレームを有しており、敵マシンとの接触戦や激しいクラッシュにも耐えうる高い耐久性能を誇る。</p>
+      <p>ブースト性能は平均的な水準に留まるものの、重量級マシン特有の最高速度の伸びと強引なインへの切り込みが強みである。反面、旋回半径が大きくグリップ力にはやや難があるため、コーナリング時のドリフト制御には高い操縦技術が求められる。</p>
+
+      <h2 class="section-title">搭乗パイロット</h2>
+      <p><strong>バイオ レックス</strong> (Bio Rex)</p>
+      <p>遺伝子技術によって蘇ったバイオ恐竜。知性は極めて高く、人間と同等以上にマシンを操縦する能力を有する。肉食恐竜としての本能的な闘争心をレースにぶつけており、ライバルを力任せに排除するアグレッシブな走破スタイルを好む。</p>
+
+      <h2 class="section-title">登場作品</h2>
+      <ul>
+        <li>F-ZERO X</li>
+        <li>F-ZERO GX</li>
+        <li>F-ZERO ファルコン伝説 (アニメおよびゲーム)</li>
+        <li>F-ZERO CLIMAX</li>
+      </ul>
+    </main>
+
+    <!-- 右側インフォボックス -->
+    <aside class="infobox">
+      <h2>ビッグファング<br>BIG FANG</h2>
+      <div class="infobox-img">[マシン画像 Placeholder]</div>
+
+      <table>
+        <tbody>
+          <tr>
+            <th>マシンナンバー</th>
+            <td>No. 15</td>
+          </tr>
+          <tr>
+            <th>パイロット</th>
+            <td>バイオ レックス</td>
+          </tr>
+          <tr>
+            <th>ボディ</th>
+            <td class="rating">B</td>
+          </tr>
+          <tr>
+            <th>ブースト</th>
+            <td class="rating">D</td>
+          </tr>
+          <tr>
+            <th>グリップ</th>
+            <td class="rating">A</td>
+          </tr>
+          <tr>
+            <th>総重量</th>
+            <td>1,520 kg (GX準拠)</td>
+          </tr>
+          <tr>
+            <th>エンジン</th>
+            <td>FG-2040×2</td>
+          </tr>
+          <tr>
+            <th>製造者</th>
+            <td>バイオテクノロジー研究所</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 性能メーター表示 -->
+      <div class="perf-chart-box" id="perf-box">
+        <div class="stat-row">
+          <span>BODY</span>
+          <span id="label-body">B</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar-fill" id="bar-body"></div>
+        </div>
+
+        <div class="stat-row">
+          <span>BOOST</span>
+          <span id="label-boost">D</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar-fill" id="bar-boost"></div>
+        </div>
+
+        <div class="stat-row">
+          <span>GRIP</span>
+          <span id="label-grip">A</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar-fill" id="bar-grip"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- JavaScript: パラメータ描画制御 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // ランク基準値マッピング (A: 90%, B: 75%, C: 60%, D: 40%, E: 20%)
+      const rankScale = {
+        "A": 90,
+        "B": 75,
+        "C": 60,
+        "D": 40,
+        "E": 20
+      };
+
+      const machineStats = {
+        body: "B",
+        boost: "D",
+        grip: "A"
+      };
+
+      // ゲージのアニメーション反映
+      const applyStats = () => {
+        const bodyEl = document.getElementById("bar-body");
+        const boostEl = document.getElementById("bar-boost");
+        const gripEl = document.getElementById("bar-grip");
+
+        if (bodyEl && boostEl && gripEl) {
+          bodyEl.style.width = `${rankScale[machineStats.body]}%`;
+          boostEl.style.width = `${rankScale[machineStats.boost]}%`;
+          gripEl.style.width = `${rankScale[machineStats.grip]}%`;
+        }
+      };
+
+      // 描画トリガー
+      setTimeout(applyStats, 100);
+    });
+  </script>
+</body>
+</html>
